@@ -2,48 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gdev-peter.github.io/UCCS/litere/articol-de-test-toate-componentele/</loc>
+    <loc>http://localhost:1313/UCCS/litere/articol-de-test-toate-componentele/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/authors/</loc>
+    <loc>http://localhost:1313/UCCS/authors/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/litere/</loc>
+    <loc>http://localhost:1313/UCCS/litere/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/tags/markdown/</loc>
+    <loc>http://localhost:1313/UCCS/tags/markdown/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/authors/velcea-petru/</loc>
+    <loc>http://localhost:1313/UCCS/authors/velcea-petru/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/tags/</loc>
+    <loc>http://localhost:1313/UCCS/tags/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/tags/test/</loc>
+    <loc>http://localhost:1313/UCCS/tags/test/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/tags/uccs/</loc>
+    <loc>http://localhost:1313/UCCS/tags/uccs/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/</loc>
+    <loc>http://localhost:1313/UCCS/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/polis/critica-programei-de-istorie-din-liceu/</loc>
+    <loc>http://localhost:1313/UCCS/polis/critica-programei-de-istorie-din-liceu/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/tags/education/</loc>
+    <loc>http://localhost:1313/UCCS/tags/education/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/tags/history/</loc>
+    <loc>http://localhost:1313/UCCS/tags/history/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/polis/</loc>
+    <loc>http://localhost:1313/UCCS/polis/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/tags/teaching/</loc>
+    <loc>http://localhost:1313/UCCS/tags/teaching/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gdev-peter.github.io/UCCS/categories/</loc>
+    <loc>http://localhost:1313/UCCS/categories/</loc>
   </url>
 </urlset>
