@@ -1,11 +1,17 @@
+{{ define "head_extra" }}
+  <link rel="stylesheet" href="{{ "css/prose.css" | relURL }}">
+{{ end }}
+
 {{ define "main" }}
   <article>
     <h1>{{ .Title }}</h1>
     <p class="article-meta">
       {{ .Date.Format "2 January 2006" }}
       {{ with .Params.authors }}
-        · {{ range . }}
-          <a href="{{ printf "authors/%s/" (. | urlize) | relURL }}">{{ . }}</a>
+        <span class="meta-sep">·</span>
+        {{ range $i, $a := . }}
+          {{ if $i }}, {{ end }}
+          <a href="{{ printf "authors/%s/" ($a | urlize) | relURL }}">{{ $a }}</a>
         {{ end }}
       {{ end }}
     </p>

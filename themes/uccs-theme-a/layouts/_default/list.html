@@ -6,7 +6,7 @@
   {{ end }}
 
   <ul class="article-list">
-    {{ range .Pages.ByDate.Reverse }}
+    {{ range where .Pages.ByDate.Reverse "Params.standalone" "ne" true }}
       {{ $page := . }}
       <li>
         {{ with $page.Params.cover }}

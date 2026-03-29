@@ -2,7 +2,7 @@
   <h1>UCCS – Unde Cuvintele Capătă Sens</h1>
 
   <ul class="article-grid">
-    {{ range site.RegularPages.ByDate.Reverse | first 12 }}
+    {{ range (where site.RegularPages "Params.standalone" "ne" true).ByDate.Reverse | first 12 }}
       {{ $page := . }}
       <li class="article-grid-item">
         {{ with $page.Params.cover }}

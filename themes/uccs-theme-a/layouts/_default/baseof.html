@@ -9,36 +9,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  {{ block "head_extra" . }}{{ end }}
 </head>
 <body>
 
   <!-- ======= HEADER ======= -->
   <header class="site-header">
-    <div class="header-inner">
 
-      <!-- Logo -->
+    <!-- Row 1: logo + utility links — single line, never wraps -->
+    <div class="header-row header-row-top">
       <a href="{{ "" | relURL }}" class="logo">
         <span class="logo-main">UCCS</span>
         <span class="logo-sub">Unde Cuvintele Capătă Sens</span>
       </a>
+      <nav class="nav-utility" aria-label="Pagini utilitare">
+        <a href="{{ "despre/" | relURL }}" class="header-link">Despre</a>
+        <a href="{{ "contact/" | relURL }}" class="header-link">Contact</a>
+        {{- $donateURL := site.Params.donateURL | default "doneaza/" -}}
+        {{- $isExternal := hasPrefix $donateURL "http" -}}
+        <a href="{{ if $isExternal }}{{ $donateURL }}{{ else }}{{ $donateURL | relURL }}{{ end }}"
+           class="btn-donate"
+           {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>Donează</a>
+      </nav>
+    </div>
 
-      <!-- Primary nav -->
-      <nav class="nav-primary" aria-label="Navigație principală">
+    <!-- Row 2: section nav — allowed to wrap -->
+    <div class="header-row header-row-nav">
+      <nav class="nav-primary" aria-label="Secțiuni">
         <a href="{{ "polis/" | relURL }}"{{ if eq .Section "polis" }} class="active"{{ end }}>Polis</a>
         <a href="{{ "agora/" | relURL }}"{{ if eq .Section "agora" }} class="active"{{ end }}>Agora</a>
         <a href="{{ "educatie/" | relURL }}"{{ if eq .Section "educatie" }} class="active"{{ end }}>Educație</a>
         <a href="{{ "tech/" | relURL }}"{{ if eq .Section "tech" }} class="active"{{ end }}>Tech</a>
         <a href="{{ "litere/" | relURL }}"{{ if eq .Section "litere" }} class="active"{{ end }}>Litere</a>
       </nav>
-
-      <!-- Right side: secondary links + donate CTA -->
-      <div class="header-actions">
-        <a href="{{ "despre/" | relURL }}" class="header-link">Despre</a>
-        <a href="{{ "contact/" | relURL }}" class="header-link">Contact</a>
-        <a href="{{ "doneaza/" | relURL }}" class="btn-donate">Donează</a>
-      </div>
-
     </div>
+
   </header>
 
   <!-- ======= MAIN ======= -->
@@ -50,11 +55,9 @@
   <footer class="site-footer">
     <div class="footer-inner">
 
-      <!-- Col 1: brand -->
       <div class="footer-brand">
         <a href="{{ "" | relURL }}" class="footer-logo">UCCS</a>
         <p class="footer-tagline">Proiect editorial independent.<br>Substanță, nu doar formă.</p>
-        <!-- Social icons -->
         <div class="footer-social">
           {{ with site.Params.social.instagram }}
           <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
@@ -65,11 +68,9 @@
             </svg>
           </a>
           {{ end }}
-          <!-- Add more social params in params.toml as needed -->
         </div>
       </div>
 
-      <!-- Col 2: sections -->
       <div class="footer-col">
         <h3 class="footer-heading">Secțiuni</h3>
         <ul class="footer-links">
@@ -81,19 +82,19 @@
         </ul>
       </div>
 
-      <!-- Col 3: publication -->
       <div class="footer-col">
         <h3 class="footer-heading">Publicație</h3>
         <ul class="footer-links">
           <li><a href="{{ "despre/" | relURL }}">Despre noi</a></li>
           <li><a href="{{ "contact/" | relURL }}">Contact</a></li>
-          <li><a href="{{ "doneaza/" | relURL }}">Donează</a></li>
+          {{- $donateURL := site.Params.donateURL | default "doneaza/" -}}
+          {{- $isExternal := hasPrefix $donateURL "http" -}}
+          <li><a href="{{ if $isExternal }}{{ $donateURL }}{{ else }}{{ $donateURL | relURL }}{{ end }}"
+                 {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>Donează</a></li>
         </ul>
       </div>
 
     </div>
-
-    <!-- Bottom bar -->
     <div class="footer-bottom">
       <p>© {{ now.Format "2006" }} UCCS – Unde Cuvintele Capătă Sens. Toate drepturile rezervate.</p>
     </div>
