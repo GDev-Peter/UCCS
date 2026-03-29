@@ -8,14 +8,14 @@
 </head>
 <body>
   <header>
-    <a href="/" class="logo">UCCS</a>
-    <nav>
-      <a href="/polis/">Polis</a>
-      <a href="/agora/">Agora</a>
-      <a href="/educatie/">Educație</a>
-      <a href="/tech/">Tech</a>
-      <a href="/litere/">Litere</a>
-    </nav>
+    <a href="{{ "/" | relURL }}" class="logo">UCCS</a>
+      <nav>
+        <a href="{{ "/polis/" | relURL }}">Polis</a>
+        <a href="{{ "/agora/" | relURL }}">Agora</a>
+        <a href="{{ "/educatie/" | relURL }}">Educație</a>
+        <a href="{{ "/tech/" | relURL }}">Tech</a>
+        <a href="{{ "/litere/" | relURL }}">Litere</a>
+      </nav>
   </header>
   <main>
     {{ block "main" . }}{{ end }}
