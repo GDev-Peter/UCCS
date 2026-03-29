@@ -1,10 +1,40 @@
 {{ define "main" }}
   <h1>UCCS – Unde Cuvintele Capătă Sens</h1>
-  <ul class="article-list">
-    {{ range site.RegularPages.ByDate.Reverse | first 10 }}
-      <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <p class="article-meta">{{ .Section }} · {{ .Date.Format "2 January 2006" }}</p>
+
+  <ul class="article-grid">
+    {{ range site.RegularPages.ByDate.Reverse | first 12 }}
+      {{ $page := . }}
+      <li class="article-grid-item">
+        {{ with $page.Params.cover }}
+          {{ with $page.Resources.GetMatch . }}
+            <a href="{{ $page.Permalink }}" class="article-grid-thumb-link">
+              <img
+                src="{{ .RelPermalink }}"
+                alt="{{ $page.Params.coveralt | default $page.Title }}"
+                class="article-grid-thumb"
+                loading="lazy"
+              >
+            </a>
+          {{ else }}
+            <a href="{{ $page.Permalink }}" class="article-grid-thumb-link article-grid-thumb-placeholder"></a>
+          {{ end }}
+        {{ else }}
+          <a href="{{ $page.Permalink }}" class="article-grid-thumb-link article-grid-thumb-placeholder"></a>
+        {{ end }}
+
+        <div class="article-grid-info">
+          <a href="{{ $page.Permalink }}" class="article-grid-title">{{ $page.Title }}</a>
+          <p class="article-meta">
+            <span class="meta-section">{{ $page.Section }}</span>
+            <span class="meta-sep">·</span>
+            <span>{{ $page.Date.Format "2 Jan 2006" }}</span>
+          </p>
+          {{ with $page.Params.authors }}
+            <p class="article-author">
+              {{ range $i, $a := . }}{{ if $i }}, {{ end }}{{ $a }}{{ end }}
+            </p>
+          {{ end }}
+        </div>
       </li>
     {{ end }}
   </ul>

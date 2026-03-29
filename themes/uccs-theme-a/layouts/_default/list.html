@@ -11,7 +11,7 @@
       <li>
         {{ with $page.Params.cover }}
           {{ with $page.Resources.GetMatch . }}
-            <a href="{{ $page.Permalink }}">
+            <a href="{{ $page.Permalink }}" class="article-thumb-link">
               <img
                 src="{{ .RelPermalink }}"
                 alt="{{ $page.Params.coveralt | default $page.Title }}"
@@ -19,19 +19,28 @@
                 loading="lazy"
               >
             </a>
+          {{ else }}
+            <a href="{{ $page.Permalink }}" class="article-thumb-link article-thumb-placeholder"></a>
           {{ end }}
+        {{ else }}
+          <a href="{{ $page.Permalink }}" class="article-thumb-link article-thumb-placeholder"></a>
         {{ end }}
+
         <div class="article-info">
-          <a href="{{ $page.Permalink }}">{{ $page.Title }}</a>
+          <a href="{{ $page.Permalink }}" class="article-title">{{ $page.Title }}</a>
           <p class="article-meta">
-  <span class="meta-section">{{ $page.Section }} · {{ $page.Date.Format "2 January 2006" }}</span>
-  {{ with $page.Params.authors }}
-    · {{ range . }}
-      <a href="{{ printf "authors/%s/" (. | urlize) | relURL }}">{{ . }}</a>
-    {{ end }}
-  {{ end }}
-</p>
+            <span class="meta-section">{{ $page.Section }}</span>
+            <span class="meta-sep">·</span>
+            <span>{{ $page.Date.Format "2 January 2006" }}</span>
           </p>
+          {{ with $page.Params.authors }}
+            <p class="article-author">
+              {{ range $i, $a := . }}{{ if $i }}, {{ end }}{{ $a }}{{ end }}
+            </p>
+          {{ end }}
+          {{ with $page.Params.description }}
+            <p class="article-excerpt">{{ . }}</p>
+          {{ end }}
         </div>
       </li>
     {{ end }}
