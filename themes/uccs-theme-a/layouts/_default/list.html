@@ -27,7 +27,7 @@
   <span class="meta-section">{{ $page.Section }} · {{ $page.Date.Format "2 January 2006" }}</span>
   {{ with $page.Params.authors }}
     · {{ range . }}
-      <a href="{{ printf "/authors/%s/" (. | urlize) | relURL }}">{{ . }}</a>
+      <a href="{{ printf "authors/%s/" (. | urlize) | relURL }}">{{ . }}</a>
     {{ end }}
   {{ end }}
 </p>
