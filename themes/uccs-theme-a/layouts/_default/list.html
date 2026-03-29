@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  {{ with .Content }}
+    <div class="section-intro">{{ . }}</div>
+  {{ end }}
+
+  <ul class="article-list">
+    {{ range .Pages.ByDate.Reverse }}
+      {{ $page := . }}
+      <li>
+        {{ with $page.Params.cover }}
+          {{ with $page.Resources.GetMatch . }}
+            <a href="{{ $page.Permalink }}">
+              <img
+                src="{{ .RelPermalink }}"
+                alt="{{ $page.Params.coveralt | default $page.Title }}"
+                class="article-thumb"
+                loading="lazy"
+              >
+            </a>
+          {{ end }}
+        {{ end }}
+        <div class="article-info">
+          <a href="{{ $page.Permalink }}">{{ $page.Title }}</a>
+          <p class="article-meta">
+  <span class="meta-section">{{ $page.Section }} · {{ $page.Date.Format "2 January 2006" }}</span>
+  {{ with $page.Params.authors }}
+    · {{ range . }}
+      <a href="/authors/{{ . | urlize }}/">{{ . }}</a>
+    {{ end }}
+  {{ end }}
+</p>
+          </p>
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

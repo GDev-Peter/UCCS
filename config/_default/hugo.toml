@@ -1,0 +1,17 @@
+baseURL = "https://example.pages.dev/"	# Needs to be replaced later
+title = "UCCS"
+
+theme = "uccs-theme-a"
+
+defaultContentLanguage = "ro"
+languageCode = "ro-RO"
+
+enableRobotsTXT = true
+
+# Good practice: keep generated URLs stable
+canonifyURLs = false
+relativeURLs = false
+
+# Optional but useful
+pagerSize = 12
+summaryLength = 30

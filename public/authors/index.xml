@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on UCCS</title>
+    <link>http://localhost:1313/authors/</link>
+    <description>Recent content in Authors on UCCS</description>
+    <generator>Hugo</generator>
+    <language>ro-RO</language>
+    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Numele-Tau</title>
+      <link>http://localhost:1313/authors/numele-tau/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/authors/numele-tau/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Numele Tău</title>
+      <link>http://localhost:1313/authors/velcea-petru/</link>
+      <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/authors/velcea-petru/</guid>
+      <description>&lt;p&gt;Redactor șef. Arbitru de dezbateri. Eu scriu, tu ignori, toții credem că ajutăm.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

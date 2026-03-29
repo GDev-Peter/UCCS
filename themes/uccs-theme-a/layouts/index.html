@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h1>UCCS – Unde Cuvintele Capătă Sens</h1>
+  <ul class="article-list">
+    {{ range site.RegularPages.ByDate.Reverse | first 10 }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <p class="article-meta">{{ .Section }} · {{ .Date.Format "2 January 2006" }}</p>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

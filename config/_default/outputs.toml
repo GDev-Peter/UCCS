@@ -1,0 +1,6 @@
+[outputs]
+home = ["html", "rss"]
+page = ["html"]
+section = ["html", "rss"]
+taxonomy = ["html", "rss"]
+term = ["html", "rss"]

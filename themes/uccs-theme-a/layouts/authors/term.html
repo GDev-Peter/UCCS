@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="author-header">
+    {{ $avatar := .Resources.GetMatch "avatar.*" }}
+    {{ if $avatar }}
+      <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" class="author-avatar">
+    {{ end }}
+    <div>
+      <h1>{{ .Title }}</h1>
+      <div class="author-bio">{{ .Content }}</div>
+    </div>
+  </div>
+
+  <ul class="article-list">
+    {{ range .Pages.ByDate.Reverse }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <p class="article-meta">{{ .Section }} · {{ .Date.Format "2 January 2006" }}</p>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

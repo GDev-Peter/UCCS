@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} – UCCS{{ else }}UCCS – Unde Cuvintele Capătă Sens{{ end }}</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">UCCS</a>
+    <nav>
+      <a href="/polis/">Polis</a>
+      <a href="/agora/">Agora</a>
+      <a href="/educatie/">Educație</a>
+      <a href="/tech/">Tech</a>
+      <a href="/litere/">Litere</a>
+    </nav>
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    <p>© UCCS – Unde Cuvintele Capătă Sens</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <article>
+    <h1>{{ .Title }}</h1>
+    <p class="article-meta">
+      {{ .Date.Format "2 January 2006" }}
+      {{ with .Params.authors }}
+        · {{ range . }}
+          <a href="/authors/{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+      {{ end }}
+    </p>
+
+    {{ with .Params.cover }}
+      {{ with $.Resources.GetMatch . }}
+        <img
+          src="{{ .RelPermalink }}"
+          alt="{{ $.Params.coveralt | default $.Title }}"
+          class="article-cover"
+          loading="lazy"
+        >
+      {{ end }}
+    {{ end }}
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

@@ -1,0 +1,322 @@
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* === VARIABILE === */
+:root {
+    --text:   #1a1a1a;
+    --bg:     #f9f7f4;
+    --accent: #5a3e2b;
+    --muted:  #888;
+    --border: #ddd;
+    --max-w:  42rem;
+}
+
+/* === BAZĂ === */
+html { font-size: 18px; }
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    padding: 2rem 1rem;
+}
+
+/* === LAYOUT === */
+header, main, footer {
+    max-width: var(--max-w);
+    margin: 0 auto;
+}
+
+/* === HEADER === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 1.2rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--text);
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text);
+}
+
+nav {
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+}
+
+nav a:hover { color: var(--accent); }
+
+/* === TIPOGRAFIE === */
+h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin: 2.5rem 0 0.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+    margin: 1.5rem 0 0.3rem;
+}
+
+p { margin-bottom: 1.2rem; }
+
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 1.5rem 0;
+    padding: 0.5rem 0 0.5rem 1.2rem;
+    color: var(--muted);
+    font-style: italic;
+}
+
+/* === COD === */
+code {
+    font-family: monospace;
+    font-size: 0.85rem;
+    background: #ede9e3;
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+}
+
+pre {
+    background: #ede9e3;
+    padding: 1rem 1.2rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 3px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+/* === TABEL === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+th {
+    text-align: left;
+    border-bottom: 2px solid var(--text);
+    padding: 0.4rem 0.6rem;
+    font-weight: bold;
+}
+
+td {
+    border-bottom: 1px solid var(--border);
+    padding: 0.4rem 0.6rem;
+}
+
+tr:last-child td { border-bottom: none; }
+
+/* === LINIE ORIZONTALĂ === */
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+
+/* === SECTION INTRO === */
+.section-intro {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* === LISTE DE ARTICOLE === */
+.article-list {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.article-list li {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.article-list li:last-child { border-bottom: none; }
+
+.article-info { flex: 1; }
+
+.article-info > a {
+    font-size: 1.05rem;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.article-info > a:hover { color: var(--accent); }
+
+/* === META (data, sectiune, autor) === */
+.article-meta {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+    font-family: sans-serif;
+    letter-spacing: 0.04em;
+}
+
+.article-meta .meta-section {
+    text-transform: uppercase;
+}
+
+.article-meta a {
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.article-meta a:hover { color: var(--accent); }
+
+/* === THUMBNAIL ÎN LISTĂ === */
+.article-thumb {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+}
+
+/* === PAGINA DE ARTICOL === */
+article h1 { margin-bottom: 0.3rem; }
+
+article .article-meta {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.article-cover {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+}
+
+.article-body figure { margin: 2rem 0; text-align: center; }
+
+.article-body figcaption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    font-family: sans-serif;
+}
+
+/* === ENDNOTES === */
+.footnotes {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--muted);
+}
+
+.footnotes ol { padding-left: 1.2rem; }
+.footnotes li { margin-bottom: 0.5rem; line-height: 1.5; }
+
+sup a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0 1px;
+}
+
+sup a:hover { text-decoration: underline; }
+
+/* === AUTOR === */
+.author-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.author-avatar {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.author-bio p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+/* === FOOTER === */
+footer {
+    margin-top: 5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: sans-serif;
+}
+
+/* === MOBILE === */
+@media (max-width: 600px) {
+    html { font-size: 16px; }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    nav { gap: 1rem; }
+    h1 { font-size: 1.5rem; }
+
+    .article-list li { flex-direction: column; }
+    .article-thumb { width: 100%; height: 180px; }
+
+    .author-header { flex-direction: column; }
+}
