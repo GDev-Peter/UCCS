@@ -15,3 +15,7 @@ relativeURLs = false
 # Optional but useful
 pagerSize = 12
 summaryLength = 30
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
