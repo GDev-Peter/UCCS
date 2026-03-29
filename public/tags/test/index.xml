@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test on UCCS</title>
-    <link>http://localhost:1313/tags/test/</link>
+    <link>https://gdev-peter.github.io/UCCS/tags/test/</link>
     <description>Recent content in Test on UCCS</description>
     <generator>Hugo</generator>
     <language>ro-RO</language>
     <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gdev-peter.github.io/UCCS/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Articol de Test – Toate Componentele</title>
-      <link>http://localhost:1313/polis/articol-de-test-toate-componentele/</link>
+      <link>https://gdev-peter.github.io/UCCS/litere/articol-de-test-toate-componentele/</link>
       <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/polis/articol-de-test-toate-componentele/</guid>
+      <guid>https://gdev-peter.github.io/UCCS/litere/articol-de-test-toate-componentele/</guid>
       <description>&lt;h2 id=&#34;titlu-de-nivel-2&#34;&gt;Titlu de nivel 2&lt;/h2&gt;&#xA;&lt;p&gt;Acesta este un paragraf normal. Conține &lt;strong&gt;text bold&lt;/strong&gt;, &lt;em&gt;text italic&lt;/em&gt;, și &lt;em&gt;&lt;strong&gt;bold italic&lt;/strong&gt;&lt;/em&gt; în aceeași propoziție. Poți adăuga și &lt;code&gt;cod inline&lt;/code&gt; în mijlocul unui paragraf.&lt;/p&gt;&#xA;&lt;h3 id=&#34;titlu-de-nivel-3&#34;&gt;Titlu de nivel 3&lt;/h3&gt;&#xA;&lt;p&gt;Un al doilea paragraf pentru a testa spațierea dintre paragrafe. Distanța dintre ele trebuie să fie confortabilă pentru citit, nu prea strânsă, nu prea largă.&lt;/p&gt;</description>
     </item>
   </channel>

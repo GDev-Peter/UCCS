@@ -1,12 +1,7 @@
 [page]
 
-# UCCS Analyticus
-
-polis = "/polis/:slug/"
-agora = "/agora/:slug/"
-
-# UCCS Cultural
-
-educatie = "/educatie/:slug/"
-tech = "/tech/:slug/"
-litere = "/litere/:slug/"
+polis     = "/polis/:slug/"
+agora     = "/agora/:slug/"
+educatie  = "/educatie/:slug/"
+tech      = "/tech/:slug/"
+litere    = "/litere/:slug/"
