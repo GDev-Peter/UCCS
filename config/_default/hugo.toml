@@ -1,4 +1,4 @@
-baseURL = "https://gdev-peter.github.io/UCCS/"	# Needs to be replaced later
+baseURL = "https://gdev-peter.github.io/"	# Needs to be replaced later
 title = "UCCS"
 
 theme = "uccs-theme-a"
