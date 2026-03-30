@@ -30,6 +30,10 @@ Nu suntem un agregator de știri. Nu urmărim reach-ul, nu optimizăm pentru vir
   {{< section-card label="Litere" title="Literatură & Critică" >}}
   Proză, poezie, analiză literară.
   {{< /section-card >}}
+
+  {{< section-card label="Debate" title="Dezbatere & Retorică" >}}
+  Dialectică, logică clasică, raționamentul.
+  {{< /section-card >}}
 {{< /sections-grid >}}
 
 ## Cum scriem?

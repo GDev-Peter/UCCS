@@ -221,6 +221,19 @@ tr:last-child td { border-bottom: none; }
 
 tbody tr:hover td { background: var(--color-surface); }
 
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-block: var(--space-6);
+}
+
+.table-scroll table {
+  width: 100%;
+  min-width: 36rem;
+  margin-block: 0;
+}
+
 /* ============================================================
  1 4. FOOTNOTES — FIX: removed separator line under "No*te" label
  ============================================================ */

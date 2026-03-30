@@ -1,0 +1,13 @@
+{{- $label := .Get "label" | default "Cuprins" -}}
+{{- if .Page.TableOfContents -}}
+<details class="sc-toc">
+  <summary class="sc-toc__summary">
+    <span class="sc-toc__eyebrow">{{ $label }}</span>
+    <span class="sc-toc__chevron" aria-hidden="true">▾</span>
+  </summary>
+
+  <div class="sc-toc__body">
+    {{ .Page.TableOfContents }}
+  </div>
+</details>
+{{- end -}}

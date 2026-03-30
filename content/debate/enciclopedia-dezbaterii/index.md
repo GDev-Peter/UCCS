@@ -5,6 +5,8 @@ authors: ["Velcea-Petru"]
 cover: "cover.jpg"
 ---
 
+{{< toc >}}
+
 # Formatul World Schools
 
 ## Aspecte generale ale formatului
