@@ -1,3 +1,7 @@
+{{ define "head_extra" }}
+  <link rel="stylesheet" href="{{ "css/prose.css" | relURL }}">
+{{ end }}
+
 {{ define "main" }}
 <article class="standalone-page">
 
@@ -6,7 +10,7 @@
     <h1>{{ .Title }}</h1>
   </header>
 
-  <div class="standalone-body">
+  <div class="article-body">
     {{ .Content }}
   </div>
 
