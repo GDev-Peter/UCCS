@@ -1,8 +1,8 @@
 {{/*
   Partial: article-list.html
   Context: a Hugo Pages collection (already sorted/filtered as needed)
-  Usage:   {{ partial "article-list.html" (.Pages.ByDate.Reverse) }}
-           {{ partial "article-list.html" (where .Pages.ByDate.Reverse "Params.standalone" "ne" true) }}
+  Usage:   {{ $articles := where .Pages "Params.standalone" "ne" true }}
+           {{ partial "article-list.html" $articles.ByDate.Reverse }}
 */}}
 
 <ul class="article-list">

@@ -1,9 +1,7 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
 
-  {{ with .Content }}
-    <div class="section-intro">{{ . }}</div>
-  {{ end }}
+  {{ partial "page-header.html" . }}
 
   {{ partial "article-list.html" .Pages.ByDate.Reverse }}
+
 {{ end }}

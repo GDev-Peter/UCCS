@@ -1,5 +1,8 @@
 {{ define "main" }}
 
+  {{/* ── Compute article set (exclude standalone pages) ── */}}
+  {{ $articles := where .Pages "Params.standalone" "ne" true }}
+
   {{/* ── Author header ── */}}
   <div class="author-header">
 
@@ -11,34 +14,66 @@
     <div class="author-bio">
       <h1>{{ .Title }}</h1>
 
-      {{/* Short bio — from params.bio (plain text) */}}
       {{ with .Params.bio }}
         <p>{{ . }}</p>
       {{ end }}
 
-      {{/* Social icon links + CV */}}
       {{ partial "author-social.html" . }}
     </div>
 
   </div>
 
-  {{/* ── Long-form markdown content below the header (optional) ── */}}
+  {{/* ── Long-form markdown content (optional) ── */}}
   {{ with .Content }}
     <div class="author-content">
       {{ . }}
     </div>
   {{ end }}
 
-  {{/* ── Article count ── */}}
-  {{ $articles := where .Pages "Params.standalone" "ne" true }}
-  {{ with $articles }}
-    <p class="section-intro" style="margin-top: var(--space-10);">
-      {{ len . }}
-      {{ if eq (len .) 1 }}articol publicat{{ else }}articole publicate{{ end }}
-    </p>
+  {{/* ── Metrics grid ── */}}
+  {{ if $articles }}
+
+    {{/* Compute aggregates */}}
+    {{ $wordCount := 0 }}
+    {{ $readTime  := 0 }}
+    {{ $sections  := slice }}
+    {{ range $articles }}
+      {{ $wordCount = add $wordCount .WordCount }}
+      {{ $readTime  = add $readTime  .ReadingTime }}
+      {{ $sections  = $sections | append .Section }}
+    {{ end }}
+    {{ $uniqueSections := uniq $sections }}
+
+    <div class="author-metrics">
+
+      <div class="author-metric">
+        <span class="author-metric-value">{{ partial "format-num.html" (len $articles) }}</span>
+        <span class="author-metric-label">
+          {{ if eq (len $articles) 1 }}Articol publicat{{ else }}Articole publicate{{ end }}
+        </span>
+      </div>
+
+      <div class="author-metric">
+        <span class="author-metric-value">{{ partial "format-num.html" $wordCount }}</span>
+        <span class="author-metric-label">Cuvinte scrise</span>
+      </div>
+
+      <div class="author-metric">
+        <span class="author-metric-value">{{ partial "format-num.html" (len $uniqueSections) }}</span>
+        <span class="author-metric-label">
+          {{ if eq (len $uniqueSections) 1 }}Secțiune acoperită{{ else }}Secțiuni acoperite{{ end }}
+        </span>
+      </div>
+
+      <div class="author-metric">
+        <span class="author-metric-value">{{ partial "format-num.html" $readTime }}</span>
+        <span class="author-metric-label">Min. de lectură total</span>
+      </div>
+
+    </div>
   {{ end }}
 
   {{/* ── Article list ── */}}
-  {{ partial "article-list.html" .Pages.ByDate.Reverse }}
+  {{ partial "article-list.html" $articles.ByDate.Reverse }}
 
 {{ end }}

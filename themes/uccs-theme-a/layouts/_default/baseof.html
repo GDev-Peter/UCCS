@@ -16,31 +16,41 @@
   <!-- ======= HEADER ======= -->
   <header class="site-header">
 
-    <!-- Row 1: logo + utility links — single line, never wraps -->
+    <!-- Row 1: logo + utility links (Despre / Contact / Donează) -->
+    <!-- Never wraps — utility items shrink text on narrow screens via CSS -->
     <div class="header-row header-row-top">
+
       <a href="{{ "" | relURL }}" class="logo">
         <span class="logo-main">UCCS</span>
         <span class="logo-sub">Unde Cuvintele Capătă Sens</span>
       </a>
+
       <nav class="nav-utility" aria-label="Pagini utilitare">
-        <a href="{{ "despre/" | relURL }}" class="header-link">Despre</a>
-        <a href="{{ "contact/" | relURL }}" class="header-link">Contact</a>
-        {{- $donateURL := site.Params.donateURL | default "doneaza/" -}}
-        {{- $isExternal := hasPrefix $donateURL "http" -}}
-        <a href="{{ if $isExternal }}{{ $donateURL }}{{ else }}{{ $donateURL | relURL }}{{ end }}"
-           class="btn-donate"
-           {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>Donează</a>
+        {{ range site.Menus.utility }}
+          {{ if .Params.donate }}
+            {{/* Donate entry — pill button, optionally opens external URL */}}
+            <a href="{{ .URL }}"
+               class="btn-donate"
+               {{ if .Params.external }}target="_blank" rel="noopener noreferrer"{{ end }}>
+              {{ .Name }}
+            </a>
+          {{ else }}
+            {{/* Regular utility link */}}
+            <a href="{{ .URL }}" class="header-link">{{ .Name }}</a>
+          {{ end }}
+        {{ end }}
       </nav>
+
     </div>
 
-    <!-- Row 2: section nav — allowed to wrap -->
+    <!-- Row 2: section navigation (allowed to wrap) -->
     <div class="header-row header-row-nav">
       <nav class="nav-primary" aria-label="Secțiuni">
-        <a href="{{ "polis/" | relURL }}"{{ if eq .Section "polis" }} class="active"{{ end }}>Polis</a>
-        <a href="{{ "agora/" | relURL }}"{{ if eq .Section "agora" }} class="active"{{ end }}>Agora</a>
-        <a href="{{ "educatie/" | relURL }}"{{ if eq .Section "educatie" }} class="active"{{ end }}>Educație</a>
-        <a href="{{ "tech/" | relURL }}"{{ if eq .Section "tech" }} class="active"{{ end }}>Tech</a>
-        <a href="{{ "litere/" | relURL }}"{{ if eq .Section "litere" }} class="active"{{ end }}>Litere</a>
+        {{ range site.Menus.main }}
+          {{/* IsMenuCurrent / HasMenuCurrent mark the active section */}}
+          {{ $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+          <a href="{{ .URL }}"{{ if $active }} class="active"{{ end }}>{{ .Name }}</a>
+        {{ end }}
       </nav>
     </div>
 
@@ -55,46 +65,47 @@
   <footer class="site-footer">
     <div class="footer-inner">
 
+      <!-- Brand + social icons -->
       <div class="footer-brand">
         <a href="{{ "" | relURL }}" class="footer-logo">UCCS</a>
         <p class="footer-tagline">Proiect editorial independent.<br>Substanță, nu doar formă.</p>
-        <div class="footer-social">
-          {{ with site.Params.social.instagram }}
-          <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-            </svg>
-          </a>
-          {{ end }}
-        </div>
+
+        {{/* Social icons — loops site.Params.social map automatically.
+             Add or remove platforms in config/_default/params.toml [social]. */}}
+        {{ with site.Params.social }}
+          <div class="footer-social">
+            {{ partial "social-icons.html" (dict "social" . "class" "social-link") }}
+          </div>
+        {{ end }}
       </div>
 
+      <!-- Section links — driven by [[main]] in menus.toml -->
       <div class="footer-col">
         <h3 class="footer-heading">Secțiuni</h3>
         <ul class="footer-links">
-          <li><a href="{{ "polis/" | relURL }}">Polis</a></li>
-          <li><a href="{{ "agora/" | relURL }}">Agora</a></li>
-          <li><a href="{{ "educatie/" | relURL }}">Educație</a></li>
-          <li><a href="{{ "tech/" | relURL }}">Tech</a></li>
-          <li><a href="{{ "litere/" | relURL }}">Litere</a></li>
+          {{ range site.Menus.main }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
         </ul>
       </div>
 
+      <!-- Utility links — driven by [[utility]] in menus.toml -->
       <div class="footer-col">
         <h3 class="footer-heading">Publicație</h3>
         <ul class="footer-links">
-          <li><a href="{{ "despre/" | relURL }}">Despre noi</a></li>
-          <li><a href="{{ "contact/" | relURL }}">Contact</a></li>
-          {{- $donateURL := site.Params.donateURL | default "doneaza/" -}}
-          {{- $isExternal := hasPrefix $donateURL "http" -}}
-          <li><a href="{{ if $isExternal }}{{ $donateURL }}{{ else }}{{ $donateURL | relURL }}{{ end }}"
-                 {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>Donează</a></li>
+          {{ range site.Menus.utility }}
+            <li>
+              <a href="{{ .URL }}"
+                 {{ if .Params.external }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                {{ .Name }}
+              </a>
+            </li>
+          {{ end }}
         </ul>
       </div>
 
     </div>
+
     <div class="footer-bottom">
       <p>© {{ now.Format "2006" }} UCCS – Unde Cuvintele Capătă Sens. Toate drepturile rezervate.</p>
     </div>

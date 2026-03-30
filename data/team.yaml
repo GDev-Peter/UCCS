@@ -1,9 +1,20 @@
 members:
   - name: Velcea-Petru
+    display_name: "Velcea-Petru"   # shown in byline / author page title
     role: "Fondator & Editor"
     initial: V
     photo: team/velcea-petru.jpg
+    joined: 2025                   # year joined the publication
+    sections:                      # sections they write for; orientativ
+      - polis
+      - educatie
+      - litere
     bio:
       - "Elev în clasa a XII-a la Colegiul Național Ion Creangă din București. Patru ani în clubul de dezbateri al colegiului — ca organizator, nu doar participant — și, din 2026, formator certificat ARDOR și judecător la Forumul Național de Dezbateri Academice."
       - "UCCS a apărut din convingerea că România are nevoie de mai mulți oameni care gândesc în public și mai puțini care vorbesc în gol."
       - "Viitor student la Istorie. Interesat de retorică, filozofia dezbaterii și ceea ce istoria ne poate spune despre prezentul în care trăim."
+    social:
+      instagram: "https://www.instagram.com/istorie.petru/"
+    cv: ""                         # leave empty string if no CV yet
+    email: ""                      # optional contact email
+    active: true                   # set false to hide from team page without deleting

@@ -1,11 +1,39 @@
 /*
  * UCCS — Unde Cuvintele Capătă Sens
- * style.css — redesign v3
+ * style.css — v4
+ *
+ * Sections:
+ *   1.  Design tokens
+ *   2.  Base reset
+ *   3.  Accessibility utilities
+ *   4.  Layout
+ *   5.  Header & nav (stub — see 19)
+ *   6.  Page titles & section intro
+ *   7.  Article meta
+ *   8.  Article list (section pages)
+ *   9.  Homepage grid
+ *   10. Article page
+ *   15. Author bio
+ *   16. Footer (stub — see 20)
+ *   17. Reading progress
+ *   18. Responsive
+ *   19. Site header — two-row
+ *   20. Site footer
+ *   21. Standalone pages (Despre / Contact / Donează)
+ *   22. Responsive — header & footer
+ *   23. Featured hero (homepage top story)
+ *   24. Page header (section list pages)
+ *   25. Section strip (homepage bottom nav)
+ *   26. Shortcode components — lead, contact-info
+ *   27. Section card & sections grid
+ *   28. Pull quote
+ *   29. Team member
+ *   30. CTA box
  */
 
 /* ============================================================
  *  1. DESIGN TOKENS
- *  ============================================================ */
+ * ============================================================ */
 
 :root, [data-theme="light"] {
   --color-bg:              #f8f5ef;
@@ -26,6 +54,9 @@
   --color-primary-active:  #2e1d10;
   --color-primary-highlight: #e0d4c8;
 
+  --color-gold:            #b07d3a;
+  --color-gold-hover:      #9a6b2a;
+
   --color-error:           #9b2c2c;
   --color-success:         #3a6b20;
 
@@ -42,10 +73,10 @@
   --shadow-md: 0 4px 14px rgba(30, 20, 10, 0.08);
   --shadow-lg: 0 12px 36px rgba(30, 20, 10, 0.11);
 
-  /* ↓ ONE PLACE TO CHANGE the whole site's max-width */
+  /* ↓ Change this one variable to resize the whole site */
   --site-max-w:      1120px;
 
-  --content-article: 780px;   /* article page: title + cover + body all same width */
+  --content-article: 780px;
   --content-narrow:  640px;
   --content-default: 680px;
   --content-wide:    var(--site-max-w);
@@ -96,6 +127,9 @@
   --color-primary-active:  #e0bc96;
   --color-primary-highlight: #2e2318;
 
+  --color-gold:            #c9973f;
+  --color-gold-hover:      #d9a84e;
+
   --color-error:           #e07070;
   --color-success:         #7ab856;
 
@@ -121,6 +155,8 @@
     --color-primary-hover:   #d4a87e;
     --color-primary-active:  #e0bc96;
     --color-primary-highlight: #2e2318;
+    --color-gold:            #c9973f;
+    --color-gold-hover:      #d9a84e;
     --color-error:           #e07070;
     --color-success:         #7ab856;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
@@ -131,7 +167,7 @@
 
 /* ============================================================
  *  2. BASE RESET
- *  ============================================================ */
+ * ============================================================ */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -158,7 +194,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   transition: background-color var(--transition-interactive),
-  color var(--transition-interactive);
+              color var(--transition-interactive);
 }
 
 img, picture, video, canvas, svg {
@@ -202,7 +238,7 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   transition: color var(--transition-fast),
-  opacity var(--transition-fast);
+              opacity var(--transition-fast);
 }
 
 a:hover { color: var(--color-primary-hover); }
@@ -217,7 +253,7 @@ a:hover { color: var(--color-primary-hover); }
 
 /* ============================================================
  *  3. ACCESSIBILITY UTILITIES
- *  ============================================================ */
+ * ============================================================ */
 
 .sr-only {
   position: absolute;
@@ -250,9 +286,8 @@ a:hover { color: var(--color-primary-hover); }
 
 /* ============================================================
  *  4. LAYOUT
- *  ============================================================ */
+ * ============================================================ */
 
-/* All content constrained and always padded from screen edges */
 :root { --side-pad: clamp(var(--space-5), 4vw, var(--space-10)); }
 
 main {
@@ -271,22 +306,8 @@ main {
 }
 
 /* ============================================================
- *  5. HEADER & NAV
- *  ============================================================ */
-
-/* logo, nav, theme-toggle styles are in section 19 (.site-header) */
-
-/* ============================================================
  *  6. PAGE TITLES & SECTION INTRO
- *  ============================================================ */
-
-.page-title {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  font-weight: 400;
-  margin-bottom: var(--space-2);
-  letter-spacing: -0.01em;
-}
+ * ============================================================ */
 
 .section-intro {
   font-family: var(--font-ui);
@@ -308,7 +329,7 @@ main > h1 {
 
 /* ============================================================
  *  7. ARTICLE META
- *  ============================================================ */
+ * ============================================================ */
 
 .article-meta {
   font-family: var(--font-ui);
@@ -340,7 +361,6 @@ main > h1 {
   user-select: none;
 }
 
-/* Author line — uppercase, small caps style */
 .article-author {
   font-family: var(--font-ui);
   font-size: var(--text-xs);
@@ -352,8 +372,8 @@ main > h1 {
 }
 
 /* ============================================================
- *  8. SECTION LIST PAGES — article-list (50/50, fixed height)
- *  ============================================================ */
+ *  8. ARTICLE LIST — section pages
+ * ============================================================ */
 
 .article-list {
   list-style: none;
@@ -368,7 +388,6 @@ main > h1 {
   margin-bottom: var(--space-5);
 }
 
-/* Image — left half, stretches to match row height */
 .article-thumb-link {
   display: block;
   width: 50%;
@@ -391,7 +410,6 @@ main > h1 {
 
 .article-thumb-link:hover .article-thumb { opacity: 0.88; }
 
-/* Info — right half */
 .article-list .article-info {
   flex: 1;
   min-width: 0;
@@ -411,7 +429,6 @@ main > h1 {
   text-decoration: none;
   color: var(--color-text);
   transition: color var(--transition-fast);
-  /* Two-line clamp for title */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -420,13 +437,11 @@ main > h1 {
 
 .article-title:hover { color: var(--color-primary); }
 
-/* Description with ellipsis */
 .article-excerpt {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: 1.5;
   margin: 0;
-  /* Clamp to 2 lines */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -434,15 +449,44 @@ main > h1 {
 }
 
 /* ============================================================
- *  9. HOMEPAGE GRID — 3 columns
- *  ============================================================ */
+ *  9. HOMEPAGE GRID
+ * ============================================================ */
+
+/* Section sub-heading above the grid */
+.grid-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-top: var(--space-2);
+}
+
+.grid-section-title {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin: 0;
+}
+
+.grid-section-title::after {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  background: var(--color-divider);
+  margin-left: var(--space-3);
+  vertical-align: middle;
+}
 
 .article-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6) var(--space-5);
-  margin-top: var(--space-8);
+  margin-top: 0;
 }
 
 .article-grid-item {
@@ -455,11 +499,8 @@ main > h1 {
   transition: box-shadow var(--transition-interactive);
 }
 
-.article-grid-item:hover {
-  box-shadow: var(--shadow-md);
-}
+.article-grid-item:hover { box-shadow: var(--shadow-md); }
 
-/* Image — top of card */
 .article-grid-thumb-link {
   display: block;
   width: 100%;
@@ -485,7 +526,6 @@ main > h1 {
 
 .article-grid-thumb-link:hover .article-grid-thumb { opacity: 0.88; }
 
-/* Card info */
 .article-grid-info {
   display: flex;
   flex-direction: column;
@@ -508,10 +548,8 @@ main > h1 {
 
 /* ============================================================
  *  10. ARTICLE PAGE
- *  ============================================================ */
+ * ============================================================ */
 
-/* Constrain the whole article — title, meta, cover and body
- *  all share the same max-width so nothing looks misaligned */
 article {
   max-width: var(--content-article);
 }
@@ -541,13 +579,8 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  11–14. PROSE STYLES — moved to prose.css
- *         Loaded per-page via {{ block "head_extra" }} in single.html
- *  ============================================================ */
-
-/* ============================================================
  *  15. AUTHOR BIO
- *  ============================================================ */
+ * ============================================================ */
 
 .author-header {
   display: flex;
@@ -567,11 +600,11 @@ article > .article-meta {
   border: 2px solid var(--color-border);
 }
 
-.author-bio h2 {
+.author-bio h1 {
   font-family: var(--font-display);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: 500;
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
 }
 
 .author-bio p {
@@ -619,7 +652,6 @@ article > .article-meta {
   flex-shrink: 0;
 }
 
-/* CV link — slightly wider to visually distinguish */
 .author-social-link--cv {
   width: auto;
   padding-inline: var(--space-3);
@@ -631,7 +663,6 @@ article > .article-meta {
   text-transform: uppercase;
 }
 
-/* Author markdown content below the header */
 .author-content {
   margin-top: var(--space-10);
   padding-top: var(--space-8);
@@ -643,15 +674,47 @@ article > .article-meta {
 .author-content h2  { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-top: var(--space-10); margin-bottom: var(--space-3); }
 .author-content a   { color: var(--color-primary); }
 
-/* ============================================================
- *  16. FOOTER
- *  ============================================================ */
+/* Author metrics grid */
+.author-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-10);
+}
 
-/* footer styles moved to section 20 (.site-footer) */
+.author-metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.author-metric-value {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.author-metric-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
 
 /* ============================================================
  *  17. READING PROGRESS
- *  ============================================================ */
+ * ============================================================ */
 
 .reading-progress {
   position: fixed;
@@ -666,67 +729,35 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  18. RESPONSIVE
- *  ============================================================ */
+ *  18. RESPONSIVE — grid & list
+ * ============================================================ */
 
-/* Tablet: 768px+ — keep 3-col grid, tweak gap */
 @media (min-width: 768px) {
-  .article-grid {
-    gap: var(--space-8) var(--space-6);
-  }
+  .article-grid { gap: var(--space-8) var(--space-6); }
 }
 
-/* Narrow: 2-col grid */
 @media (max-width: 767px) and (min-width: 480px) {
-  .article-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .article-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Mobile: single column */
 @media (max-width: 479px) {
-  .article-grid {
-    grid-template-columns: 1fr;
-  }
+  .article-grid { grid-template-columns: 1fr; }
 
-  .article-list li {
-    height: auto;
-    min-height: 120px;
-  }
+  .article-list li { height: auto; min-height: 120px; }
+  .article-thumb-link { width: 40%; }
+}
 
-  .article-thumb-link {
-    width: 40%;
-  }
+@media (max-width: 640px) {
+  .author-metrics { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 380px) {
+  .author-metrics { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
-  header {
-    flex-wrap: wrap;
-    gap: var(--space-3);
-  }
-
-  nav {
-    gap: var(--space-3);
-    order: 3;
-    width: 100%;
-  }
-
-  .theme-toggle { margin-left: auto; }
-
   article > h1 { font-size: var(--text-xl); }
-
-  .article-body blockquote {
-    padding: var(--space-5);
-    padding-top: var(--space-8);
-  }
-
   .author-header { flex-direction: column; }
-
-  footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
-  }
 }
 
 @media (hover: none) {
@@ -735,7 +766,7 @@ article > .article-meta {
 
 /* ============================================================
  *  19. SITE HEADER — two-row
- *  ============================================================ */
+ * ============================================================ */
 
 .site-header {
   width: 100%;
@@ -748,7 +779,6 @@ article > .article-meta {
   z-index: 50;
 }
 
-/* Shared inner padding for both rows */
 .header-row {
   width: 100%;
   max-width: var(--site-max-w);
@@ -758,31 +788,24 @@ article > .article-meta {
   align-items: center;
 }
 
-/* Row 1: logo hard-left, utility hard-right */
 .header-row-top {
-  /* no justify-content = flex-start, logo stays at left edge */
   padding-block: var(--space-3);
   border-bottom: 1px solid var(--color-divider);
   flex-wrap: nowrap;
 }
 
-/* margin-left: auto on nav-utility pushes it all the way to the right */
-
-
-/* Row 2: section nav — allowed to wrap on small screens */
 .header-row-nav {
   padding-block: var(--space-2);
   min-height: 0;
 }
 
-/* --- Logo --- */
 .logo {
   display: flex;
   flex-direction: column;
   gap: 0;
   text-decoration: none;
   color: var(--color-text);
-  flex: 1;              /* expands to fill row — text stays left, nav goes right */
+  flex: 1;
   line-height: 1;
   transition: color var(--transition-fast);
 }
@@ -810,7 +833,6 @@ article > .article-meta {
 
 .logo:hover .logo-sub { color: var(--color-primary); }
 
-/* --- Utility nav (Despre / Contact / Donează) --- */
 .nav-utility {
   display: flex;
   align-items: center;
@@ -832,7 +854,6 @@ article > .article-meta {
 
 .header-link:hover { color: var(--color-text); }
 
-/* Donate CTA */
 .btn-donate {
   font-family: var(--font-ui);
   font-size: var(--text-xs);
@@ -846,7 +867,7 @@ article > .article-meta {
   border-radius: var(--radius-md);
   white-space: nowrap;
   transition: background var(--transition-fast),
-  transform var(--transition-fast);
+              transform var(--transition-fast);
 }
 
 .btn-donate:hover {
@@ -855,12 +876,11 @@ article > .article-meta {
   transform: translateY(-1px);
 }
 
-/* --- Primary nav (section links) — row 2 --- */
 .nav-primary {
   display: flex;
   align-items: center;
   gap: clamp(var(--space-4), 3vw, var(--space-8));
-  flex-wrap: wrap;           /* row 2 may wrap */
+  flex-wrap: wrap;
 }
 
 .nav-primary a {
@@ -896,11 +916,11 @@ article > .article-meta {
 
 /* ============================================================
  *  20. SITE FOOTER
- *  ============================================================ */
+ * ============================================================ */
 
 .site-footer {
   margin-top: var(--space-20);
-  background: var(--color-bg);         /* off-white, same as page bg */
+  background: var(--color-bg);
   border-top: 1px solid var(--color-divider);
 }
 
@@ -939,9 +959,10 @@ article > .article-meta {
   max-width: 28ch;
 }
 
+/* Social icons — no border, just icon color */
 .footer-social {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
   align-items: center;
 }
 
@@ -949,22 +970,17 @@ article > .article-meta {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-muted);
+  color: var(--color-text-faint);
   text-decoration: none;
-  transition: color var(--transition-fast),
-  border-color var(--transition-fast),
-  background var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
-.social-link:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-  background: var(--color-primary-highlight);
-}
+.social-link svg { width: 18px; height: 18px; }
+
+.social-link:hover { color: var(--color-primary); }
 
 .footer-col { display: flex; flex-direction: column; gap: var(--space-4); }
 
@@ -1009,37 +1025,54 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  21. STANDALONE PAGES (Despre / Contact / Donează)
- *  ============================================================ */
+ *  21. STANDALONE PAGES — Despre / Contact / Donează
+ * ============================================================ */
+
+.standalone-page { max-width: var(--content-default); }
+
+/* Publication overline + title */
+.standalone-header {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.standalone-overline {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
 
 .standalone-page h1 {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: 500;
   letter-spacing: -0.01em;
-  margin-bottom: var(--space-8);
-  padding-bottom: var(--space-5);
-  border-bottom: 1px solid var(--color-divider);
+  margin: 0;
 }
 
-.standalone-body {
-  max-width: var(--content-default);
-}
+.standalone-body { }
 
 .standalone-body p   { margin-bottom: var(--space-5); max-width: 68ch; }
-.standalone-body h2  { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-top: var(--space-10); margin-bottom: var(--space-3); }
+.standalone-body h2  {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-3);
+}
 .standalone-body a   { color: var(--color-primary); }
 
 /* ============================================================
  *  22. RESPONSIVE — header & footer
- *  ============================================================ */
+ * ============================================================ */
 
-/* Narrow screens: hide logo subtitle only; keep utility links visible */
-@media (max-width: 700px) {
-  .logo-sub { display: none; }
-}
+@media (max-width: 700px) { .logo-sub { display: none; } }
 
-/* Mobile: shrink gaps and text so everything still fits in one row */
 @media (max-width: 540px) {
   .header-row-top { gap: var(--space-2); padding-block: var(--space-2); }
   .header-link    { font-size: 0.68rem; letter-spacing: 0.04em; }
@@ -1047,11 +1080,8 @@ article > .article-meta {
   .logo-main      { font-size: 1rem; letter-spacing: 0.14em; }
 }
 
-/* Tablet footer: 2-col */
 @media (max-width: 767px) {
-  .footer-inner {
-    grid-template-columns: 1fr 1fr;
-  }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
   .footer-brand {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -1061,21 +1091,362 @@ article > .article-meta {
   }
 }
 
-/* Mobile footer: single col */
 @media (max-width: 480px) {
-  .footer-inner {
-    grid-template-columns: 1fr;
-  }
+  .footer-inner { grid-template-columns: 1fr; }
   .footer-brand { flex-direction: column; }
 }
 
-/* =============================================================
-   section-card — UCCS shortcode component
-   Used by: layouts/shortcodes/section-card.html
-   Rendered inside: .sections-grid wrapper (see below)
-   ============================================================= */
+/* ============================================================
+ *  23. FEATURED HERO — top of homepage
+ * ============================================================ */
 
-/* --- Grid wrapper (goes in despre/single.html or a partial) --- */
+.featured-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-surface);
+  margin-bottom: var(--space-12);
+  transition: box-shadow var(--transition-interactive);
+}
+
+.featured-hero:hover { box-shadow: var(--shadow-lg); }
+
+/* Text-only variant (no cover image) */
+.featured-hero--text {
+  grid-template-columns: 1fr;
+  min-height: 280px;
+}
+
+.featured-hero--text .featured-hero-body {
+  padding: var(--space-12) var(--space-10);
+  max-width: var(--content-article);
+}
+
+.featured-hero--text .featured-hero-title {
+  font-size: var(--text-3xl);
+}
+
+/* Media side */
+.featured-hero-media {
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface-offset);
+}
+
+.featured-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity var(--transition-interactive);
+}
+
+.featured-hero:hover .featured-hero-img { opacity: 0.92; }
+
+/* Body side */
+.featured-hero-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-10);
+}
+
+.featured-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.featured-hero-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.featured-hero-badge {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--color-text-faint);
+  background: var(--color-surface-offset);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+}
+
+.featured-hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  text-wrap: balance;
+  margin: 0;
+  transition: color var(--transition-fast);
+}
+
+.featured-hero:hover .featured-hero-title { color: var(--color-primary); }
+
+.featured-hero-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 44ch;
+}
+
+.featured-hero-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.featured-hero-meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.03em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  align-items: center;
+}
+
+.featured-hero-cta {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.featured-hero:hover .featured-hero-cta { color: var(--color-primary-hover); }
+
+@media (max-width: 767px) {
+  .featured-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .featured-hero-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .featured-hero-body {
+    padding: var(--space-6);
+    gap: var(--space-3);
+  }
+
+  .featured-hero-title { font-size: var(--text-xl); }
+  .featured-hero-desc  { display: none; } /* hide on mobile for space */
+  .featured-hero-badge { display: none; }
+
+  .featured-hero--text .featured-hero-body { padding: var(--space-8) var(--space-6); }
+  .featured-hero--text .featured-hero-title { font-size: var(--text-xl); }
+}
+
+/* ============================================================
+ *  24. PAGE HEADER — section list pages
+ * ============================================================ */
+
+.page-header {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-6);
+  border-bottom: 2px solid var(--color-text);
+}
+
+.page-header-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.page-header-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.page-header-count {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+.page-header-desc {
+  margin-top: var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  max-width: 56ch;
+}
+
+.page-header-desc p { margin: 0; }
+
+/* ============================================================
+ *  25. SECTION STRIP — editorial section nav (bottom of homepage)
+ * ============================================================ */
+
+.section-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-divider);
+  margin-top: var(--space-10);
+  flex-wrap: wrap;
+}
+
+.section-strip-heading {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+}
+
+.section-strip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-full);
+  transition: border-color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.section-strip-item:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-highlight);
+}
+
+.section-strip-name {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.section-strip-item:hover .section-strip-name { color: var(--color-primary); }
+
+.section-strip-count {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  background: var(--color-surface-offset);
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-full);
+  min-width: 1.4rem;
+  text-align: center;
+}
+
+/* ============================================================
+ *  26. SHORTCODE COMPONENTS — lead, contact-info
+ * ============================================================ */
+
+/* Lead — large opening paragraph for standalone pages */
+.sc-lead {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text);
+  max-width: 54ch;
+  text-wrap: pretty;
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+/* Contact row */
+.sc-contact-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.sc-contact-row:first-of-type {
+  border-top: 1px solid var(--color-divider);
+}
+
+.sc-contact-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+  min-width: 8rem;
+}
+
+.sc-contact-value {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.sc-contact-value:hover { color: var(--color-primary); }
+
+@media (max-width: 480px) {
+  .sc-contact-row {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .sc-contact-label { min-width: 0; }
+}
+
+/* ============================================================
+ *  27. SECTION CARD & SECTIONS GRID
+ * ============================================================ */
+
 .sections-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
@@ -1083,39 +1454,53 @@ article > .article-meta {
   margin-block: var(--space-8);
 }
 
-/* --- The card itself --- */
 .section-card {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
   padding: var(--space-6);
   background: var(--color-surface);
-  border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  border: 1px solid var(--color-divider);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition-interactive),
               background var(--transition-interactive);
 }
 
-/* Subtle lift on hover — editorial, not interactive */
 .section-card:hover {
   background: var(--color-surface-2);
   box-shadow: var(--shadow-md);
 }
 
-/* --- Label (e.g. "Polis", "Agora") --- */
+/* Linkable card variant */
+.section-card--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.section-card--link:hover { color: inherit; }
+
+/* Decorative accent bar */
+.section-card[data-section]::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  opacity: 0.5;
+}
+
 .section-label {
-  display: inline-block;
   font-family: var(--font-body, sans-serif);
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-primary);
-  /* No background pill — typography alone carries the weight */
 }
 
-/* --- Section title (e.g. "Politică & Cetate") --- */
 .section-card .section-title {
   font-family: var(--font-display, serif);
   font-size: var(--text-lg);
@@ -1125,65 +1510,43 @@ article > .article-meta {
   text-wrap: balance;
 }
 
-/* --- Description body copy --- */
 .section-card .section-desc {
   font-family: var(--font-body, sans-serif);
   font-size: var(--text-base);
   line-height: 1.65;
   color: var(--color-text-muted);
-  max-width: 48ch; /* prevents overly wide lines inside wide cards */
+  max-width: 48ch;
+  flex: 1;
 }
 
-/* --- Per-section accent via data attribute (optional, very subtle) ---
-   This uses the data-section attribute rendered by the shortcode:
-   <article class="section-card" data-section="polis">
-   Adds a faint teal top-border moment to distinguish sections visually
-   without the "colored side border" anti-pattern.
-*/
-.section-card[data-section]::before {
-  content: '';
-  display: block;
-  width: 2rem;
-  height: 2px;
-  background: var(--color-primary);
-  border-radius: var(--radius-full);
-  opacity: 0.5;
-  /* Sits above the label as a typographic divider, not a structural border */
+/* CTA text in linkable cards */
+.section-card-cta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  margin-top: var(--space-1);
+  transition: color var(--transition-fast);
 }
 
-/* --- Dark mode --- */
-/* Variables adapt automatically — no overrides needed.
-   Surface, border, and text tokens all switch via [data-theme="dark"].
-   Only verify: --color-primary teal is readable on dark surface (it is: #4f98a3). */
+.section-card--link:hover .section-card-cta {
+  color: var(--color-primary-hover);
+}
 
-/* --- Mobile --- */
 @media (max-width: 640px) {
-  .sections-grid {
-    grid-template-columns: 1fr; /* single column below 640px */
-    gap: var(--space-3);
-  }
-
-  .section-card {
-    padding: var(--space-5);
-  }
+  .sections-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .section-card  { padding: var(--space-5); }
 }
 
-.sections-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(200px, var(--site-max-w)), 1fr));
-  gap: var(--space-4);
-  width: 100%;          /* fills the content column */
-  margin-block: var(--space-8);
-}
+/* ============================================================
+ *  28. PULL QUOTE
+ * ============================================================ */
 
-/* =====================
-   pull-quote
-   ===================== */
 .pull-quote {
   margin-block: var(--space-10);
   padding-inline-start: var(--space-6);
   border-left: 2px solid var(--color-primary);
-  /* No background, no box — typography carries it */
 }
 
 .pull-quote p {
@@ -1207,9 +1570,10 @@ article > .article-meta {
   letter-spacing: 0.02em;
 }
 
-/* =====================
-   team-member
-   ===================== */
+/* ============================================================
+ *  29. TEAM MEMBER
+ * ============================================================ */
+
 .team-member {
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -1219,26 +1583,22 @@ article > .article-meta {
 }
 
 @media (max-width: 480px) {
-  .team-member {
-    grid-template-columns: 1fr;
-  }
+  .team-member { grid-template-columns: 1fr; }
 }
 
-/* --- Avatar (shared container for both monogram and photo) --- */
 .team-member__avatar {
   width: 72px;
   height: 72px;
-  background: var(--color-surface-offset-2);
+  background: var(--color-surface-offset);
   border-radius: var(--radius-lg);
-  border: 1px solid oklch(from var(--color-text) l c h / 0.1);
+  border: 1px solid var(--color-divider);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  overflow: hidden;              /* clips the photo to the rounded corners */
+  overflow: hidden;
 }
 
-/* Monogram span */
 .team-member__avatar span {
   font-family: var(--font-display, serif);
   font-size: var(--text-xl);
@@ -1248,16 +1608,14 @@ article > .article-meta {
   line-height: 1;
 }
 
-/* Photo — fills the same 72×72 container */
 .team-member__photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;   /* favors the face in portrait photos */
+  object-position: center top;
   display: block;
 }
 
-/* --- Right side content --- */
 .team-member__content {
   display: flex;
   flex-direction: column;
@@ -1288,7 +1646,6 @@ article > .article-meta {
   color: var(--color-gold);
 }
 
-/* --- Bio — justified with hyphenation --- */
 .team-member__bio {
   display: flex;
   flex-direction: column;
@@ -1302,25 +1659,24 @@ article > .article-meta {
   color: var(--color-text-muted);
   max-width: 60ch;
   margin: 0;
-
-  /* Justified text — always pair with hyphens to prevent rivers */
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
-  hyphenate-limit-chars: 6 3 3;  /* min word, min before, min after */
+  hyphenate-limit-chars: 6 3 3;
 }
 
-/* =====================
-   cta-box — corrected
-   ===================== */
+/* ============================================================
+ *  30. CTA BOX
+ * ============================================================ */
+
 .cta-box {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  gap: var(--space-12);          /* was --space-10, tighter now */
+  gap: var(--space-12);
   align-items: center;
-  padding: var(--space-10) var(--space-10);
+  padding: var(--space-10);
   background: var(--color-surface);
-  border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+  border: 1px solid var(--color-divider);
   border-radius: var(--radius-lg);
   margin-block: var(--space-10);
 }
@@ -1333,7 +1689,6 @@ article > .article-meta {
   }
 }
 
-/* --- Left column --- */
 .cta-box__left {
   display: flex;
   flex-direction: column;
@@ -1342,9 +1697,9 @@ article > .article-meta {
 
 .cta-box__left h2 {
   font-family: var(--font-display, serif);
-  font-size: var(--text-xl);     /* was --text-2xl — scale down slightly */
+  font-size: var(--text-xl);
   font-weight: 400;
-  line-height: 1.25;             /* was 1.1 — too tight for two lines */
+  line-height: 1.25;
   color: var(--color-text);
   margin: 0;
 }
@@ -1352,7 +1707,7 @@ article > .article-meta {
 .cta-box__left h2 em {
   color: var(--color-gold);
   font-style: italic;
-  display: block;                /* forces italic line onto its own line */
+  display: block;
 }
 
 .cta-box__left p {
@@ -1363,15 +1718,13 @@ article > .article-meta {
   margin: 0;
 }
 
-/* --- Right column --- */
 .cta-box__right {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);           /* gap between btn1, btn2, and note */
-  align-items: stretch;          /* buttons full width of the column */
+  gap: var(--space-3);
+  align-items: stretch;
 }
 
-/* --- Buttons --- */
 .sc-btn {
   display: block;
   width: 100%;
@@ -1389,26 +1742,27 @@ article > .article-meta {
 
 .sc-btn--primary {
   background: var(--color-gold);
-  color: #1a1200;                /* dark brown for contrast on gold */
+  color: #1a1200;
   border: none;
 }
 
 .sc-btn--primary:hover {
   background: var(--color-gold-hover);
+  color: #1a1200;
   box-shadow: var(--shadow-md);
 }
 
 .sc-btn--outline {
   background: transparent;
   color: var(--color-text);
-  border: 1px solid oklch(from var(--color-text) l c h / 0.25);
+  border: 1px solid var(--color-border);
 }
 
 .sc-btn--outline:hover {
-  background: oklch(from var(--color-text) l c h / 0.05);
+  background: var(--color-surface-offset);
+  color: var(--color-text);
 }
 
-/* --- Note text under buttons --- */
 .cta-box__note {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
@@ -1416,4 +1770,50 @@ article > .article-meta {
   text-align: center;
   margin: 0;
   padding-top: var(--space-1);
+}
+
+/* ============================================================
+ *  31. SHORTCODE — box
+ * ============================================================ */
+
+.sc-box {
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  margin-block: var(--space-6);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.sc-box--warning {
+  background: color-mix(in srgb, #f59e0b 8%, var(--color-bg));
+  border-color: color-mix(in srgb, #f59e0b 30%, var(--color-divider));
+  color: var(--color-text);
+}
+
+.sc-box--info {
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-bg));
+  border-color: color-mix(in srgb, var(--color-primary) 20%, var(--color-divider));
+  color: var(--color-text);
+}
+
+/* ============================================================
+ *  32. SHORTCODE — cols layout
+ * ============================================================ */
+
+.sc-cols {
+  display: grid;
+  grid-template-columns: var(--col-left, 50%) var(--col-right, 50%);
+  gap: var(--space-8);
+  margin-block: var(--space-6);
+  align-items: start;
+}
+
+.sc-col > *:first-child { margin-top: 0; }
+.sc-col > *:last-child  { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .sc-cols { grid-template-columns: 1fr; }
 }
