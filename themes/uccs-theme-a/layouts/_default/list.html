@@ -5,44 +5,5 @@
     <div class="section-intro">{{ . }}</div>
   {{ end }}
 
-  <ul class="article-list">
-    {{ range where .Pages.ByDate.Reverse "Params.standalone" "ne" true }}
-      {{ $page := . }}
-      <li>
-        {{ with $page.Params.cover }}
-          {{ with $page.Resources.GetMatch . }}
-            <a href="{{ $page.Permalink }}" class="article-thumb-link">
-              <img
-                src="{{ .RelPermalink }}"
-                alt="{{ $page.Params.coveralt | default $page.Title }}"
-                class="article-thumb"
-                loading="lazy"
-              >
-            </a>
-          {{ else }}
-            <a href="{{ $page.Permalink }}" class="article-thumb-link article-thumb-placeholder"></a>
-          {{ end }}
-        {{ else }}
-          <a href="{{ $page.Permalink }}" class="article-thumb-link article-thumb-placeholder"></a>
-        {{ end }}
-
-        <div class="article-info">
-          <a href="{{ $page.Permalink }}" class="article-title">{{ $page.Title }}</a>
-          <p class="article-meta">
-            <span class="meta-section">{{ $page.Section }}</span>
-            <span class="meta-sep">·</span>
-            <span>{{ $page.Date.Format "2 January 2006" }}</span>
-          </p>
-          {{ with $page.Params.authors }}
-            <p class="article-author">
-              {{ range $i, $a := . }}{{ if $i }}, {{ end }}{{ $a }}{{ end }}
-            </p>
-          {{ end }}
-          {{ with $page.Params.description }}
-            <p class="article-excerpt">{{ . }}</p>
-          {{ end }}
-        </div>
-      </li>
-    {{ end }}
-  </ul>
+  {{ partial "article-list.html" .Pages.ByDate.Reverse }}
 {{ end }}

@@ -1,7 +1,6 @@
 ---
 title: "Articol de Test – Toate Componentele"
 date: 2026-03-28
-authors: ["velcea-petru"]
 description: "Un articol de test care acoperă toate elementele standard Markdown."
 tags: ["test", "markdown", "uccs"]
 ---

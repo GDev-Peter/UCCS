@@ -1,45 +1,72 @@
 <!doctype html>
 <html lang="ro">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/UCCS/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=UCCS/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Articol de Test – Toate Componentele – UCCS</title>
-  <link rel="stylesheet" href="/css/site.css">
+  <meta name="description" content="Un articol de test care acoperă toate elementele standard Markdown.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/UCCS/css/style.css">
+  
+  <link rel="stylesheet" href="/UCCS/css/prose.css">
+
 </head>
 <body>
-  <header>
-    <a href="/" class="logo">UCCS</a>
-    <nav>
-      <a href="/polis/">Polis</a>
-      <a href="/agora/">Agora</a>
-      <a href="/educatie/">Educație</a>
-      <a href="/tech/">Tech</a>
-      <a href="/litere/">Litere</a>
-    </nav>
+
+  
+  <header class="site-header">
+
+    
+    <div class="header-row header-row-top">
+      <a href="/UCCS/" class="logo">
+        <span class="logo-main">UCCS</span>
+        <span class="logo-sub">Unde Cuvintele Capătă Sens</span>
+      </a>
+      <nav class="nav-utility" aria-label="Pagini utilitare">
+        <a href="/UCCS/despre/" class="header-link">Despre</a>
+        <a href="/UCCS/contact/" class="header-link">Contact</a><a href="/UCCS/doneaza/"
+           class="btn-donate"
+           >Donează</a>
+      </nav>
+    </div>
+
+    
+    <div class="header-row header-row-nav">
+      <nav class="nav-primary" aria-label="Secțiuni">
+        <a href="/UCCS/polis/" class="active">Polis</a>
+        <a href="/UCCS/agora/">Agora</a>
+        <a href="/UCCS/educatie/">Educație</a>
+        <a href="/UCCS/tech/">Tech</a>
+        <a href="/UCCS/litere/">Litere</a>
+      </nav>
+    </div>
+
   </header>
-  <main>
+
+  
+  <main id="main-content">
     
   <article>
     <h1>Articol de Test – Toate Componentele</h1>
     <p class="article-meta">
       28 March 2026
       
-        · 
-          <a href="/authors/numele-tau/">numele-tau</a>
+        <span class="meta-sep">·</span>
+        
+          
+          <a href="/UCCS/authors/velcea-petru/">velcea-petru</a>
         
       
     </p>
 
-    
-      
     
 
     <div class="article-body">
       <h2 id="titlu-de-nivel-2">Titlu de nivel 2</h2>
 <p>Acesta este un paragraf normal. Conține <strong>text bold</strong>, <em>text italic</em>, și <em><strong>bold italic</strong></em> în aceeași propoziție. Poți adăuga și <code>cod inline</code> în mijlocul unui paragraf.</p>
 <h3 id="titlu-de-nivel-3">Titlu de nivel 3</h3>
-<p>Un al doilea paragraf pentru a testa spațierea dintre paragrafe. Distanța dintre ele trebuie să fie confortabilă pentru citit, nu prea strânsă, nu prea largă.</p>
-<h4 id="titlu-de-nivel-4">Titlu de nivel 4</h4>
 <p>Un al doilea paragraf pentru a testa spațierea dintre paragrafe. Distanța dintre ele trebuie să fie confortabilă pentru citit, nu prea strânsă, nu prea largă.</p>
 <h2 id="citate">Citate</h2>
 <blockquote>
@@ -63,7 +90,7 @@
 <li>Al treilea pas</li>
 </ol>
 <h2 id="linkuri">Linkuri</h2>
-<p>Acesta este un <a href="/polis/">link intern către Polis</a> și acesta este un <a href="https://example.com">link extern către un site</a>.</p>
+<p>Acesta este un <a href="/UCCS/polis/">link intern către Polis</a> și acesta este un <a href="https://example.com">link extern către un site</a>.</p>
 <h2 id="cod">Cod</h2>
 <p>Bloc de cod:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
@@ -111,26 +138,57 @@
 <h2 id="text-lung--test-de-lizibilitate">Text lung — test de lizibilitate</h2>
 <p>Spațiul public românesc suferă nu din lipsă de opinii, ci din lipsă de instrumente. Oamenii știu că ceva nu funcționează, dar nu au vocabularul analitic ca să numească problema cu precizie. UCCS există tocmai pentru asta: să ofere cadre, nu concluzii gata fabricate.</p>
 <p>Un al doilea paragraf lung, ca să vedem cum se comportă linia de text la 42rem. Dacă totul e calibrat corect, ochiul urmărește natural de la sfârșitul unui rând la începutul următorului, fără să se piardă. Acesta este criteriul practic al lizibilității — nu estetica, ci funcția.</p>
-<p>Propaganda nu este doar minciună — este un sistem de sens alternativ.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
-<p>Spațiul public funcționează prin consens fragil.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
-<div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1">
-<p>Definiție adaptată după Jacques Ellul, <em>Propagandes</em>, 1962.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2">
-<p>Hannah Arendt, <em>The Origins of Totalitarianism</em>, 1951.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div>
 
     </div>
   </article>
 
   </main>
-  <footer>
-    <p>© UCCS – Unde Cuvintele Capătă Sens</p>
+
+  
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <a href="/UCCS/" class="footer-logo">UCCS</a>
+        <p class="footer-tagline">Proiect editorial independent.<br>Substanță, nu doar formă.</p>
+        <div class="footer-social">
+          
+          <a href="https://www.instagram.com/istorie.petru/" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Secțiuni</h3>
+        <ul class="footer-links">
+          <li><a href="/UCCS/polis/">Polis</a></li>
+          <li><a href="/UCCS/agora/">Agora</a></li>
+          <li><a href="/UCCS/educatie/">Educație</a></li>
+          <li><a href="/UCCS/tech/">Tech</a></li>
+          <li><a href="/UCCS/litere/">Litere</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Publicație</h3>
+        <ul class="footer-links">
+          <li><a href="/UCCS/despre/">Despre noi</a></li>
+          <li><a href="/UCCS/contact/">Contact</a></li><li><a href="/UCCS/doneaza/"
+                 >Donează</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UCCS – Unde Cuvintele Capătă Sens. Toate drepturile rezervate.</p>
+    </div>
   </footer>
+
 </body>
 </html>

@@ -1,0 +1,29 @@
+{{ $base := .Site.BaseURL | strings.TrimRight "/" }}
+<div class="team-member">
+  <div class="team-member__avatar">
+    {{ if .photo }}
+      <img
+        src="{{ $base }}/{{ .photo }}"
+        alt="{{ .name }}"
+        width="72"
+        height="72"
+        loading="lazy"
+        decoding="async"
+        class="team-member__photo"
+      >
+    {{ else }}
+      <span aria-hidden="true">{{ .initial | default (substr .name 0 1) }}</span>
+    {{ end }}
+  </div>
+  <div class="team-member__content">
+    <div class="team-member__header">
+      <h3 class="team-member__name">{{ .name }}</h3>
+      <span class="team-member__role">{{ .role }}</span>
+    </div>
+    <div class="team-member__bio">
+      {{ range .bio }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</div>

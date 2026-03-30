@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/UCCS/litere/articol-de-test-1/</loc>
+    <lastmod>2026-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/UCCS/litere/articol-de-test-2/</loc>
+    <lastmod>2026-03-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/UCCS/litere/articol-de-test-toate-componentele/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -12,9 +18,6 @@
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/UCCS/tags/markdown/</loc>
-    <lastmod>2026-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/UCCS/authors/velcea-petru/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/UCCS/tags/</loc>
@@ -28,6 +31,12 @@
   </url><url>
     <loc>http://localhost:1313/UCCS/</loc>
     <lastmod>2026-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/UCCS/authors/velcea-petru/</loc>
+    <lastmod>2026-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/UCCS/polis/critica-programei-de-istorie-din-liceu/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/UCCS/polis/critica-programei-de-istorie-din-liceu/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>

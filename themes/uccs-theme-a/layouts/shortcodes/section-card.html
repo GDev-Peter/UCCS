@@ -1,0 +1,5 @@
+<article class="section-card" data-section="{{ .Get `label` | lower }}">
+  <span class="section-label">{{ .Get "label" }}</span>
+  <h3 class="section-title">{{ .Get "title" }}</h3>
+  <p class="section-desc">{{ .Inner | markdownify }}</p>
+</article>

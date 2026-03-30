@@ -1,21 +1,44 @@
 {{ define "main" }}
+
+  {{/* ── Author header ── */}}
   <div class="author-header">
+
     {{ $avatar := .Resources.GetMatch "avatar.*" }}
     {{ if $avatar }}
       <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" class="author-avatar">
     {{ end }}
-    <div>
+
+    <div class="author-bio">
       <h1>{{ .Title }}</h1>
-      <div class="author-bio">{{ .Content }}</div>
+
+      {{/* Short bio — from params.bio (plain text) */}}
+      {{ with .Params.bio }}
+        <p>{{ . }}</p>
+      {{ end }}
+
+      {{/* Social icon links + CV */}}
+      {{ partial "author-social.html" . }}
     </div>
+
   </div>
 
-  <ul class="article-list">
-    {{ range .Pages.ByDate.Reverse }}
-      <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <p class="article-meta">{{ .Section }} · {{ .Date.Format "2 January 2006" }}</p>
-      </li>
-    {{ end }}
-  </ul>
+  {{/* ── Long-form markdown content below the header (optional) ── */}}
+  {{ with .Content }}
+    <div class="author-content">
+      {{ . }}
+    </div>
+  {{ end }}
+
+  {{/* ── Article count ── */}}
+  {{ $articles := where .Pages "Params.standalone" "ne" true }}
+  {{ with $articles }}
+    <p class="section-intro" style="margin-top: var(--space-10);">
+      {{ len . }}
+      {{ if eq (len .) 1 }}articol publicat{{ else }}articole publicate{{ end }}
+    </p>
+  {{ end }}
+
+  {{/* ── Article list ── */}}
+  {{ partial "article-list.html" .Pages.ByDate.Reverse }}
+
 {{ end }}

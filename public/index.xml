@@ -9,11 +9,32 @@
     <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/UCCS/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Articol de Test – 1</title>
+      <link>http://localhost:1313/UCCS/litere/articol-de-test-1/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/UCCS/litere/articol-de-test-1/</guid>
+      <description>&lt;h2 id=&#34;titlu-de-nivel-2&#34;&gt;Titlu de nivel 2&lt;/h2&gt;&#xA;&lt;p&gt;Acesta este un paragraf normal. Conține &lt;strong&gt;text bold&lt;/strong&gt;, &lt;em&gt;text italic&lt;/em&gt;, și &lt;em&gt;&lt;strong&gt;bold italic&lt;/strong&gt;&lt;/em&gt; în aceeași propoziție. Poți adăuga și &lt;code&gt;cod inline&lt;/code&gt; în mijlocul unui paragraf.&lt;/p&gt;&#xA;&lt;h3 id=&#34;titlu-de-nivel-3&#34;&gt;Titlu de nivel 3&lt;/h3&gt;&#xA;&lt;p&gt;Un al doilea paragraf pentru a testa spațierea dintre paragrafe. Distanța dintre ele trebuie să fie confortabilă pentru citit, nu prea strânsă, nu prea largă.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Articol de Test – 2</title>
+      <link>http://localhost:1313/UCCS/litere/articol-de-test-2/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/UCCS/litere/articol-de-test-2/</guid>
+      <description>&lt;h2 id=&#34;titlu-de-nivel-2&#34;&gt;Titlu de nivel 2&lt;/h2&gt;&#xA;&lt;p&gt;Acesta este un paragraf normal. Conține &lt;strong&gt;text bold&lt;/strong&gt;, &lt;em&gt;text italic&lt;/em&gt;, și &lt;em&gt;&lt;strong&gt;bold italic&lt;/strong&gt;&lt;/em&gt; în aceeași propoziție. Poți adăuga și &lt;code&gt;cod inline&lt;/code&gt; în mijlocul unui paragraf.&lt;/p&gt;&#xA;&lt;h3 id=&#34;titlu-de-nivel-3&#34;&gt;Titlu de nivel 3&lt;/h3&gt;&#xA;&lt;p&gt;Un al doilea paragraf pentru a testa spațierea dintre paragrafe. Distanța dintre ele trebuie să fie confortabilă pentru citit, nu prea strânsă, nu prea largă.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Articol de Test – Toate Componentele</title>
       <link>http://localhost:1313/UCCS/litere/articol-de-test-toate-componentele/</link>
       <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/litere/articol-de-test-toate-componentele/</guid>
       <description>&lt;h2 id=&#34;titlu-de-nivel-2&#34;&gt;Titlu de nivel 2&lt;/h2&gt;&#xA;&lt;p&gt;Acesta este un paragraf normal. Conține &lt;strong&gt;text bold&lt;/strong&gt;, &lt;em&gt;text italic&lt;/em&gt;, și &lt;em&gt;&lt;strong&gt;bold italic&lt;/strong&gt;&lt;/em&gt; în aceeași propoziție. Poți adăuga și &lt;code&gt;cod inline&lt;/code&gt; în mijlocul unui paragraf.&lt;/p&gt;&#xA;&lt;h3 id=&#34;titlu-de-nivel-3&#34;&gt;Titlu de nivel 3&lt;/h3&gt;&#xA;&lt;p&gt;Un al doilea paragraf pentru a testa spațierea dintre paragrafe. Distanța dintre ele trebuie să fie confortabilă pentru citit, nu prea strânsă, nu prea largă.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Critica programei de istorie din liceu</title>
+      <link>http://localhost:1313/UCCS/polis/critica-programei-de-istorie-din-liceu/</link>
+      <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/UCCS/polis/critica-programei-de-istorie-din-liceu/</guid>
+      <description>&lt;h2 id=&#34;context&#34;&gt;Context&lt;/h2&gt;&#xA;&lt;p&gt;Educația din România continuă să sufere de probleme majore, reflectate atât în statistici alarmante privind abandonul școlar și analfabetismul funcțional, cât și în analfabetismul istoric. Fondurile sunt insuficiente, instituțiile sunt slab dotate pentru a asigura mai mult decât șase ore de studiu pe zi (în sensul existenței unei cantine, a unor săli libere, de lectură etc.), iar programele și manualele rămân neactualizate de decenii.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Critica programei de istorie din liceu</title>
@@ -34,14 +55,14 @@
       <link>http://localhost:1313/UCCS/despre/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/despre/</guid>
-      <description>&lt;p&gt;Textul tău despre redacție&amp;hellip;&lt;/p&gt;</description>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Numele complet:&lt;/strong&gt; UCCS = „Unde Cuvintele Capătă Sens&amp;quot;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Misiunea:&lt;/strong&gt; să crească claritatea publică — să explice fenomene politice, sociale, culturale într-un limbaj inteligibil, fără isterie, fără cultul personalității, fără dezumanizare&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tonul:&lt;/strong&gt; public-intellectual serios; preferă instrumente și cadre analitice în locul tribalismului; critica se îndreaptă spre idei și instituții, nu spre persoane&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Publicul țintă:&lt;/strong&gt; cititori români educați, sfera NGO/policy, tineri debaters&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Autorul trebuie să fie vizibil&lt;/strong&gt; — UCCS construiește o identitate de expert, nu un outlet anonim&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Principiul cardinal:&lt;/strong&gt; optimizează pentru coerență, nu pentru reach sau monetizare; o arhivă coerentă mică bate una mare dar haotică&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;sections-grid&#34;&gt;&#xA;  &#xA;  &lt;article class=&#34;section-card&#34; data-section=&#34;polis&#34;&gt;&#xA;  &lt;span class=&#34;section-label&#34;&gt;Polis&lt;/span&gt;&#xA;  &lt;h3 class=&#34;section-title&#34;&gt;Politică &amp;amp; Cetate&lt;/h3&gt;&#xA;  &lt;p class=&#34;section-desc&#34;&gt;Instituții, putere, democrație.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Donează</title>
       <link>http://localhost:1313/UCCS/doneaza/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/doneaza/</guid>
-      <description>&lt;p&gt;Informații despre cum poți susține publicația&amp;hellip;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Informații despre cum poți susține publicația&amp;hellip;&#xA;&lt;a href=&#34;https://ko-fi.com/uccspub&#34;&gt;https://ko-fi.com/uccspub&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
