@@ -16,4 +16,4 @@ standalone: true
 
 ABSOLUTE URL | NEED TO MODIFY
 
-Informații despre cum poți susține publicația...
+Donațiile nu influențează editorial niciun text. Nu există conținut exclusiv pentru susținători și nu există „niveluri de acces". UCCS rămâne integral public și gratuit. Susținerea este un gest de solidaritate, nu o tranzacție.

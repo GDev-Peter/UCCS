@@ -3,310 +3,29 @@
  * style.css — v4
  *
  * Sections:
- *   1.  Design tokens
- *   2.  Base reset
- *   3.  Accessibility utilities
- *   4.  Layout
- *   5.  Header & nav (stub — see 19)
- *   6.  Page titles & section intro
- *   7.  Article meta
- *   8.  Article list (section pages)
- *   9.  Homepage grid
- *   10. Article page
- *   15. Author bio
- *   16. Footer (stub — see 20)
- *   17. Reading progress
- *   18. Responsive
- *   19. Site header — two-row
- *   20. Site footer
- *   21. Standalone pages (Despre / Contact / Donează)
- *   22. Responsive — header & footer
- *   23. Featured hero (homepage top story)
- *   24. Page header (section list pages)
- *   25. Section strip (homepage bottom nav)
- *   26. Shortcode components — lead, contact-info
- *   27. Section card & sections grid
- *   28. Pull quote
- *   29. Team member
- *   30. CTA box
+ *   8.  Header & nav (stub — see 19)
+ *   9.  Page titles & section intro
+ *   10.  Article meta
+ *   11.  Article list (section pages)
+ *   12.  Homepage grid
+ *   13. Article page
+ *   14. Author bio
+ *   15. Footer (stub — see 20)
+ *   16. Reading progress
+ *   17. Responsive
+ *   18. Standalone pages (Despre / Contact / Donează)
+ *   19. Featured hero (homepage top story)
+ *   20. Page header (section list pages)
+ *   21. Section strip (homepage bottom nav)
+ *   22. Shortcode components — lead, contact-info
+ *   23. Section card & sections grid
+ *   24. Pull quote
+ *   25. Team member
+ *   26. CTA box
  */
 
 /* ============================================================
- *  1. DESIGN TOKENS
- * ============================================================ */
-
-:root, [data-theme="light"] {
-  --color-bg:              #f8f5ef;
-  --color-surface:         #faf8f3;
-  --color-surface-2:       #fcfbf8;
-  --color-surface-offset:  #f2ede4;
-  --color-surface-dynamic: #e8e1d6;
-  --color-divider:         #ddd6ca;
-  --color-border:          #d4ccc0;
-
-  --color-text:            #1c1a14;
-  --color-text-muted:      #6b6459;
-  --color-text-faint:      #b3a99a;
-  --color-text-inverse:    #f8f5ef;
-
-  --color-primary:         #5a3e2b;
-  --color-primary-hover:   #432d1c;
-  --color-primary-active:  #2e1d10;
-  --color-primary-highlight: #e0d4c8;
-
-  --color-gold:            #b07d3a;
-  --color-gold-hover:      #9a6b2a;
-
-  --color-error:           #9b2c2c;
-  --color-success:         #3a6b20;
-
-  --radius-sm:   0.25rem;
-  --radius-md:   0.375rem;
-  --radius-lg:   0.5rem;
-  --radius-xl:   0.75rem;
-  --radius-full: 9999px;
-
-  --transition-fast:        120ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
-
-  --shadow-sm: 0 1px 2px rgba(30, 20, 10, 0.06);
-  --shadow-md: 0 4px 14px rgba(30, 20, 10, 0.08);
-  --shadow-lg: 0 12px 36px rgba(30, 20, 10, 0.11);
-
-  /* ↓ Change this one variable to resize the whole site */
-  --site-max-w:      1120px;
-
-  --content-article: 780px;
-  --content-narrow:  640px;
-  --content-default: 680px;
-  --content-wide:    var(--site-max-w);
-  --content-full:    100%;
-
-  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.8125rem);
-  --text-sm:   clamp(0.8125rem, 0.78rem + 0.25vw, 0.9375rem);
-  --text-base: clamp(1rem,     0.96rem + 0.2vw,  1.125rem);
-  --text-lg:   clamp(1.125rem, 1rem    + 0.6vw,  1.375rem);
-  --text-xl:   clamp(1.375rem, 1.1rem  + 1.1vw,  2rem);
-  --text-2xl:  clamp(1.75rem,  1.2rem  + 2vw,    3rem);
-  --text-3xl:  clamp(2.25rem,  1rem    + 3.8vw,  4.5rem);
-
-  --space-1:  0.25rem;
-  --space-2:  0.5rem;
-  --space-3:  0.75rem;
-  --space-4:  1rem;
-  --space-5:  1.25rem;
-  --space-6:  1.5rem;
-  --space-8:  2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-
-  --font-display: 'Cormorant Garamond', 'Georgia', serif;
-  --font-body:    'Source Serif 4', 'Georgia', serif;
-  --font-ui:      system-ui, -apple-system, sans-serif;
-}
-
-[data-theme="dark"] {
-  --color-bg:              #17140d;
-  --color-surface:         #1c1912;
-  --color-surface-2:       #211e16;
-  --color-surface-offset:  #2a261c;
-  --color-surface-dynamic: #2a261c;
-  --color-divider:         #2e2a20;
-  --color-border:          #3d3829;
-
-  --color-text:            #e0d8cb;
-  --color-text-muted:      #9a9183;
-  --color-text-faint:      #5e5749;
-  --color-text-inverse:    #17140d;
-
-  --color-primary:         #c4956a;
-  --color-primary-hover:   #d4a87e;
-  --color-primary-active:  #e0bc96;
-  --color-primary-highlight: #2e2318;
-
-  --color-gold:            #c9973f;
-  --color-gold-hover:      #d9a84e;
-
-  --color-error:           #e07070;
-  --color-success:         #7ab856;
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.45);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --color-bg:              #17140d;
-    --color-surface:         #1c1912;
-    --color-surface-2:       #211e16;
-    --color-surface-offset:  #2a261c;
-    --color-surface-dynamic: #2a261c;
-    --color-divider:         #2e2a20;
-    --color-border:          #3d3829;
-    --color-text:            #e0d8cb;
-    --color-text-muted:      #9a9183;
-    --color-text-faint:      #5e5749;
-    --color-text-inverse:    #17140d;
-    --color-primary:         #c4956a;
-    --color-primary-hover:   #d4a87e;
-    --color-primary-active:  #e0bc96;
-    --color-primary-highlight: #2e2318;
-    --color-gold:            #c9973f;
-    --color-gold-hover:      #d9a84e;
-    --color-error:           #e07070;
-    --color-success:         #7ab856;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
-    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.35);
-    --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.45);
-  }
-}
-
-/* ============================================================
- *  2. BASE RESET
- * ============================================================ */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--space-16);
-  hanging-punctuation: first last;
-}
-
-body {
-  min-height: 100dvh;
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  line-height: 1.72;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  transition: background-color var(--transition-interactive),
-              color var(--transition-interactive);
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-img { background: var(--color-surface-offset); }
-
-ul[role="list"], ol[role="list"] { list-style: none; }
-
-input, button, textarea, select { font: inherit; color: inherit; }
-
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
-  line-height: 1.2;
-  font-family: var(--font-display);
-  font-weight: 500;
-}
-
-p, li, figcaption { text-wrap: pretty; }
-
-button { cursor: pointer; background: none; border: none; }
-
-table { border-collapse: collapse; width: 100%; }
-
-::selection {
-  background: rgba(90, 62, 43, 0.2);
-  color: var(--color-text);
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: color var(--transition-fast),
-              opacity var(--transition-fast);
-}
-
-a:hover { color: var(--color-primary-hover); }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ============================================================
- *  3. ACCESSIBILITY UTILITIES
- * ============================================================ */
-
-.sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.skip-link {
-  position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  z-index: 999;
-  transform: translateY(-120%);
-  transition: transform var(--transition-fast);
-}
-
-.skip-link:focus { transform: translateY(0); }
-
-/* ============================================================
- *  4. LAYOUT
- * ============================================================ */
-
-:root { --side-pad: clamp(var(--space-5), 4vw, var(--space-10)); }
-
-main {
-  flex: 1;
-  width: 100%;
-  max-width: var(--site-max-w);
-  margin-inline: auto;
-  padding-inline: var(--side-pad);
-  padding-block: var(--space-8) var(--space-20);
-}
-
-.container-wide {
-  max-width: var(--site-max-w);
-  margin-inline: auto;
-  padding-inline: var(--side-pad);
-}
-
-/* ============================================================
- *  6. PAGE TITLES & SECTION INTRO
+ *  8. PAGE TITLES & SECTION INTRO
  * ============================================================ */
 
 .section-intro {
@@ -328,7 +47,7 @@ main > h1 {
 }
 
 /* ============================================================
- *  7. ARTICLE META
+ *  9. ARTICLE META
  * ============================================================ */
 
 .article-meta {
@@ -372,7 +91,7 @@ main > h1 {
 }
 
 /* ============================================================
- *  8. ARTICLE LIST — section pages
+ *  10. ARTICLE LIST — section pages
  * ============================================================ */
 
 .article-list {
@@ -449,7 +168,7 @@ main > h1 {
 }
 
 /* ============================================================
- *  9. HOMEPAGE GRID
+ *  11. HOMEPAGE GRID
  * ============================================================ */
 
 /* Section sub-heading above the grid */
@@ -547,7 +266,7 @@ main > h1 {
 .article-grid-title:hover { color: var(--color-primary); }
 
 /* ============================================================
- *  10. ARTICLE PAGE
+ *  12. ARTICLE PAGE
  * ============================================================ */
 
 article {
@@ -579,7 +298,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  15. AUTHOR BIO
+ *  13. AUTHOR BIO
  * ============================================================ */
 
 .author-header {
@@ -665,12 +384,10 @@ article > .article-meta {
 
 .author-content {
   margin-top: var(--space-10);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-divider);
   max-width: var(--content-default);
 }
 
-.author-content p   { margin-bottom: var(--space-5); max-width: 68ch; }
+.author-content p   { margin-bottom: var(--space-5); }
 .author-content h2  { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-top: var(--space-10); margin-bottom: var(--space-3); }
 .author-content a   { color: var(--color-primary); }
 
@@ -713,7 +430,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  17. READING PROGRESS
+ *  14. READING PROGRESS
  * ============================================================ */
 
 .reading-progress {
@@ -729,7 +446,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  18. RESPONSIVE — grid & list
+ *  15. RESPONSIVE — grid & list
  * ============================================================ */
 
 @media (min-width: 768px) {
@@ -765,267 +482,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  19. SITE HEADER — two-row
- * ============================================================ */
-
-.site-header {
-  width: 100%;
-  background: color-mix(in srgb, var(--color-bg) 94%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-divider);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-
-.header-row {
-  width: 100%;
-  max-width: var(--site-max-w);
-  margin-inline: auto;
-  padding-inline: var(--side-pad);
-  display: flex;
-  align-items: center;
-}
-
-.header-row-top {
-  padding-block: var(--space-3);
-  border-bottom: 1px solid var(--color-divider);
-  flex-wrap: nowrap;
-}
-
-.header-row-nav {
-  padding-block: var(--space-2);
-  min-height: 0;
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  text-decoration: none;
-  color: var(--color-text);
-  flex: 1;
-  line-height: 1;
-  transition: color var(--transition-fast);
-}
-
-.logo:hover { color: var(--color-primary); }
-
-.logo-main {
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.logo-sub {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  letter-spacing: 0.03em;
-  font-weight: 400;
-  margin-top: 2px;
-  white-space: nowrap;
-}
-
-.logo:hover .logo-sub { color: var(--color-primary); }
-
-.nav-utility {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  flex-shrink: 0;
-  flex-wrap: nowrap;
-}
-
-.header-link {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-  transition: color var(--transition-fast);
-}
-
-.header-link:hover { color: var(--color-text); }
-
-.btn-donate {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-text-inverse);
-  background: var(--color-primary);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  white-space: nowrap;
-  transition: background var(--transition-fast),
-              transform var(--transition-fast);
-}
-
-.btn-donate:hover {
-  background: var(--color-primary-hover);
-  color: var(--color-text-inverse);
-  transform: translateY(-1px);
-}
-
-.nav-primary {
-  display: flex;
-  align-items: center;
-  gap: clamp(var(--space-4), 3vw, var(--space-8));
-  flex-wrap: wrap;
-}
-
-.nav-primary a {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-text-muted);
-  padding-block: var(--space-2);
-  position: relative;
-  transition: color var(--transition-fast);
-  white-space: nowrap;
-}
-
-.nav-primary a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0; right: 0;
-  height: 2px;
-  background: var(--color-primary);
-  border-radius: 1px;
-  transform: scaleX(0);
-  transition: transform var(--transition-fast);
-}
-
-.nav-primary a:hover        { color: var(--color-text); }
-.nav-primary a:hover::after { transform: scaleX(1); }
-.nav-primary a.active       { color: var(--color-text); }
-.nav-primary a.active::after{ transform: scaleX(1); }
-
-/* ============================================================
- *  20. SITE FOOTER
- * ============================================================ */
-
-.site-footer {
-  margin-top: var(--space-20);
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-divider);
-}
-
-.footer-inner {
-  max-width: var(--site-max-w);
-  margin-inline: auto;
-  padding-inline: var(--side-pad);
-  padding-block: var(--space-12) var(--space-10);
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-10) var(--space-8);
-  align-items: start;
-}
-
-.footer-brand { display: flex; flex-direction: column; gap: var(--space-4); }
-
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-text);
-  transition: color var(--transition-fast);
-}
-
-.footer-logo:hover { color: var(--color-primary); }
-
-.footer-tagline {
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  margin: 0;
-  max-width: 28ch;
-}
-
-/* Social icons — no border, just icon color */
-.footer-social {
-  display: flex;
-  gap: var(--space-2);
-  align-items: center;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-md);
-  color: var(--color-text-faint);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.social-link svg { width: 18px; height: 18px; }
-
-.social-link:hover { color: var(--color-primary); }
-
-.footer-col { display: flex; flex-direction: column; gap: var(--space-4); }
-
-.footer-heading {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text-faint);
-  margin: 0;
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links a {
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.footer-links a:hover { color: var(--color-primary); }
-
-.footer-bottom {
-  max-width: var(--site-max-w);
-  margin-inline: auto;
-  padding-inline: var(--side-pad);
-  padding-block: var(--space-5);
-  border-top: 1px solid var(--color-divider);
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  color: var(--color-text-faint);
-}
-
-/* ============================================================
- *  21. STANDALONE PAGES — Despre / Contact / Donează
+ *  16. STANDALONE PAGES — Despre / Contact / Donează
  * ============================================================ */
 
 .standalone-page { max-width: var(--content-default); }
@@ -1057,7 +514,7 @@ article > .article-meta {
 
 .standalone-body { }
 
-.standalone-body p   { margin-bottom: var(--space-5); max-width: 68ch; }
+.standalone-body p   { margin-bottom: var(--space-5); max-width: var(--content-default); }
 .standalone-body h2  {
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -1068,36 +525,7 @@ article > .article-meta {
 .standalone-body a   { color: var(--color-primary); }
 
 /* ============================================================
- *  22. RESPONSIVE — header & footer
- * ============================================================ */
-
-@media (max-width: 700px) { .logo-sub { display: none; } }
-
-@media (max-width: 540px) {
-  .header-row-top { gap: var(--space-2); padding-block: var(--space-2); }
-  .header-link    { font-size: 0.68rem; letter-spacing: 0.04em; }
-  .btn-donate     { font-size: 0.68rem; padding: var(--space-1) var(--space-3); }
-  .logo-main      { font-size: 1rem; letter-spacing: 0.14em; }
-}
-
-@media (max-width: 767px) {
-  .footer-inner { grid-template-columns: 1fr 1fr; }
-  .footer-brand {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-inner { grid-template-columns: 1fr; }
-  .footer-brand { flex-direction: column; }
-}
-
-/* ============================================================
- *  23. FEATURED HERO — top of homepage
+ *  17. FEATURED HERO — top of homepage
  * ============================================================ */
 
 .featured-hero {
@@ -1262,7 +690,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  24. PAGE HEADER — section list pages
+ *  18. PAGE HEADER — section list pages
  * ============================================================ */
 
 .page-header {
@@ -1310,7 +738,7 @@ article > .article-meta {
 .page-header-desc p { margin: 0; }
 
 /* ============================================================
- *  25. SECTION STRIP — editorial section nav (bottom of homepage)
+ *  19. SECTION STRIP — editorial section nav (bottom of homepage)
  * ============================================================ */
 
 .section-strip {
@@ -1383,7 +811,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  26. SHORTCODE COMPONENTS — lead, contact-info
+ *  20. SHORTCODE COMPONENTS — lead, contact-info
  * ============================================================ */
 
 /* Lead — large opening paragraph for standalone pages */
@@ -1444,7 +872,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  27. SECTION CARD & SECTIONS GRID
+ *  21. SECTION CARD & SECTIONS GRID
  * ============================================================ */
 
 .sections-grid {
@@ -1540,7 +968,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  28. PULL QUOTE
+ *  22. PULL QUOTE
  * ============================================================ */
 
 .pull-quote {
@@ -1571,7 +999,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  29. TEAM MEMBER
+ *  23. TEAM MEMBER
  * ============================================================ */
 
 .team-member {
@@ -1657,7 +1085,7 @@ article > .article-meta {
   font-size: var(--text-base);
   line-height: 1.75;
   color: var(--color-text-muted);
-  max-width: 60ch;
+  max-width: var(--content-default);
   margin: 0;
   text-align: justify;
   hyphens: auto;
@@ -1666,7 +1094,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  30. CTA BOX
+ *  34. CTA BOX
  * ============================================================ */
 
 .cta-box {
@@ -1742,13 +1170,13 @@ article > .article-meta {
 
 .sc-btn--primary {
   background: var(--color-gold);
-  color: #1a1200;
+  color: var(--color-tex);
   border: none;
 }
 
 .sc-btn--primary:hover {
   background: var(--color-gold-hover);
-  color: #1a1200;
+  color: var(--color-tex);
   box-shadow: var(--shadow-md);
 }
 
@@ -1773,7 +1201,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  31. SHORTCODE — box
+ *  25. SHORTCODE — box
  * ============================================================ */
 
 .sc-box {
@@ -1788,9 +1216,8 @@ article > .article-meta {
 }
 
 .sc-box--warning {
-  background: color-mix(in srgb, #f59e0b 8%, var(--color-bg));
-  border-color: color-mix(in srgb, #f59e0b 30%, var(--color-divider));
-  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-gold) 8%, var(--color-bg));
+  border-color: color-mix(in srgb, var(--color-gold) 30%, var(--color-divider));
 }
 
 .sc-box--info {
@@ -1800,7 +1227,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  32. SHORTCODE — cols layout
+ *  26. SHORTCODE — cols layout
  * ============================================================ */
 
 .sc-cols {

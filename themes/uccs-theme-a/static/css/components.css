@@ -3,29 +3,29 @@
  * style.css — v4
  *
  * Sections:
- *   5.  Header & nav (stub — see 19)
- *   6.  Page titles & section intro
- *   7.  Article meta
- *   8.  Article list (section pages)
- *   9.  Homepage grid
- *   10. Article page
- *   15. Author bio
- *   16. Footer (stub — see 20)
- *   17. Reading progress
- *   18. Responsive
- *   21. Standalone pages (Despre / Contact / Donează)
- *   23. Featured hero (homepage top story)
- *   24. Page header (section list pages)
- *   25. Section strip (homepage bottom nav)
- *   26. Shortcode components — lead, contact-info
- *   27. Section card & sections grid
- *   28. Pull quote
- *   29. Team member
- *   30. CTA box
+ *   8.  Header & nav (stub — see 19)
+ *   9.  Page titles & section intro
+ *   10.  Article meta
+ *   11.  Article list (section pages)
+ *   12.  Homepage grid
+ *   13. Article page
+ *   14. Author bio
+ *   15. Footer (stub — see 20)
+ *   16. Reading progress
+ *   17. Responsive
+ *   18. Standalone pages (Despre / Contact / Donează)
+ *   19. Featured hero (homepage top story)
+ *   20. Page header (section list pages)
+ *   21. Section strip (homepage bottom nav)
+ *   22. Shortcode components — lead, contact-info
+ *   23. Section card & sections grid
+ *   24. Pull quote
+ *   25. Team member
+ *   26. CTA box
  */
 
 /* ============================================================
- *  6. PAGE TITLES & SECTION INTRO
+ *  8. PAGE TITLES & SECTION INTRO
  * ============================================================ */
 
 .section-intro {
@@ -47,7 +47,7 @@ main > h1 {
 }
 
 /* ============================================================
- *  7. ARTICLE META
+ *  9. ARTICLE META
  * ============================================================ */
 
 .article-meta {
@@ -91,7 +91,7 @@ main > h1 {
 }
 
 /* ============================================================
- *  8. ARTICLE LIST — section pages
+ *  10. ARTICLE LIST — section pages
  * ============================================================ */
 
 .article-list {
@@ -168,7 +168,7 @@ main > h1 {
 }
 
 /* ============================================================
- *  9. HOMEPAGE GRID
+ *  11. HOMEPAGE GRID
  * ============================================================ */
 
 /* Section sub-heading above the grid */
@@ -266,7 +266,7 @@ main > h1 {
 .article-grid-title:hover { color: var(--color-primary); }
 
 /* ============================================================
- *  10. ARTICLE PAGE
+ *  12. ARTICLE PAGE
  * ============================================================ */
 
 article {
@@ -298,7 +298,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  15. AUTHOR BIO
+ *  13. AUTHOR BIO
  * ============================================================ */
 
 .author-header {
@@ -384,12 +384,10 @@ article > .article-meta {
 
 .author-content {
   margin-top: var(--space-10);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-divider);
   max-width: var(--content-default);
 }
 
-.author-content p   { margin-bottom: var(--space-5); max-width: 68ch; }
+.author-content p   { margin-bottom: var(--space-5); }
 .author-content h2  { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-top: var(--space-10); margin-bottom: var(--space-3); }
 .author-content a   { color: var(--color-primary); }
 
@@ -432,7 +430,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  17. READING PROGRESS
+ *  14. READING PROGRESS
  * ============================================================ */
 
 .reading-progress {
@@ -448,7 +446,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  18. RESPONSIVE — grid & list
+ *  15. RESPONSIVE — grid & list
  * ============================================================ */
 
 @media (min-width: 768px) {
@@ -484,7 +482,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  21. STANDALONE PAGES — Despre / Contact / Donează
+ *  16. STANDALONE PAGES — Despre / Contact / Donează
  * ============================================================ */
 
 .standalone-page { max-width: var(--content-default); }
@@ -516,7 +514,7 @@ article > .article-meta {
 
 .standalone-body { }
 
-.standalone-body p   { margin-bottom: var(--space-5); max-width: 68ch; }
+.standalone-body p   { margin-bottom: var(--space-5); max-width: var(--content-default); }
 .standalone-body h2  {
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -527,7 +525,7 @@ article > .article-meta {
 .standalone-body a   { color: var(--color-primary); }
 
 /* ============================================================
- *  23. FEATURED HERO — top of homepage
+ *  17. FEATURED HERO — top of homepage
  * ============================================================ */
 
 .featured-hero {
@@ -692,7 +690,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  24. PAGE HEADER — section list pages
+ *  18. PAGE HEADER — section list pages
  * ============================================================ */
 
 .page-header {
@@ -740,7 +738,7 @@ article > .article-meta {
 .page-header-desc p { margin: 0; }
 
 /* ============================================================
- *  25. SECTION STRIP — editorial section nav (bottom of homepage)
+ *  19. SECTION STRIP — editorial section nav (bottom of homepage)
  * ============================================================ */
 
 .section-strip {
@@ -813,7 +811,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  26. SHORTCODE COMPONENTS — lead, contact-info
+ *  20. SHORTCODE COMPONENTS — lead, contact-info
  * ============================================================ */
 
 /* Lead — large opening paragraph for standalone pages */
@@ -874,7 +872,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  27. SECTION CARD & SECTIONS GRID
+ *  21. SECTION CARD & SECTIONS GRID
  * ============================================================ */
 
 .sections-grid {
@@ -970,7 +968,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  28. PULL QUOTE
+ *  22. PULL QUOTE
  * ============================================================ */
 
 .pull-quote {
@@ -1001,7 +999,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  29. TEAM MEMBER
+ *  23. TEAM MEMBER
  * ============================================================ */
 
 .team-member {
@@ -1087,7 +1085,7 @@ article > .article-meta {
   font-size: var(--text-base);
   line-height: 1.75;
   color: var(--color-text-muted);
-  max-width: 60ch;
+  max-width: var(--content-default);
   margin: 0;
   text-align: justify;
   hyphens: auto;
@@ -1096,7 +1094,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  30. CTA BOX
+ *  34. CTA BOX
  * ============================================================ */
 
 .cta-box {
@@ -1172,13 +1170,13 @@ article > .article-meta {
 
 .sc-btn--primary {
   background: var(--color-gold);
-  color: #1a1200;
+  color: var(--color-tex);
   border: none;
 }
 
 .sc-btn--primary:hover {
   background: var(--color-gold-hover);
-  color: #1a1200;
+  color: var(--color-tex);
   box-shadow: var(--shadow-md);
 }
 
@@ -1203,7 +1201,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  31. SHORTCODE — box
+ *  25. SHORTCODE — box
  * ============================================================ */
 
 .sc-box {
@@ -1218,9 +1216,8 @@ article > .article-meta {
 }
 
 .sc-box--warning {
-  background: color-mix(in srgb, #f59e0b 8%, var(--color-bg));
-  border-color: color-mix(in srgb, #f59e0b 30%, var(--color-divider));
-  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-gold) 8%, var(--color-bg));
+  border-color: color-mix(in srgb, var(--color-gold) 30%, var(--color-divider));
 }
 
 .sc-box--info {
@@ -1230,7 +1227,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  32. SHORTCODE — cols layout
+ *  26. SHORTCODE — cols layout
  * ============================================================ */
 
 .sc-cols {

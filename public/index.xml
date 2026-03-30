@@ -6,6 +6,7 @@
     <description>Recent content on UCCS</description>
     <generator>Hugo</generator>
     <language>ro-RO</language>
+    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/UCCS/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Articol de Test – 1</title>
@@ -47,14 +48,14 @@
       <link>http://localhost:1313/UCCS/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/contact/</guid>
-      <description>&lt;p&gt;Email, formular, sau orice altceva&amp;hellip;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;ce-nu-procesăm&#34;&gt;Ce nu procesăm&lt;/h2&gt;&#xA;&lt;p&gt;Nu răspundem la solicitări de publicitate, parteneriate comerciale sau cereri de ștergere a conținutului editorial fără temei factual.&lt;/p&gt;&#xA;&lt;p&gt;Răspundem în limita timpului disponibil.&lt;/p&gt;&#xA;&lt;p&gt;Poți lua legătura cu redacția UCCS prin email:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Despre noi</title>
       <link>http://localhost:1313/UCCS/despre/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/despre/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Numele complet:&lt;/strong&gt; UCCS = „Unde Cuvintele Capătă Sens&amp;quot;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Misiunea:&lt;/strong&gt; să crească claritatea publică — să explice fenomene politice, sociale, culturale într-un limbaj inteligibil, fără isterie, fără cultul personalității, fără dezumanizare&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tonul:&lt;/strong&gt; public-intellectual serios; preferă instrumente și cadre analitice în locul tribalismului; critica se îndreaptă spre idei și instituții, nu spre persoane&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Publicul țintă:&lt;/strong&gt; cititori români educați, sfera NGO/policy, tineri debaters&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Autorul trebuie să fie vizibil&lt;/strong&gt; — UCCS construiește o identitate de expert, nu un outlet anonim&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Principiul cardinal:&lt;/strong&gt; optimizează pentru coerență, nu pentru reach sau monetizare; o arhivă coerentă mică bate una mare dar haotică&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;sections-grid&#34;&gt;&#xA;  &#xA;  &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;article class=&#34;section-card&#34; data-section=&#34;polis&#34;&gt;&#xA;  &lt;span class=&#34;section-label&#34;&gt;Polis&lt;/span&gt;&#xA;  &lt;h3 class=&#34;section-title&#34;&gt;Politică &amp;amp; Cetate&lt;/h3&gt;&#xA;  &#xA;    &lt;p class=&#34;section-desc&#34;&gt;Instituții, putere, democrație.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;Unde Cuvintele Capătă Sens&lt;/strong&gt; este o publicație editorială independentă cu misiunea de a crește claritatea publică în spațiul românesc de idei.&lt;/p&gt;&#xA;&lt;p&gt;Nu suntem un agregator de știri. Nu urmărim reach-ul, nu optimizăm pentru viralitate și nu scriem pentru algoritmi. Scriem pentru cititorul care vrea să înțeleagă un fenomen înainte să îl judece.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Donează</title>

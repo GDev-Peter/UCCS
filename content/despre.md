@@ -4,12 +4,11 @@ layout: "standalone"
 standalone: true
 ---
 
-- **Numele complet:** UCCS = „Unde Cuvintele Capătă Sens"
-- **Misiunea:** să crească claritatea publică — să explice fenomene politice, sociale, culturale într-un limbaj inteligibil, fără isterie, fără cultul personalității, fără dezumanizare
-- **Tonul:** public-intellectual serios; preferă instrumente și cadre analitice în locul tribalismului; critica se îndreaptă spre idei și instituții, nu spre persoane
-- **Publicul țintă:** cititori români educați, sfera NGO/policy, tineri debaters
-- **Autorul trebuie să fie vizibil** — UCCS construiește o identitate de expert, nu un outlet anonim
-- **Principiul cardinal:** optimizează pentru coerență, nu pentru reach sau monetizare; o arhivă coerentă mică bate una mare dar haotică
+**Unde Cuvintele Capătă Sens** este o publicație editorială independentă cu misiunea de a crește claritatea publică în spațiul românesc de idei.
+
+Nu suntem un agregator de știri. Nu urmărim reach-ul, nu optimizăm pentru viralitate și nu scriem pentru algoritmi. Scriem pentru cititorul care vrea să înțeleagă un fenomen înainte să îl judece.
+
+## Ce facem?
 
 {{< sections-grid >}}
   {{< section-card label="Polis" title="Politică & Cetate" >}}
@@ -32,6 +31,12 @@ standalone: true
   Proză, poezie, analiză literară.
   {{< /section-card >}}
 {{< /sections-grid >}}
+
+## Cum scriem?
+
+Fiecare text publicat pe UCCS trebuie să îndeplinească trei condiții: să clarifice o problemă reală, să reziste la verificări și să nu degradeze spațiul public prin care circulă. Critica noastră se îndreaptă spre idei și instituții, nu spre persoane.
+
+## Cine suntem?
 
 {{< team >}}
 
