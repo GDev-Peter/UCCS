@@ -20,9 +20,14 @@ pageRef = "/tech"
 weight  = 40
 
 [[main]]
+name    = "Debate"
+pageRef = "/debate"
+weight  = 50
+
+[[main]]
 name    = "Litere"
 pageRef = "/litere"
-weight  = 50
+weight  = 60
 
 # ── Row 1 (right): utility / standalone pages ──────────────────────────────────
 [[utility]]
@@ -42,4 +47,5 @@ name   = "Donează"
 # url    = "https://www.instagram.com/istorie.petru/"
 url    = "/doneaza"
 weight = 30
-params = { donate = true, external = true }
+params = { donate = true }
+#params = { donate = true, external = true }
