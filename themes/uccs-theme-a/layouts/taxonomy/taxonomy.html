@@ -3,84 +3,46 @@
 {{ end }}
 
 {{ define "main" }}
-  {{/* ── Collect all terms and compute statistics ── */}}
-  {{ $terms      := .Data.Terms.Alphabetical }}
-  {{ $totalTerms := len $terms }}
-  {{ $totalPages := 0 }}
+
+  {{ partial "section-header.html" . }}
+
+  {{/* ── Alphabet quick-jump (only if >4 distinct first letters) ── */}}
+  {{ $terms   := .Data.Terms.Alphabetical }}
+  {{ $letters := slice }}
   {{ range $terms }}
-    {{ $totalPages = add $totalPages .Count }}
+    {{ $first := substr .Page.Title 0 1 | upper }}
+    {{ if not (in $letters $first) }}
+      {{ $letters = $letters | append $first }}
+    {{ end }}
   {{ end }}
-  {{ $mostUsed := index (.Data.Terms.ByCount) 0 }}
+  {{ if gt (len $letters) 4 }}
+    <nav class="taxonomy-alphabet" aria-label="Filtrare după literă">
+      {{ range $letters }}
+        <a href="#letter-{{ . | lower }}" class="alpha-btn">{{ . }}</a>
+      {{ end }}
+    </nav>
+  {{ end }}
 
-  <div class="taxonomy-page">
-
-    {{/* ── Header ── */}}
-    <header class="taxonomy-header">
-      <p class="taxonomy-eyebrow">Index</p>
-      <h1 class="taxonomy-title">Etichete</h1>
-      <p class="taxonomy-lead">
-        Fiecare etichetă grupează articole din toate secțiunile publicației
-        în jurul unui subiect comun.
-      </p>
-
-      {{/* ── Stats bar ── */}}
-      <div class="taxonomy-stats">
-        <div class="stat-item">
-          <span class="stat-value">{{ $totalTerms }}</span>
-          <span class="stat-label">{{ if eq $totalTerms 1 }}etichetă{{ else }}etichete{{ end }}</span>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item">
-          <span class="stat-value">{{ $totalPages }}</span>
-          <span class="stat-label">{{ if eq $totalPages 1 }}articol indexat{{ else }}articole indexate{{ end }}</span>
-        </div>
-        {{ with $mostUsed }}
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-value">#{{ .Page.Title }}</span>
-            <span class="stat-label">cea mai folosită ({{ .Count }})</span>
-          </div>
-        {{ end }}
-      </div>
-    </header>
-
-    {{/* ── Alphabet quick-jump ── */}}
-    {{ $letters := slice }}
+  {{/* ── Tag grid grouped by first letter ── */}}
+  {{ $prev := "" }}
+  <div class="taxonomy-grid">
     {{ range $terms }}
       {{ $first := substr .Page.Title 0 1 | upper }}
-      {{ if not (in $letters $first) }}
-        {{ $letters = $letters | append $first }}
+      {{ if ne $first $prev }}
+        {{ if ne $prev "" }}</ul></div>{{ end }}
+        <div class="alpha-group" id="letter-{{ $first | lower }}">
+          <span class="alpha-label" aria-hidden="true">{{ $first }}</span>
+          <ul class="tag-list" role="list">
+        {{ $prev = $first }}
       {{ end }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}" class="tag-card">
+          <span class="tag-name">#{{ .Page.Title }}</span>
+          <span class="tag-count">{{ .Count }}</span>
+        </a>
+      </li>
     {{ end }}
-    {{ if gt (len $letters) 4 }}
-      <nav class="taxonomy-alphabet" aria-label="Filtrare după literă">
-        {{ range $letters }}
-          <a href="#letter-{{ . | lower }}" class="alpha-btn">{{ . }}</a>
-        {{ end }}
-      </nav>
-    {{ end }}
-
-    {{/* ── Tag grid grouped by first letter ── */}}
-    {{ $prev := "" }}
-    <div class="taxonomy-grid">
-      {{ range $terms }}
-        {{ $first := substr .Page.Title 0 1 | upper }}
-        {{ if ne $first $prev }}
-          {{ if ne $prev "" }}</ul></div>{{ end }}
-          <div class="alpha-group" id="letter-{{ $first | lower }}">
-            <span class="alpha-label" aria-hidden="true">{{ $first }}</span>
-            <ul class="tag-list" role="list">
-          {{ $prev = $first }}
-        {{ end }}
-        <li>
-          <a href="{{ .Page.RelPermalink }}" class="tag-card">
-            <span class="tag-name">#{{ .Page.Title }}</span>
-            <span class="tag-count">{{ .Count }}</span>
-          </a>
-        </li>
-      {{ end }}
-      {{ if ne $prev "" }}</ul></div>{{ end }}
-    </div>
-
+    {{ if ne $prev "" }}</ul></div>{{ end }}
   </div>
+
 {{ end }}

@@ -1,0 +1,151 @@
+{{/*
+  Partial: section-header.html
+  ─────────────────────────────────────────────────────────────────────────────
+  Canonical editorial header shared by:
+    • All 6 section list pages   (agora, polis, debate, litere, educatie, tech)
+    • /tags/                     (taxonomy index)
+    • /tags/[tag]/               (taxonomy term pages)
+
+  Context (.):
+    Hugo Page object — section list, taxonomy, or taxonomy term.
+
+  YAML params read from _index.md front matter:
+    eyebrow      string   Overline label (e.g. "Secțiune", "Index"). Defaults:
+                            section → "Secțiune"
+                            taxonomy → "Index"
+                            term     → "Etichetă"
+    title        string   Already available as .Title — no extra param needed.
+    description  string   Lead paragraph shown below the title. Falls back to
+                          .Content (body of the _index.md).
+    editor       string   Name of the section editor.
+    content_type string   Type label shown in stats (e.g. "Academice", "Opinii").
+
+  Stats computed automatically:
+    articles     int      Number of pages in section (standalone pages excluded).
+    words        int      Total estimated word count across all articles.
+    For taxonomy index: also shows total terms and most-used term.
+    For taxonomy terms: articles count only, plus editor/content_type if set.
+  ─────────────────────────────────────────────────────────────────────────────
+*/}}
+
+{{ $kind    := .Kind }}
+{{ $pages   := where .Pages "Params.standalone" "ne" true }}
+{{ $count   := len $pages }}
+
+{{/* ── Eyebrow ── */}}
+{{ $eyebrow := .Params.eyebrow }}
+{{ if not $eyebrow }}
+  {{ if eq $kind "taxonomy" }}{{ $eyebrow = "Index" }}
+  {{ else if eq $kind "term" }}{{ $eyebrow = "Etichetă" }}
+  {{ else }}{{ $eyebrow = "Secțiune" }}
+  {{ end }}
+{{ end }}
+
+{{/* ── Description: body of _index.md first, then front-matter description ── */}}
+{{ $desc := "" }}
+{{ with .Content }}{{ $desc = . }}{{ end }}
+{{ if not $desc }}{{ with .Params.description }}{{ $desc = . }}{{ end }}{{ end }}
+
+{{/* For a term page with no _index.md, generate a generic subtitle ── */}}
+{{ if and (eq $kind "term") (not $desc) }}
+  {{ $desc = printf "Articole etichetate cu <strong>#%s</strong> din toate secțiunile publicației." .Title }}
+{{ end }}
+
+{{/* ── Word count across all pages in section/term ── */}}
+{{ $totalWords := 0 }}
+{{ range $pages }}
+  {{ $totalWords = add $totalWords .WordCount }}
+{{ end }}
+
+{{/* ── Extra stats for the taxonomy INDEX page ── */}}
+{{ $isTaxonomy := eq $kind "taxonomy" }}
+{{ $terms      := slice }}
+{{ $mostUsed   := false }}
+{{ $totalTaggedPages := 0 }}
+{{ if $isTaxonomy }}
+  {{ $terms    = .Data.Terms.Alphabetical }}
+  {{ $count    = len $terms }}
+  {{ range $terms }}
+    {{ $totalTaggedPages = add $totalTaggedPages .Count }}
+  {{ end }}
+  {{ with .Data.Terms.ByCount }}
+    {{ $mostUsed = index . 0 }}
+  {{ end }}
+{{ end }}
+
+{{/* ── Optional metadata from front matter ── */}}
+{{ $editor      := .Params.editor }}
+{{ $contentType := .Params.content_type }}
+
+<header class="section-header">
+
+  <p class="section-header__eyebrow">{{ $eyebrow }}</p>
+
+  <h1 class="section-header__title">
+    {{ if eq $kind "term" }}#{{ end }}{{ .Title }}
+  </h1>
+
+  {{ if $desc }}
+    <div class="section-header__lead">{{ $desc | safeHTML }}</div>
+  {{ end }}
+
+  {{/* ── Stats bar ── */}}
+  <div class="section-header__stats" role="list">
+
+    {{ if $isTaxonomy }}
+
+      {{/* Taxonomy index stats: term count + total tagged articles + most-used */}}
+      <div class="stat-item" role="listitem">
+        <span class="stat-value">{{ $count }}</span>
+        <span class="stat-label">{{ if eq $count 1 }}etichetă{{ else }}etichete{{ end }}</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item" role="listitem">
+        <span class="stat-value">{{ $totalTaggedPages }}</span>
+        <span class="stat-label">{{ if eq $totalTaggedPages 1 }}articol indexat{{ else }}articole indexate{{ end }}</span>
+      </div>
+      {{ with $mostUsed }}
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-value">#{{ .Page.Title }}</span>
+          <span class="stat-label">cea mai folosită ({{ .Count }})</span>
+        </div>
+      {{ end }}
+
+    {{ else }}
+
+      {{/* Section / term stats: article count + words + optional editor + type */}}
+      <div class="stat-item" role="listitem">
+        <span class="stat-value">{{ $count }}</span>
+        <span class="stat-label">{{ if eq $count 1 }}articol{{ else }}articole{{ end }}</span>
+      </div>
+
+      {{ if gt $totalWords 0 }}
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-value">{{ div $totalWords 1000 }}k</span>
+          <span class="stat-label">cuvinte</span>
+        </div>
+      {{ end }}
+
+      {{ with $editor }}
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-value">{{ . }}</span>
+          <span class="stat-label">editor</span>
+        </div>
+      {{ end }}
+
+      {{ with $contentType }}
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-value">{{ . }}</span>
+          <span class="stat-label">tip conținut</span>
+        </div>
+      {{ end }}
+
+    {{ end }}
+
+  </div>
+
+</header>

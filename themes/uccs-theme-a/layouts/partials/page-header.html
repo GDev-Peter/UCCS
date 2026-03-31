@@ -1,32 +1,7 @@
 {{/*
   Partial: page-header.html
-  Context: a Hugo list Page (section, taxonomy, etc.)
-  Usage:   {{ partial "page-header.html" . }}
-
-  Renders the editorial header for section/list pages:
-  section title (large) + article count (small, right-aligned) + optional description.
-
-  The description comes from the section's _index.md front matter or body content.
+  Thin wrapper — delegates to section-header.html.
+  Kept for backwards compatibility: all existing list.html templates
+  call {{ partial "page-header.html" . }} and will continue to work.
 */}}
-
-{{ $articles := where .Pages "Params.standalone" "ne" true }}
-
-<header class="page-header">
-  <div class="page-header-top">
-    <h1 class="page-header-title">{{ .Title }}</h1>
-    {{ if $articles }}
-      <span class="page-header-count" aria-label="{{ len $articles }} articole în această secțiune">
-        {{ len $articles }}
-        {{ if eq (len $articles) 1 }}articol{{ else }}articole{{ end }}
-      </span>
-    {{ end }}
-  </div>
-
-  {{ with .Content }}
-    <div class="page-header-desc">{{ . }}</div>
-  {{ else }}
-    {{ with .Params.description }}
-      <p class="page-header-desc">{{ . }}</p>
-    {{ end }}
-  {{ end }}
-</header>
+{{ partial "section-header.html" . }}

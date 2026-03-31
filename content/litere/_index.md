@@ -1,5 +1,8 @@
 ---
 title: "Litere"
+eyebrow: "Secțiune"
+editor: "Peter"
+content_type: "Critică"
 ---
 
-Literatură și critică. Texte de proză, poezie și analiză literară. Cu atenție la limbaj, formă și fond.
+Critică literară și analiză culturală. Texte despre poezie, proză, teoria literaturii și limbă română.
