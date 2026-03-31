@@ -1,29 +1,29 @@
 /*
  * UCCS — Unde Cuvintele Capătă Sens
- * style.css — v4
+ * components.css — v5
  *
  * Sections:
- *   8.  Header & nav (stub — see 19)
- *   9.  Page titles & section intro
- *   10.  Article meta
- *   11.  Article list (section pages)
- *   12.  Homepage grid
- *   13. Article page
- *   14. Author bio
- *   15. Footer (stub — see 20)
- *   16. Reading progress
- *   17. Responsive
- *   18. Standalone pages (Despre / Contact / Donează)
- *   19. Featured hero (homepage top story)
- *   20. Page header (section list pages)
- *   21. Section strip (homepage bottom nav)
- *   22. Shortcode components — lead, contact-info
- *   23. Section card & sections grid
- *   24. Pull quote
- *   25. Team member
- *   26. CTA box
- *   27. Nerdnotes
- *   28. Table of Contents
+ *   8.  Page titles & section intro
+ *   9.  Article meta
+ *   10. Article list (section pages)
+ *   11. Homepage grid
+ *   12. Article page
+ *   13. Author bio
+ *   14. Reading progress
+ *   15. Responsive — grid & list
+ *   16. Standalone pages (Despre / Contact / Donează)
+ *   17. Featured hero (homepage top story)
+ *   18. Page header (section list pages)
+ *   19. Section strip (homepage bottom nav)
+ *   20. Shortcode components — lead, contact-info
+ *   21. Section card & sections grid
+ *   22. Pull quote
+ *   23. Team member
+ *   24. CTA box
+ *   25. Shortcode — box
+ *   26. Shortcode — cols layout
+ *   27. Nerdnote — coloured callout boxes
+ *   28. Section header (canonical editorial header — sections, taxonomy, terms)
  */
 
 /* ============================================================
@@ -173,7 +173,6 @@ main > h1 {
  *  11. HOMEPAGE GRID
  * ============================================================ */
 
-/* Section sub-heading above the grid */
 .grid-section-header {
   display: flex;
   align-items: center;
@@ -393,7 +392,6 @@ article > .article-meta {
 .author-content h2  { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-top: var(--space-10); margin-bottom: var(--space-3); }
 .author-content a   { color: var(--color-primary); }
 
-/* Author metrics grid */
 .author-metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -489,7 +487,6 @@ article > .article-meta {
 
 .standalone-page { max-width: var(--content-default); }
 
-/* Publication overline + title */
 .standalone-header {
   margin-bottom: var(--space-10);
   padding-bottom: var(--space-6);
@@ -513,8 +510,6 @@ article > .article-meta {
   letter-spacing: -0.01em;
   margin: 0;
 }
-
-.standalone-body { }
 
 .standalone-body p   { margin-bottom: var(--space-5); max-width: var(--content-default); }
 .standalone-body h2  {
@@ -546,7 +541,6 @@ article > .article-meta {
 
 .featured-hero:hover { box-shadow: var(--shadow-lg); }
 
-/* Text-only variant (no cover image) */
 .featured-hero--text {
   grid-template-columns: 1fr;
   min-height: 280px;
@@ -561,7 +555,6 @@ article > .article-meta {
   font-size: var(--text-3xl);
 }
 
-/* Media side */
 .featured-hero-media {
   overflow: hidden;
   position: relative;
@@ -578,7 +571,6 @@ article > .article-meta {
 
 .featured-hero:hover .featured-hero-img { opacity: 0.92; }
 
-/* Body side */
 .featured-hero-body {
   display: flex;
   flex-direction: column;
@@ -684,7 +676,7 @@ article > .article-meta {
   }
 
   .featured-hero-title { font-size: var(--text-xl); }
-  .featured-hero-desc  { display: none; } /* hide on mobile for space */
+  .featured-hero-desc  { display: none; }
   .featured-hero-badge { display: none; }
 
   .featured-hero--text .featured-hero-body { padding: var(--space-8) var(--space-6); }
@@ -692,52 +684,12 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  18. PAGE HEADER — section list pages
+ *  18. PAGE HEADER — legacy class, kept for backwards compat
+ *  Real styles now live in section 28 (.section-header)
  * ============================================================ */
 
-.page-header {
-  margin-bottom: var(--space-10);
-  padding-bottom: var(--space-6);
-  border-bottom: 2px solid var(--color-text);
-}
-
-.page-header-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-}
-
-.page-header-title {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  margin: 0;
-  line-height: 1.1;
-}
-
-.page-header-count {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-faint);
-  white-space: nowrap;
-}
-
-.page-header-desc {
-  margin-top: var(--space-4);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: 1.65;
-  max-width: 56ch;
-}
-
-.page-header-desc p { margin: 0; }
+/* .page-header is no longer emitted by templates — safe to leave empty.
+   Any old references will silently degrade rather than break. */
 
 /* ============================================================
  *  19. SECTION STRIP — editorial section nav (bottom of homepage)
@@ -816,7 +768,6 @@ article > .article-meta {
  *  20. SHORTCODE COMPONENTS — lead, contact-info
  * ============================================================ */
 
-/* Lead — large opening paragraph for standalone pages */
 .sc-lead {
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -830,7 +781,6 @@ article > .article-meta {
   border-bottom: 1px solid var(--color-divider);
 }
 
-/* Contact row */
 .sc-contact-row {
   display: flex;
   align-items: baseline;
@@ -902,7 +852,6 @@ article > .article-meta {
   box-shadow: var(--shadow-md);
 }
 
-/* Linkable card variant */
 .section-card--link {
   text-decoration: none;
   color: inherit;
@@ -911,7 +860,6 @@ article > .article-meta {
 
 .section-card--link:hover { color: inherit; }
 
-/* Decorative accent bar */
 .section-card[data-section]::before {
   content: '';
   display: block;
@@ -949,7 +897,6 @@ article > .article-meta {
   flex: 1;
 }
 
-/* CTA text in linkable cards */
 .section-card-cta {
   font-family: var(--font-ui);
   font-size: var(--text-xs);
@@ -1096,7 +1043,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- *  34. CTA BOX
+ *  24. CTA BOX
  * ============================================================ */
 
 .cta-box {
@@ -1248,12 +1195,7 @@ article > .article-meta {
 }
 
 /* ============================================================
- * 27. NERDNOTE — coloured callout boxes
- * Translated from nerdnote.sty / nerdnote.lua
- * ============================================================ */
-
-/* ============================================================
- * NERDNOTE — callout box
+ *  27. NERDNOTE — coloured callout boxes
  * ============================================================ */
 
 .nerdnote {
@@ -1295,31 +1237,16 @@ article > .article-meta {
 .nerdnote__body > *:last-child { margin-bottom: 0; }
 .nerdnote__body p { margin-bottom: var(--space-2); max-width: unset; }
 
-/* Reset prose styles that leak in from .article-body */
-.nerdnote__body p {
-  margin-bottom: var(--space-2);
-  max-width: unset;
-}
-
 .nerdnote__body ul,
 .nerdnote__body ol {
   margin-bottom: var(--space-2);
   padding-left: var(--space-4);
 }
 
-.nerdnote__body li {
-  margin-bottom: var(--space-1);
-}
+.nerdnote__body li { margin-bottom: var(--space-1); }
+.nerdnote__body > *:last-child { margin-bottom: 0; }
+.article-body .nerdnote p { margin-bottom: 0; }
 
-.nerdnote__body > *:last-child {
-  margin-bottom: 0;
-}
-
-.article-body .nerdnote p {
-  margin-bottom: 0;
-}
-
-/* --info */
 .nerdnote--info {
   border-color: color-mix(in srgb, var(--color-primary) 25%, var(--color-border));
 }
@@ -1327,14 +1254,11 @@ article > .article-meta {
   background: var(--color-primary-highlight);
   color: var(--color-primary);
 }
-.nerdnote--info .nerdnote__label::before {
-  color: var(--color-primary);
-}
+.nerdnote--info .nerdnote__label::before { color: var(--color-primary); }
 .nerdnote--info .nerdnote__body {
   background: color-mix(in srgb, var(--color-primary-highlight) 30%, var(--color-surface));
 }
 
-/* --warning */
 .nerdnote--warning {
   border-color: color-mix(in srgb, var(--color-gold) 30%, var(--color-border));
 }
@@ -1342,15 +1266,11 @@ article > .article-meta {
   background: color-mix(in srgb, var(--color-gold) 15%, var(--color-surface-offset));
   color: var(--color-gold);
 }
-.nerdnote--warning .nerdnote__label::before {
-  content: '⚠';
-  color: var(--color-gold);
-}
+.nerdnote--warning .nerdnote__label::before { content: '⚠'; color: var(--color-gold); }
 .nerdnote--warning .nerdnote__body {
   background: color-mix(in srgb, var(--color-gold) 6%, var(--color-surface));
 }
 
-/* --error */
 .nerdnote--error {
   border-color: color-mix(in srgb, var(--color-error) 30%, var(--color-border));
 }
@@ -1358,196 +1278,117 @@ article > .article-meta {
   background: color-mix(in srgb, var(--color-error) 12%, var(--color-surface-offset));
   color: var(--color-error);
 }
-.nerdnote--error .nerdnote__label::before {
-  content: '✕';
-  color: var(--color-error);
-}
+.nerdnote--error .nerdnote__label::before { content: '✕'; color: var(--color-error); }
 .nerdnote--error .nerdnote__body {
   background: color-mix(in srgb, var(--color-error) 5%, var(--color-surface));
 }
 
-/* --success / --tip */
 .nerdnote--success,
 .nerdnote--tip {
   border-color: color-mix(in srgb, var(--color-success) 30%, var(--color-border));
 }
 .nerdnote--success .nerdnote__label,
-.nerdnote--tip .nerdnote__label {
+.nerdnote--tip    .nerdnote__label {
   background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface-offset));
   color: var(--color-success);
 }
 .nerdnote--success .nerdnote__label::before,
-.nerdnote--tip .nerdnote__label::before {
-  content: '✓';
-  color: var(--color-success);
-}
+.nerdnote--tip    .nerdnote__label::before { content: '✓'; color: var(--color-success); }
 .nerdnote--success .nerdnote__body,
-.nerdnote--tip .nerdnote__body {
+.nerdnote--tip    .nerdnote__body {
   background: color-mix(in srgb, var(--color-success) 5%, var(--color-surface));
 }
 
 /* ============================================================
- * 28. SHORTCODE — TOC
- * Expandable Hugo table of contents
+ *  28. SECTION HEADER — canonical editorial header
+ *  Used by: section list pages, /tags/, /tags/[tag]/
+ *  Loaded via components.css (global) — never via head_extra.
  * ============================================================ */
 
-.sc-toc {
-  margin-block: var(--space-8);
-  border: 1px solid var(--color-divider);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+.section-header {
+  border-bottom: 2px solid var(--color-text);
+  padding-bottom: var(--space-8);
+  margin-bottom: var(--space-10);
 }
 
-.sc-toc__summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-surface-offset);
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-  transition:
-    background var(--transition-fast),
-    color var(--transition-fast);
-}
-
-.sc-toc__summary::-webkit-details-marker {
-  display: none;
-}
-
-.sc-toc__summary:hover {
-  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface-offset));
-}
-
-.sc-toc__summary:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: -2px;
-}
-
-.sc-toc__eyebrow {
-  font-family: var(--font-ui);
+.section-header__eyebrow {
+  font-family: var(--font-body);
   font-size: var(--text-xs);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-gold);
+  margin-bottom: var(--space-2);
 }
 
-.sc-toc__chevron {
-  flex-shrink: 0;
-  font-size: var(--text-sm);
-  line-height: 1;
-  color: var(--color-text-faint);
-  transition:
-    transform var(--transition-interactive),
-    color var(--transition-fast);
-}
-
-.sc-toc[open] .sc-toc__eyebrow {
-  color: var(--color-primary);
-}
-
-.sc-toc[open] .sc-toc__chevron {
-  transform: rotate(180deg);
-  color: var(--color-primary);
-}
-
-.sc-toc__body {
-  padding: var(--space-4);
-  border-top: 1px solid var(--color-divider);
-  background: var(--color-surface);
-}
-
-/* Hugo outputs nav#TableOfContents */
-.sc-toc #TableOfContents {
-  font-family: var(--font-ui);
-}
-
-.sc-toc #TableOfContents > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sc-toc #TableOfContents ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-.sc-toc #TableOfContents li {
-  margin: 0;
-}
-
-.sc-toc #TableOfContents li + li {
-  margin-top: var(--space-1);
-}
-
-.sc-toc #TableOfContents ul ul {
-  margin-top: var(--space-2);
-  margin-left: var(--space-3);
-  padding-left: var(--space-3);
-  border-left: 1px solid var(--color-divider);
-}
-
-.sc-toc #TableOfContents a {
-  display: block;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
-  text-decoration: none;
-  font-size: var(--text-sm);
-  line-height: 1.55;
-  transition:
-    color var(--transition-fast),
-    background var(--transition-fast);
-}
-
-.sc-toc #TableOfContents a:hover,
-.sc-toc #TableOfContents a:focus-visible {
-  color: var(--color-primary);
-  background: var(--color-primary-highlight);
-  text-decoration: none;
-}
-
-.sc-toc #TableOfContents > ul > li > a {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-.sc-toc #TableOfContents > ul > li > ul > li > a {
-  font-size: var(--text-sm);
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
   font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-3);
+  text-wrap: balance;
 }
 
-.sc-toc #TableOfContents > ul > li > ul > li > ul > li > a {
-  font-size: var(--text-xs);
+.section-header__lead {
+  font-size: var(--text-base);
   color: var(--color-text-muted);
+  max-width: 58ch;
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
 }
 
+.section-header__lead p { margin: 0; }
+
+/* Stats bar */
+.section-header__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: var(--color-divider);
+  flex-shrink: 0;
+}
+
+/* Responsive */
 @media (max-width: 640px) {
-  .sc-toc {
-    margin-block: var(--space-6);
-  }
+  .section-header__title { font-size: var(--text-2xl); }
+}
 
-  .sc-toc__summary {
-    padding: var(--space-3);
+@media (max-width: 520px) {
+  .section-header__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
   }
-
-  .sc-toc__body {
-    padding: var(--space-3);
-  }
-
-  .sc-toc #TableOfContents a {
-    padding-inline: 0;
-  }
-
-  .sc-toc #TableOfContents ul ul {
-    margin-left: var(--space-2);
-    padding-left: var(--space-2);
-  }
+  .stat-divider { display: none; }
 }
