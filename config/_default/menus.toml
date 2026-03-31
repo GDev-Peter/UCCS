@@ -29,6 +29,11 @@ name    = "Litere"
 pageRef = "/litere"
 weight  = 60
 
+[[main]]
+name    = "Etichete"
+pageRef = "/tags"
+weight  = 70
+
 # ── Row 1 (right): utility / standalone pages ──────────────────────────────────
 [[utility]]
 name    = "Despre"
