@@ -6,8 +6,29 @@
     <description>Recent content in Tags on UCCS</description>
     <generator>Hugo</generator>
     <language>ro-RO</language>
-    <lastBuildDate>Thu, 03 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/UCCS/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argumentare</title>
+      <link>http://localhost:1313/UCCS/tags/argumentare/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/UCCS/tags/argumentare/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debate</title>
+      <link>http://localhost:1313/UCCS/tags/debate/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/UCCS/tags/debate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logica</title>
+      <link>http://localhost:1313/UCCS/tags/logica/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/UCCS/tags/logica/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Education</title>
       <link>http://localhost:1313/UCCS/tags/education/</link>

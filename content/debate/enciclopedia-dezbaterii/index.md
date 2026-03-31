@@ -3,6 +3,8 @@ title: "Enciclopedia Dezbaterilor"
 date: 2026-03-07
 authors: ["Velcea-Petru"]
 cover: "cover.jpg"
+tags: ["argumentare", "logica", "debate"]
+categories: ["Debate"]
 ---
 
 {{< toc >}}
