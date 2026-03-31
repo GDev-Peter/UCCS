@@ -1,15 +1,86 @@
+{{ define "head_extra" }}
+  <link rel="stylesheet" href="{{ "css/taxonomy.css" | relURL }}">
+{{ end }}
+
 {{ define "main" }}
-  <section class="taxonomy-index">
-    <h1>{{ .Title }}</h1>
-    <ul class="tag-cloud">
-      {{ range .Data.Terms.Alphabetical }}
+  {{/* ── Collect all terms and compute statistics ── */}}
+  {{ $terms      := .Data.Terms.Alphabetical }}
+  {{ $totalTerms := len $terms }}
+  {{ $totalPages := 0 }}
+  {{ range $terms }}
+    {{ $totalPages = add $totalPages .Count }}
+  {{ end }}
+  {{ $mostUsed := index (.Data.Terms.ByCount) 0 }}
+
+  <div class="taxonomy-page">
+
+    {{/* ── Header ── */}}
+    <header class="taxonomy-header">
+      <p class="taxonomy-eyebrow">Index</p>
+      <h1 class="taxonomy-title">Etichete</h1>
+      <p class="taxonomy-lead">
+        Fiecare etichetă grupează articole din toate secțiunile publicației
+        în jurul unui subiect comun.
+      </p>
+
+      {{/* ── Stats bar ── */}}
+      <div class="taxonomy-stats">
+        <div class="stat-item">
+          <span class="stat-value">{{ $totalTerms }}</span>
+          <span class="stat-label">{{ if eq $totalTerms 1 }}etichetă{{ else }}etichete{{ end }}</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-value">{{ $totalPages }}</span>
+          <span class="stat-label">{{ if eq $totalPages 1 }}articol indexat{{ else }}articole indexate{{ end }}</span>
+        </div>
+        {{ with $mostUsed }}
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-value">#{{ .Page.Title }}</span>
+            <span class="stat-label">cea mai folosită ({{ .Count }})</span>
+          </div>
+        {{ end }}
+      </div>
+    </header>
+
+    {{/* ── Alphabet quick-jump ── */}}
+    {{ $letters := slice }}
+    {{ range $terms }}
+      {{ $first := substr .Page.Title 0 1 | upper }}
+      {{ if not (in $letters $first) }}
+        {{ $letters = $letters | append $first }}
+      {{ end }}
+    {{ end }}
+    {{ if gt (len $letters) 4 }}
+      <nav class="taxonomy-alphabet" aria-label="Filtrare după literă">
+        {{ range $letters }}
+          <a href="#letter-{{ . | lower }}" class="alpha-btn">{{ . }}</a>
+        {{ end }}
+      </nav>
+    {{ end }}
+
+    {{/* ── Tag grid grouped by first letter ── */}}
+    {{ $prev := "" }}
+    <div class="taxonomy-grid">
+      {{ range $terms }}
+        {{ $first := substr .Page.Title 0 1 | upper }}
+        {{ if ne $first $prev }}
+          {{ if ne $prev "" }}</ul></div>{{ end }}
+          <div class="alpha-group" id="letter-{{ $first | lower }}">
+            <span class="alpha-label" aria-hidden="true">{{ $first }}</span>
+            <ul class="tag-list" role="list">
+          {{ $prev = $first }}
+        {{ end }}
         <li>
-          <a href="{{ .Page.RelPermalink }}">
-            {{ .Page.Title }}
+          <a href="{{ .Page.RelPermalink }}" class="tag-card">
+            <span class="tag-name">#{{ .Page.Title }}</span>
             <span class="tag-count">{{ .Count }}</span>
           </a>
         </li>
       {{ end }}
-    </ul>
-  </section>
+      {{ if ne $prev "" }}</ul></div>{{ end }}
+    </div>
+
+  </div>
 {{ end }}
