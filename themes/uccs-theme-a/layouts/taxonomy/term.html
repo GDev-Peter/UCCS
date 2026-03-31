@@ -1,15 +1,4 @@
 {{ define "main" }}
-  <section class="taxonomy-page">
-    <h1>#{{ .Title }}</h1>
-    <p class="taxonomy-count">{{ len .Pages }} articole</p>
-
-    <div class="article-list">
-      {{ range .Pages.ByDate.Reverse }}
-        <article class="article-card">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <time>{{ .Date.Format "2 January 2006" }}</time>
-        </article>
-      {{ end }}
-    </div>
-  </section>
+  {{ partial "page-header.html" . }}
+  {{ partial "article-grid.html" .Pages.ByDate.Reverse }}
 {{ end }}
