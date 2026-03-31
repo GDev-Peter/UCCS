@@ -4,21 +4,25 @@ layout: "standalone"
 standalone: true
 ---
 
-## Ce nu procesăm
+## Cum luăm legătura?
 
-Nu răspundem la solicitări de publicitate, parteneriate comerciale sau cereri de ștergere a conținutului editorial fără temei factual.
+UCCS este un proiect cu resurse limitate, dar cu mare deschidere la feedback onest. Te încurajăm să ne scrii când vrei să corectezi ceva, să întrebi cum am lucrat la un articol sau să propui o colaborare.
 
-Răspundem în limita timpului disponibil.
+## Ce nu procesăm?
 
-Poți lua legătura cu redacția UCCS prin email:
+Nu răspundem la solicitări de publicitate, parteneriate comerciale sau campanii de PR. Nu onorăm cereri de ștergere a conținutului editorial fără temei factual.
 
-> [adresa-ta@email.com](mailto:adresa-ta@email.com)
+Răspundem în limita timpului disponibil și prioritizăm mesajele care vizează acuratețea textelor sau întrebări de metodologie.
 
-### Când să ne scrii
+## Când să ne scrii?
 
 - Ai o corecție factică pentru un text publicat
-- Vrei să propui o colaborare editorială
-- Ai o întrebare despre metodologia unui articol
-- Vrei să reproduci sau să citezi un text din UCCS
+- Vrei să propui o colaborare editorială sau un subiect relevant pentru aria UCCS
+- Ai o întrebare despre metodologia unui articol sau despre sursele folosite
+- Vrei să reproduci sau să citezi un text din UCCS și ai nevoie de clarificări de licență
+- Ești licean / student și cauți resurse pentru dezbateri sau pentru un proiect academic legat de temele noastre
 
+Ne poți găsi pe Instagram, unde anunțăm articolele noi și discutăm cu cititorii:
+
+> [@istorie.petru](https://www.instagram.com/istorie.petru/)
 ---

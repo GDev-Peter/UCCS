@@ -27,21 +27,21 @@
       <link>http://localhost:1313/UCCS/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/contact/</guid>
-      <description>&lt;h2 id=&#34;ce-nu-procesăm&#34;&gt;Ce nu procesăm&lt;/h2&gt;&#xA;&lt;p&gt;Nu răspundem la solicitări de publicitate, parteneriate comerciale sau cereri de ștergere a conținutului editorial fără temei factual.&lt;/p&gt;&#xA;&lt;p&gt;Răspundem în limita timpului disponibil.&lt;/p&gt;&#xA;&lt;p&gt;Poți lua legătura cu redacția UCCS prin email:&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;cum-luăm-legătura&#34;&gt;Cum luăm legătura?&lt;/h2&gt;&#xA;&lt;p&gt;UCCS este un proiect cu resurse limitate, dar cu mare deschidere la feedback onest. Te încurajăm să ne scrii când vrei să corectezi ceva, să întrebi cum am lucrat la un articol sau să propui o colaborare.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Despre noi</title>
       <link>http://localhost:1313/UCCS/despre/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/despre/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Unde Cuvintele Capătă Sens&lt;/strong&gt; este o publicație editorială independentă cu misiunea de a crește claritatea publică în spațiul românesc de idei.&lt;/p&gt;&#xA;&lt;p&gt;Nu suntem un agregator de știri. Nu urmărim reach-ul, nu optimizăm pentru viralitate și nu scriem pentru algoritmi. Scriem pentru cititorul care vrea să înțeleagă un fenomen înainte să îl judece.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;Unde Cuvintele Capătă Sens&lt;/strong&gt; este o publicație editorială independentă cu misiunea de a crește claritatea publică în spațiul românesc de idei. Scriem despre politică, societate, educație, tehnologie și literatură, cu un ton calm și argumentativ.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Donează</title>
       <link>http://localhost:1313/UCCS/doneaza/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/doneaza/</guid>
-      <description>&lt;div class=&#34;cta-box&#34;&gt;&#xA;  &lt;div class=&#34;cta-box__left&#34;&gt;&#xA;    &lt;h2 id=&#34;susține-independența&#34;&gt;Susține &lt;em&gt;independența.&lt;/em&gt;&lt;/h2&gt;&#xA;&#xA;    &lt;p&gt;UCCS nu are redactori plătiți de partide, nu are contracte publicitare și nu urmărește cifre de audiență. Dacă crezi că asta merită să existe, poți contribui.&lt;/p&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;cta-box__right&#34;&gt;&#xA;    &#xA;    &lt;a href=&#34;https://ko-fi.com/uccspub&#34; class=&#34;sc-btn sc-btn--primary&#34;&gt;Donează pe Ko-fi&lt;/a&gt;&#xA;    &#xA;    &#xA;    &lt;a href=&#34;http://localhost:1313/UCCS/contact&#34; class=&#34;sc-btn sc-btn--outline&#34;&gt;Colaborare&lt;/a&gt;&#xA;    &#xA;    &lt;p class=&#34;cta-box__note&#34;&gt;Orice sumă contează.&lt;/p&gt;</description>
+      <description>&lt;div class=&#34;cta-box&#34;&gt;&#xA;  &lt;div class=&#34;cta-box__left&#34;&gt;&#xA;    &lt;h2 id=&#34;susține-independența&#34;&gt;Susține &lt;em&gt;independența.&lt;/em&gt;&lt;/h2&gt;&#xA;&#xA;    &lt;p&gt;UCCS nu are redactori plătiți de partide, nu are contracte publicitare și nu urmărește cifre de audiență. Dacă crezi că o revistă care scrie pentru claritate, nu pentru algoritmi, merită să existe, poți contribui.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
