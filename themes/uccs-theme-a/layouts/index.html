@@ -1,14 +1,21 @@
+{{ define "head_extra" }}
+  <link rel="stylesheet" href="{{ "css/homepage.css" | relURL }}">
+{{ end }}
+
 {{ define "main" }}
 
-  {{/* — All publishable pages, newest first — */}}
+  {{/* — All publishable pages (standalone excluded), newest first — */}}
   {{ $pages := (where site.RegularPages "Params.standalone" "ne" true).ByDate.Reverse }}
 
-  {{/* — Featured hero: most recent article — */}}
+  {{/* ── Featured hero: most recent article ── */}}
   {{ with index $pages 0 }}
     {{ partial "featured-hero.html" . }}
   {{ end }}
 
-  {{/* — Article grid: next 11 articles — */}}
+  {{/* ── "Ce este UCCS?" editorial intro ── */}}
+  {{ partial "uccs-intro.html" . }}
+
+  {{/* ── Article grid: next 11 articles ── */}}
   {{ if gt (len $pages) 1 }}
     <div class="grid-section-header">
       <h2 class="grid-section-title">Ultimele articole</h2>
@@ -16,7 +23,10 @@
     {{ partial "article-grid.html" (after 1 $pages | first 11) }}
   {{ end }}
 
-  {{/* — Section strip — */}}
-  {{ partial "section-strip.html" . }}
+  {{/* ── Upcoming posts timetable ── */}}
+  {{ partial "upcoming-posts.html" . }}
+
+  {{/* ── "Explorează" section grid ── */}}
+  {{ partial "section-explore.html" . }}
 
 {{ end }}
