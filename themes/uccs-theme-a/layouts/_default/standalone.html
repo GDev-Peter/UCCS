@@ -5,12 +5,31 @@
 {{ define "main" }}
 <article class="standalone-page">
 
-  <header class="standalone-header">
-    <p class="standalone-overline">{{ site.Title }}</p>
-    <h1>{{ .Title }}</h1>
+  {{/* ── Hero header ── */}}
+  <header class="standalone-hero">
+
+    {{/* Eyebrow — use front-matter `overline`, or fall back to site title */}}
+    <p class="standalone-hero-eyebrow">
+      {{ .Params.overline | default site.Title }}
+    </p>
+
+    {{/* Title + optional italic subtitle from front-matter `subtitle` */}}
+    <h1 class="standalone-hero-title">
+      {{ .Title }}
+      {{- with .Params.subtitle -}}
+        <em class="standalone-hero-subtitle">{{ . }}</em>
+      {{- end -}}
+    </h1>
+
+    {{/* Lead paragraph — optional front-matter `lead` */}}
+    {{ with .Params.lead }}
+      <p class="standalone-hero-lead">{{ . }}</p>
+    {{ end }}
+
   </header>
 
-  <div class="article-body">
+  {{/* ── Body content (Markdown) ── */}}
+  <div class="article-body standalone-body">
     {{ .Content }}
   </div>
 

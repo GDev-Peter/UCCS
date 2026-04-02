@@ -25,4 +25,4 @@ Răspundem în limita timpului disponibil și prioritizăm mesajele care vizeaz�
 Ne poți găsi pe Instagram, unde anunțăm articolele noi și discutăm cu cititorii:
 
 > [@istorie.petru](https://www.instagram.com/istorie.petru/)
----
+

@@ -2,29 +2,18 @@
   Partial: section-header.html
   ─────────────────────────────────────────────────────────────────────────────
   Canonical editorial header shared by:
-    • All 6 section list pages   (agora, polis, debate, litere, educatie, tech)
-    • /tags/                     (taxonomy index)
-    • /tags/[tag]/               (taxonomy term pages)
+    • All section list pages   (agora, polis, debate, litere, educatie, tech)
+    • /tags/                   (taxonomy index)
+    • /tags/[tag]/             (taxonomy term pages)
 
   Context (.):
     Hugo Page object — section list, taxonomy, or taxonomy term.
 
   YAML params read from _index.md front matter:
-    eyebrow      string   Overline label (e.g. "Secțiune", "Index"). Defaults:
-                            section → "Secțiune"
-                            taxonomy → "Index"
-                            term     → "Etichetă"
-    title        string   Already available as .Title — no extra param needed.
-    description  string   Lead paragraph shown below the title. Falls back to
-                          .Content (body of the _index.md).
-    editor       string   Name of the section editor.
+    eyebrow      string   Overline label. Defaults: section→"Secțiune", taxonomy→"Index", term→"Etichetă"
+    description  string   Lead paragraph. Falls back to .Content (body of _index.md).
+    editor       string   Name of the section editor — linked to their author page.
     content_type string   Type label shown in stats (e.g. "Academice", "Opinii").
-
-  Stats computed automatically:
-    articles     int      Number of pages in section (standalone pages excluded).
-    words        int      Total estimated word count across all articles.
-    For taxonomy index: also shows total terms and most-used term.
-    For taxonomy terms: articles count only, plus editor/content_type if set.
   ─────────────────────────────────────────────────────────────────────────────
 */}}
 
@@ -94,7 +83,6 @@
 
     {{ if $isTaxonomy }}
 
-      {{/* Taxonomy index stats: term count + total tagged articles + most-used */}}
       <div class="stat-item" role="listitem">
         <span class="stat-value">{{ $count }}</span>
         <span class="stat-label">{{ if eq $count 1 }}etichetă{{ else }}etichete{{ end }}</span>
@@ -114,7 +102,6 @@
 
     {{ else }}
 
-      {{/* Section / term stats: article count + words + optional editor + type */}}
       <div class="stat-item" role="listitem">
         <span class="stat-value">{{ $count }}</span>
         <span class="stat-label">{{ if eq $count 1 }}articol{{ else }}articole{{ end }}</span>
@@ -128,10 +115,13 @@
         </div>
       {{ end }}
 
+      {{/* Editor — linked to author page if a matching author exists */}}
       {{ with $editor }}
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat-item" role="listitem">
-          <span class="stat-value">{{ . }}</span>
+          <a href="{{ printf "authors/%s/" (. | urlize) | relURL }}"
+             class="stat-value stat-editor-link"
+             title="Autor: {{ . }}">{{ . }}</a>
           <span class="stat-label">editor</span>
         </div>
       {{ end }}

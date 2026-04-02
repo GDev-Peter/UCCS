@@ -8,6 +8,7 @@
  *   12. Code blocks
  *   13. Tables
  *   14. Footnotes / endnotes
+ *   15. TOC shortcode (sc-toc)
  */
 
 /* ============================================================
@@ -140,14 +141,14 @@
 }
 
 /* ============================================================
- 1 2. CODE BLOCKS — FIX: explicit color for both themes*
+ 1 2. CODE BLOCKS                                      *
  ============================================================ */
 
 code {
     font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
     font-size: 0.875em;
     background: var(--color-surface-offset);
-    color: var(--color-text);           /* explicit — prevents black-on-black */
+    color: var(--color-text);
     padding: 0.15em 0.45em;
     border-radius: var(--radius-sm);
     border: 1px solid rgba(28, 26, 20, 0.08);
@@ -160,7 +161,7 @@ pre {
     padding: var(--space-5) var(--space-6);
     overflow-x: auto;
     margin-block: var(--space-6);
-    color: var(--color-text);           /* explicit — prevents inherited dark color */
+    color: var(--color-text);
 }
 
 pre code {
@@ -169,10 +170,9 @@ pre code {
     padding: 0;
     font-size: var(--text-sm);
     line-height: 1.65;
-    color: inherit;                     /* inherits from pre which has explicit color */
+    color: inherit;
 }
 
-/* Override Hugo/Chroma syntax highlight classes in dark mode */
 [data-theme="dark"] pre,
 [data-theme="dark"] pre code,
 [data-theme="dark"] code {
@@ -235,14 +235,13 @@ tbody tr:hover td { background: var(--color-surface); }
 }
 
 /* ============================================================
- 1 4. FOOTNOTES — FIX: removed separator line under "No*te" label
+ 1 4. FOOTNOTES                                        *
  ============================================================ */
 
 .footnotes {
     margin-top: var(--space-16);
     padding-top: var(--space-6);
     border-top: 1px solid var(--color-divider);
-    /* No inner border — the ::before label flows directly into the list */
 }
 
 .footnotes::before {
@@ -255,7 +254,6 @@ tbody tr:hover td { background: var(--color-surface); }
     text-transform: uppercase;
     color: var(--color-text-faint);
     margin-bottom: var(--space-4);
-    /* No border-bottom here — was causing the unwanted separator line */
 }
 
 .footnotes ol { padding-left: var(--space-5); }
@@ -293,8 +291,6 @@ sup a:hover { text-decoration: underline; }
  * 11a. ARTICLE BODY — extended headings
  * ============================================================ */
 
-/* Markdown H1 inside the body (useful for long essays with parts)
-   Intentionally smaller than the page <article> > h1 title */
 .article-body h1 {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
@@ -306,7 +302,6 @@ sup a:hover { text-decoration: underline; }
   color: var(--color-text);
 }
 
-/* Existing h2/h3 kept, but with slight top spacing tweaks for rhythm */
 .article-body h2 {
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -327,7 +322,6 @@ sup a:hover { text-decoration: underline; }
   color: var(--color-text);
 }
 
-/* Label‑style subhead — good for “Notă”, “Exemplu” etc. */
 .article-body h4 {
   font-family: var(--font-ui);
   font-size: var(--text-sm);
@@ -339,7 +333,6 @@ sup a:hover { text-decoration: underline; }
   margin-bottom: var(--space-2);
 }
 
-/* Small, muted headings (H5/H6) for deeply nested structure */
 .article-body h5,
 .article-body h6 {
   font-family: var(--font-ui);
@@ -351,3 +344,97 @@ sup a:hover { text-decoration: underline; }
   margin-top: var(--space-5);
   margin-bottom: var(--space-2);
 }
+
+/* ============================================================
+ * 15. TOC SHORTCODE — sc-toc
+ * ============================================================ */
+
+.sc-toc {
+  margin-bottom: var(--space-10);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.sc-toc__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+
+.sc-toc__summary::-webkit-details-marker { display: none; }
+.sc-toc__summary::marker               { display: none; }
+
+.sc-toc__summary:hover { background: var(--color-surface-offset); }
+
+.sc-toc__label {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.sc-toc__chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.sc-toc[open] .sc-toc__chevron { transform: rotate(180deg); }
+
+.sc-toc__body {
+  padding: var(--space-3) var(--space-5) var(--space-5);
+  border-top: 1px solid var(--color-divider);
+}
+
+/* Hugo-generated TOC — nested <ul> with <li><a> */
+.sc-toc__body #TableOfContents { margin: 0; }
+
+.sc-toc__body ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sc-toc__body ul ul {
+  padding-left: var(--space-4);
+  margin-top: 2px;
+  border-left: 1px solid var(--color-divider);
+}
+
+.sc-toc__body li { margin: 0; }
+
+.sc-toc__body a {
+  display: block;
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  line-height: 1.5;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.sc-toc__body a:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-highlight);
+}
+
+/* Nested headings slightly smaller */
+.sc-toc__body ul ul a { font-size: var(--text-xs); }
