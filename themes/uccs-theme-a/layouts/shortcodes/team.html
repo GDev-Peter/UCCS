@@ -1,37 +1,12 @@
-<<<<<<< HEAD
-{{- /*
-  Shortcode: team
-  Usage: {{< team >}}
-
-  Renders the founders_intro header from data/about.yaml, then
-  lists all author pages that have founder: true in their front matter.
-  Photo is read as a page resource (content/authors/[name]/avatar.*).
-  Sorted by joined year ascending (earliest founder first).
-*/ -}}
-
-{{ with site.Data.about.founders_intro }}
-<div class="team-section-header">
-  <span class="header-label">Echipă</span>
-  <h2 class="grand-header">
-    {{ .title }}
-  </h2>
-=======
+cat > themes/uccs-theme-a/layouts/shortcodes/team.html << 'EOF'
 {{ $base := .Site.BaseURL | strings.TrimRight "/" }}
-{{ range .Site.Data.team.members }}
+{{ range site.Data.team.members }}
 <div class="team-member">
   <div class="team-member__avatar">
     {{ if .photo }}
-      <img
-        src="{{ $base }}/{{ .photo }}"
-        alt="{{ .name }}"
-        width="72"
-        height="72"
-        loading="lazy"
-        decoding="async"
-        class="team-member__photo"
-      >
+      <img src="{{ $base }}/{{ .photo }}" alt="{{ .name }}" width="72" height="72" loading="lazy" decoding="async" class="team-member__photo">
     {{ else }}
-      <span aria-hidden="true">{{ .initial | default (index (.name | split "") 0) }}</span>
+      <span aria-hidden="true">{{ index (.name | split "") 0 }}</span>
     {{ end }}
   </div>
   <div class="team-member__content">
@@ -43,6 +18,6 @@
       {{ range .bio }}<p>{{ . }}</p>{{ end }}
     </div>
   </div>
->>>>>>> parent of 95e8a61 (new changes)
 </div>
 {{ end }}
+EOF
