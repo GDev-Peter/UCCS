@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>UCCS</title>
+    <title>Acasă on UCCS</title>
     <link>http://localhost:1313/UCCS/</link>
-    <description>Recent content on UCCS</description>
+    <description>Recent content in Acasă on UCCS</description>
     <generator>Hugo</generator>
     <language>ro-RO</language>
     <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
@@ -34,7 +34,7 @@
       <link>http://localhost:1313/UCCS/despre/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/UCCS/despre/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Unde Cuvintele Capătă Sens&lt;/strong&gt; este o publicație editorială independentă cu misiunea de a crește claritatea publică în spațiul românesc de idei. Scriem despre politică, societate, educație, tehnologie și literatură, cu un ton calm și argumentativ.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;Unde Cuvintele Capătă Sens&lt;/strong&gt; este o publicație editorială independentă cu&#xA;misiunea de a crește claritatea publică în spațiul românesc de idei. Scriem&#xA;despre politică, societate, educație, tehnologie și literatură, cu un ton calm&#xA;și argumentativ.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Donează</title>

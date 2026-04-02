@@ -1,19 +1,18 @@
+{{ define "body_class" }}page-standalone{{ end }}
+
 {{ define "head_extra" }}
   <link rel="stylesheet" href="{{ "css/prose.css" | relURL }}">
 {{ end }}
 
 {{ define "main" }}
-<article class="standalone-page">
+<div class="standalone-page">
 
-  {{/* ── Hero header ── */}}
   <header class="standalone-hero">
+    {{/* Eyebrow only when explicitly set — never falls back to site title */}}
+    {{ with .Params.overline }}
+      <p class="standalone-hero-eyebrow">{{ . }}</p>
+    {{ end }}
 
-    {{/* Eyebrow — use front-matter `overline`, or fall back to site title */}}
-    <p class="standalone-hero-eyebrow">
-      {{ .Params.overline | default site.Title }}
-    </p>
-
-    {{/* Title + optional italic subtitle from front-matter `subtitle` */}}
     <h1 class="standalone-hero-title">
       {{ .Title }}
       {{- with .Params.subtitle -}}
@@ -21,17 +20,14 @@
       {{- end -}}
     </h1>
 
-    {{/* Lead paragraph — optional front-matter `lead` */}}
     {{ with .Params.lead }}
       <p class="standalone-hero-lead">{{ . }}</p>
     {{ end }}
-
   </header>
 
-  {{/* ── Body content (Markdown) ── */}}
   <div class="article-body standalone-body">
     {{ .Content }}
   </div>
 
-</article>
+</div>
 {{ end }}

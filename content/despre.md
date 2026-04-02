@@ -4,11 +4,16 @@ layout: "standalone"
 standalone: true
 ---
 
-**Unde Cuvintele Capătă Sens** este o publicație editorială independentă cu misiunea de a crește claritatea publică în spațiul românesc de idei. Scriem despre politică, societate, educație, tehnologie și literatură, cu un ton calm și argumentativ.
+**Unde Cuvintele Capătă Sens** este o publicație editorială independentă cu
+misiunea de a crește claritatea publică în spațiul românesc de idei. Scriem
+despre politică, societate, educație, tehnologie și literatură, cu un ton calm
+și argumentativ.
 
-Nu suntem un agregator de știri și nu facem vânătoare de scandal. Nu urmărim reach-ul, nu optimizăm pentru viralitate și nu scriem pentru algoritmi. Scriem pentru cititorul care vrea să înțeleagă un fenomen înainte să îl judece.
+Nu suntem un agregator de știri și nu facem vânătoare de scandal. Nu urmărim
+reach-ul, nu optimizăm pentru viralitate și nu scriem pentru algoritmi. Scriem
+pentru cititorul care vrea să înțeleagă un fenomen înainte să îl judece.
 
-## Ce facem?
+{{< section-heading >}}Ce facem?{{< /section-heading >}}
 
 {{< sections-grid >}}
   {{< section-card label="Polis" title="Politică & Cetate" >}}
@@ -36,15 +41,15 @@ Nu suntem un agregator de știri și nu facem vânătoare de scandal. Nu urmări
   {{< /section-card >}}
 {{< /sections-grid >}}
 
-## Cum scriem?
+{{< section-heading eyebrow="Metodologie" >}}Cum scriem?{{< /section-heading >}}
 
-Fiecare text publicat pe UCCS trebuie să îndeplinească trei condiții: să clarifice o problemă reală, să reziste la verificări și să nu degradeze spațiul public prin care circulă. Critica noastră se îndreaptă spre idei și instituții, nu spre persoane.
+Fiecare text publicat pe UCCS trebuie să îndeplinească trei condiții: să clarifice
+o problemă reală, să reziste la verificări și să nu degradeze spațiul public prin
+care circulă. Critica noastră se îndreaptă spre idei și instituții, nu spre persoane.
 
-Textele trec prin același traseu: idee → research și schiță → draft → editare și fact-check → publicare → eventuale corecții transparente, notate în changelog.
+Textele trec prin același traseu: idee → research și schiță → draft → editare și
+fact-check → publicare → eventuale corecții transparente, notate în changelog.
 
-## Cine suntem?
-
-UCCS este construită de autori care se văd mai întâi ca cercetători și pedagogi, abia apoi ca „creatori de conținut”. Ne asumăm semnătura, bibliografia și responsabilitatea fiecărui argument.
+{{< values >}}
 
 {{< team >}}
-

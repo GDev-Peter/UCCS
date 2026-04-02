@@ -1,7 +1,10 @@
 {{ define "main" }}
 
-  {{ partial "page-header.html" . }}
+  {{ partial "section-header.html" . }}
 
-  {{ partial "article-list.html" .Pages.ByDate.Reverse }}
+  {{ partial "article-render.html" (dict
+    "pages"  .Pages.ByDate.Reverse
+    "layout" "list"
+  ) }}
 
 {{ end }}

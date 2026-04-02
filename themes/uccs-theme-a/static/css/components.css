@@ -418,19 +418,33 @@ article > .article-meta {
  *  16. STANDALONE PAGES — Despre / Contact / Donează
  * ============================================================ */
 
-/* Page wrapper */
-.standalone-page { max-width: var(--content-default); }
-
-/* Hero header */
-.standalone-hero {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-14);
-  margin-bottom: var(--space-12);
-  border-bottom: 1px solid var(--color-divider);
-  max-width: 820px;
+/* Full-width override: remove main's side padding for standalone */
+.page-standalone main {
+  max-width: 100%;
+  padding-inline: 0;
+  padding-block: 0;
 }
 
-/* Eyebrow label with extending rule */
+.standalone-page {
+  width: 100%;
+}
+
+/* Hero and body are internally constrained for readability */
+.standalone-hero,
+.standalone-body {
+  max-width: var(--site-max-w);
+  margin-inline: auto;
+  padding-inline: var(--side-pad);
+}
+
+.standalone-hero {
+  padding-top:    var(--space-16);
+  padding-bottom: var(--space-12);
+  max-width: 820px;         /* hero text reads better narrower */
+  margin-inline: 0;         /* left-align hero, not centered */
+  padding-inline: var(--side-pad);
+}
+
 .standalone-hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -441,19 +455,9 @@ article > .article-meta {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-text-faint);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
-.standalone-hero-eyebrow::after {
-  content: '';
-  display: inline-block;
-  width: 3.5rem;
-  height: 1px;
-  background: var(--color-divider);
-  flex-shrink: 0;
-}
-
-/* Main headline — very large display */
 .standalone-hero-title {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
@@ -464,14 +468,12 @@ article > .article-meta {
   margin: 0;
 }
 
-/* Italic gold subtitle — second line */
 .standalone-hero-subtitle {
   display: block;
   font-style: italic;
   color: var(--color-gold);
 }
 
-/* Optional lead sentence */
 .standalone-hero-lead {
   font-family: var(--font-body);
   font-size: var(--text-lg);
@@ -482,15 +484,74 @@ article > .article-meta {
 }
 
 /* Body prose */
-.standalone-body p   { margin-bottom: var(--space-5); max-width: 70ch; }
-.standalone-body h2  { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-top: var(--space-12); margin-bottom: var(--space-3); }
-.standalone-body h3  { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; margin-top: var(--space-8); margin-bottom: var(--space-2); }
-.standalone-body a   { color: var(--color-primary); }
+.standalone-body {
+  padding-top:    var(--space-10);
+  padding-bottom: var(--space-20);
+}
 
+.standalone-body p {
+  margin-bottom: var(--space-5);
+  max-width: 70ch;
+  line-height: 1.78;
+}
+
+.standalone-body a { color: var(--color-primary); }
+
+/* Responsive */
 @media (max-width: 640px) {
-  .standalone-hero       { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+  .standalone-hero       { padding-top: var(--space-10); }
   .standalone-hero-title { font-size: var(--text-2xl); }
   .standalone-hero-lead  { font-size: var(--text-base); }
+}
+
+/* ============================================================
+ *  16b. SHORTCODE — section-heading
+ *  Use {{< section-heading >}} instead of ## inside standalone pages.
+ *  Renders as a page-level context switch with generous space.
+ * ============================================================ */
+
+.sc-section-heading {
+  max-width: var(--site-max-w);
+  margin-inline: auto;
+  padding-inline: var(--side-pad);
+  margin-top:    var(--space-20);
+  margin-bottom: var(--space-8);
+}
+
+.sc-section-heading__eyebrow {
+  font-family:    var(--font-ui);
+  font-size:      var(--text-xs);
+  font-weight:    700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          var(--color-text-faint);
+  margin-bottom:  var(--space-3);
+}
+
+.sc-section-heading__title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-2xl);
+  font-weight:    500;
+  letter-spacing: -0.02em;
+  line-height:    1.1;
+  color:          var(--color-text);
+  margin:         0;
+}
+
+/* Full-width divider above each section heading */
+.sc-section-heading::before {
+  content:          '';
+  display:          block;
+  width:            100vw;
+  margin-left:      calc(-1 * var(--side-pad));
+  height:           1px;
+  background:       var(--color-divider);
+  margin-bottom:    var(--space-10);
+}
+
+@media (max-width: 640px) {
+  .sc-section-heading              { margin-top: var(--space-16); }
+  .sc-section-heading__title       { font-size: var(--text-xl); }
 }
 
 /* ============================================================
@@ -794,114 +855,156 @@ article > .article-meta {
 .pull-quote cite { display: block; margin-top: var(--space-3); font-family: var(--font-body, sans-serif); font-size: var(--text-sm); font-style: normal; color: var(--color-text-muted); letter-spacing: 0.02em; }
 
 /* ============================================================
- *  23. TEAM MEMBER
+ *  23. TEAM
  * ============================================================ */
 
+/* Section wrapper — full-width divider above, padding to match standalone body */
+.team-list-wrapper {
+  max-width: var(--site-max-w);
+  margin-inline: auto;
+  padding-inline: var(--side-pad);
+  margin-top: var(--space-20);
+}
+
+/* ── Section header ── */
+.team-section-header {
+  margin-bottom: var(--space-8);
+}
+
+.team-section-eyebrow {
+  font-family:    var(--font-ui);
+  font-size:      var(--text-xs);
+  font-weight:    700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          var(--color-text-faint);
+  margin-bottom:  var(--space-4);
+}
+
+/* No ::after line on the eyebrow — the section-heading divider above handles separation */
+
+.team-section-title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-3xl);
+  font-weight:    500;
+  letter-spacing: -0.02em;
+  line-height:    1.05;
+  color:          var(--color-text);
+  margin:         0;
+}
+
+.team-section-subtitle {
+  display:    block;
+  font-style: italic;
+  color:      var(--color-gold);
+}
+
+/* ── Member list — no outer borders, tight stack ── */
+.team-list {
+  display:        flex;
+  flex-direction: column;
+  margin-top:     var(--space-10);
+}
+
+/* ── Individual member ── */
 .team-member {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: var(--space-8);
-  align-items: start;
-  margin-block: var(--space-10);
-  padding-bottom: var(--space-10);
+  display:       flex;
+  flex-direction: column;
+  gap:           var(--space-5);
+  padding-block: var(--space-8);
   border-bottom: 1px solid var(--color-divider);
 }
 
-.team-member:last-child { border-bottom: none; padding-bottom: 0; }
+/* No top border on first member — the header above already separates */
+.team-member:first-child { border-top: none; }
+.team-member:last-child  { border-bottom: none; }
 
-@media (max-width: 480px) { .team-member { grid-template-columns: 1fr; } }
+/* Top row: avatar + name/role in one flex line */
+.team-member__top {
+  display:     flex;
+  align-items: center;          /* vertically center avatar with name+role */
+  gap:         var(--space-4);
+}
 
+/* Avatar */
 .team-member__avatar {
-  width: 80px;
-  height: 80px;
-  background: var(--color-surface-offset);
+  width:       64px;
+  height:      64px;
+  min-width:   64px;            /* prevent flex shrink */
+  background:  var(--color-surface-offset);
+  border:      1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-divider);
-  display: flex;
+  display:     flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
+  overflow:    hidden;
 }
 
 .team-member__avatar span {
-  font-family: var(--font-display, serif);
-  font-size: var(--text-2xl);
+  font-family: var(--font-display);
+  font-size:   var(--text-2xl);
   font-weight: 400;
-  color: var(--color-text-muted);
-  user-select: none;
+  color:       var(--color-text-muted);
   line-height: 1;
+  user-select: none;
 }
 
-.team-member__photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.team-member__photo {
+  width:            100%;
+  height:           100%;
+  object-fit:       cover;
+  object-position:  center top;
+  display:          block;
+}
 
-.team-member__content { display: flex; flex-direction: column; gap: var(--space-4); }
-.team-member__header  { display: flex; flex-direction: column; gap: var(--space-1); }
+/* Name + role stacked beside avatar */
+.team-member__identity {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-1);
+}
 
 .team-member__name {
-  font-family: var(--font-display, serif);
-  font-size: var(--text-xl);
+  font-family: var(--font-display);
+  font-size:   var(--text-xl);
   font-weight: 400;
-  color: var(--color-text);
-  line-height: 1.2;
-  margin: 0;
+  color:       var(--color-text);
+  line-height: 1.15;
+  margin:      0;
 }
 
 .team-member__role {
-  font-family: var(--font-body, sans-serif);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family:    var(--font-ui);
+  font-size:      var(--text-xs);
+  font-weight:    700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color:          var(--color-gold);
 }
 
-.team-member__bio { display: flex; flex-direction: column; gap: var(--space-4); }
+/* Bio — full width, max readable line length */
+.team-member__bio {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-4);
+  max-width:      70ch;
+}
 
 .team-member__bio p {
-  font-family: var(--font-body, sans-serif);
-  font-size: var(--text-base);
-  line-height: 1.75;
-  color: var(--color-text-muted);
-  max-width: var(--content-default);
-  margin: 0;
-  hyphens: auto;
+  font-family: var(--font-body);
+  font-size:   var(--text-base);
+  line-height: 1.78;
+  color:       var(--color-text-muted);
+  margin:      0;
+  hyphens:     auto;
   -webkit-hyphens: auto;
-  hyphenate-limit-chars: 6 3 3;
 }
 
-/* ============================================================
- *  24. CTA BOX
- * ============================================================ */
-
-.cta-box {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: var(--space-12);
-  align-items: center;
-  padding: var(--space-10);
-  background: var(--color-surface);
-  border: 1px solid var(--color-divider);
-  border-radius: var(--radius-lg);
-  margin-block: var(--space-10);
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .team-section-title { font-size: var(--text-2xl); }
+  .team-member__bio   { max-width: 100%; }
 }
-
-@media (max-width: 640px) { .cta-box { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-6); } }
-
-.cta-box__left { display: flex; flex-direction: column; gap: var(--space-4); }
-.cta-box__left h2 { font-family: var(--font-display, serif); font-size: var(--text-xl); font-weight: 400; line-height: 1.25; color: var(--color-text); margin: 0; }
-.cta-box__left h2 em { color: var(--color-gold); font-style: italic; display: block; }
-.cta-box__left p  { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; max-width: 44ch; margin: 0; }
-
-.cta-box__right { display: flex; flex-direction: column; gap: var(--space-3); align-items: stretch; }
-
-.sc-btn { display: block; width: 100%; padding: var(--space-3) var(--space-5); border-radius: var(--radius-md); font-family: var(--font-body, sans-serif); font-size: var(--text-sm); font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; transition: background var(--transition-interactive), box-shadow var(--transition-interactive); }
-.sc-btn--primary { background: var(--color-gold); color: var(--color-text); border: none; }
-.sc-btn--primary:hover { background: var(--color-gold-hover); color: var(--color-text); box-shadow: var(--shadow-md); }
-.sc-btn--outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-border); }
-.sc-btn--outline:hover { background: var(--color-surface-offset); color: var(--color-text); }
-
-.cta-box__note { font-size: var(--text-xs); color: var(--color-text-muted); font-style: italic; text-align: center; margin: 0; padding-top: var(--space-1); }
 
 /* ============================================================
  *  25. SHORTCODE — box
