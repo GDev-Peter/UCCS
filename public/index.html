@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="/UCCS/css/layout.css">
   <link rel="stylesheet" href="/UCCS/css/components.css">
   
+  <link rel="stylesheet" href="/UCCS/css/homepage.css">
+
 </head>
 <body>
 
@@ -128,12 +130,8 @@
 </a>
   
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   
   
->>>>>>> parent of 95e8a61 (new changes)
 
 <section class="uccs-intro" aria-label="Despre publicație">
 
@@ -156,24 +154,12 @@
 </section>
 
 
-<<<<<<< HEAD
-  <div class="grid-section-header">
-    <h2 class="grid-section-title">Ultimele articole</h2>
-  </div>
-
-=======
-=======
->>>>>>> parent of 95e8a61 (new changes)
   
   
     <div class="grid-section-header">
       <h2 class="grid-section-title">Ultimele articole</h2>
     </div>
     
-<<<<<<< HEAD
->>>>>>> parent of 62445d1 (new content)
-=======
->>>>>>> parent of 95e8a61 (new changes)
 
 <ul class="article-grid">
   
@@ -218,7 +204,6 @@
   
 
   
-<<<<<<< HEAD
     <p class="article-excerpt">Probleme la real și uman, plus soluții practice pentru predarea modernă.</p>
   
 </div>
@@ -232,463 +217,16 @@
 
 
 
-<section class="upcoming-posts" aria-labelledby="upcoming-posts-title">
 
-  <div class="upcoming-header">
-    <div class="upcoming-header-left">
-      <span class="upcoming-badge">Revistă lunară</span>
-      <h2 class="upcoming-posts-title" id="upcoming-posts-title">
-        Urmează în revistă
-      </h2>
-    </div>
-  </div>
-
-  <ul class="upcoming-grid" role="list">
-    
-    
-    <li class="upcoming-card
-               
-               "
-        data-publish="2026-04-07T11:00:00&#43;03:00">
-
-      
-      <div class="upcoming-card-top">
-        <span class="upcoming-section-label">Polis</span>
-        <time class="upcoming-date" datetime="2026-04-07T11:00:00&#43;03:00">
-          7 apr. 2026, 11:00
-        </time>
-      </div>
-
-      
-      <h3 class="upcoming-card-title">Titlul articolului următor</h3>
-      
-        <p class="upcoming-card-desc">O scurtă descriere a temei care urmează — editează în data/upcoming.yaml.</p>
-      
-
-      
-      
-        <p class="upcoming-card-author">Velcea-Petru</p>
-      
-
-      
-      
-
-      
-      
-      <div class="upcoming-countdown" aria-live="polite">
-        <span class="upcoming-countdown-value" aria-label="Timp rămas">—</span>
-        <span class="upcoming-countdown-label">până la publicare</span>
-      </div>
-      
-
-    </li>
-    
-    
-    <li class="upcoming-card
-               
-               "
-        data-publish="2026-04-07T11:00:00&#43;03:00">
-
-      
-      <div class="upcoming-card-top">
-        <span class="upcoming-section-label">Polis</span>
-        <time class="upcoming-date" datetime="2026-04-07T11:00:00&#43;03:00">
-          7 apr. 2026, 11:00
-        </time>
-      </div>
-
-      
-      <h3 class="upcoming-card-title">Titlul articolului următor</h3>
-      
-        <p class="upcoming-card-desc">O scurtă descriere a temei care urmează — editează în data/upcoming.yaml.</p>
-      
-
-      
-      
-        <p class="upcoming-card-author">Velcea-Petru</p>
-      
-
-      
-      
-
-      
-      
-      <div class="upcoming-countdown" aria-live="polite">
-        <span class="upcoming-countdown-value" aria-label="Timp rămas">—</span>
-        <span class="upcoming-countdown-label">până la publicare</span>
-      </div>
-      
-
-    </li>
-    
-    
-    <li class="upcoming-card
-               
-               "
-        data-publish="2026-04-07T11:00:00&#43;03:00">
-
-      
-      <div class="upcoming-card-top">
-        <span class="upcoming-section-label">Polis</span>
-        <time class="upcoming-date" datetime="2026-04-07T11:00:00&#43;03:00">
-          7 apr. 2026, 11:00
-        </time>
-      </div>
-
-      
-      <h3 class="upcoming-card-title">Titlul articolului următor</h3>
-      
-        <p class="upcoming-card-desc">O scurtă descriere a temei care urmează — editează în data/upcoming.yaml.</p>
-      
-
-      
-      
-        <p class="upcoming-card-author">Velcea-Petru</p>
-      
-
-      
-      
-
-      
-      
-      <div class="upcoming-countdown" aria-live="polite">
-        <span class="upcoming-countdown-value" aria-label="Timp rămas">—</span>
-        <span class="upcoming-countdown-label">până la publicare</span>
-      </div>
-      
-
-    </li>
-    
-  </ul>
-
-</section>
-
-<script>
-(function () {
-  'use strict';
-  var cards = document.querySelectorAll('.upcoming-card[data-publish]');
-  cards.forEach(function (card) {
-    var pub   = new Date(card.getAttribute('data-publish'));
-    var valEl = card.querySelector('.upcoming-countdown-value');
-    var lblEl = card.querySelector('.upcoming-countdown-label');
-    if (!valEl) return;
-
-    function render() {
-      var diff = pub - Date.now();
-      if (diff <= 0) {
-        valEl.textContent = 'Publicat';
-        if (lblEl) lblEl.textContent = '';
-        return;
-      }
-      var d = Math.floor(diff / 86400000);
-      var h = Math.floor((diff % 86400000) / 3600000);
-      var m = Math.floor((diff % 3600000)  / 60000);
-      if (d > 0) {
-        valEl.textContent = d + (d === 1 ? ' zi' : ' zile');
-      } else if (h > 0) {
-        valEl.textContent = h + 'h\u202f' + (m < 10 ? '0' : '') + m + 'min';
-      } else {
-        valEl.textContent = m + 'min';
-      }
-      if (lblEl) lblEl.textContent = 'până la publicare';
-    }
-
-    render();
-    setInterval(render, 30000);
-  });
-})();
-</script>
-
-
-
-<<<<<<< HEAD
-<div class="team-section-header">
-  <span class="header-label">Echipă</span>
-  <h2 class="grand-header">
-    Cine stă în spatele paginii?
-  </h2>
-</div>
-
-
-
-
-  
-  
-    
-  
-
-
-
-<div class="team-list">
-  
-    <article class="team-member">
-
-  <div class="team-member__top">
-
-    <div class="team-member__avatar">
-      
-      
-        <img
-          src="/UCCS/authors/velcea-petru/avatar.jpg"
-          alt="Velcea-Petru"
-          width="64"
-          height="64"
-          loading="lazy"
-          decoding="async"
-          class="team-member__photo"
-        >
-      
-    </div>
-
-    <div class="team-member__identity">
-      <h3 class="team-member__name">
-        <a href="/UCCS/authors/velcea-petru/">
-          Velcea-Petru
-        </a>
-      </h3>
-      <span class="team-member__role">Fondator &amp; Editor</span>
-    </div>
-
-  </div>
-
-  
-    <div class="team-member__bio">
-      
-        <p>Elev în clasa a XII-a la Colegiul Național Ion Creangă din București. Patru ani în clubul de dezbateri al colegiului — ca organizator, nu doar participant — și, din 2026, formator certificat ARDOR și judecător la Forumul Național de Dezbateri Academice.</p>
-      
-        <p>UCCS a apărut din convingerea că România are nevoie de mai mulți oameni care gândesc în public și mai puțini care vorbesc în gol.</p>
-      
-        <p>Viitor student la Istorie. Interesat de retorică, filozofia dezbaterii și ceea ce istoria ne poate spune despre prezentul în care trăim.</p>
-      
-    </div>
-  
-
-</article>
-  
-</div>
 =======
-  
-  
+  Data source: data/sections.yaml → .sections[]
+  Renders the homepage "Explorează" section with rich cards (tagline, description,
+  article count, and optional "Începe de aici" link to a featured article).
+  Styled by homepage.css (.section-explore).
+*/}}
+
 >>>>>>> parent of 95e8a61 (new changes)
 
-<section class="section-explore" aria-label="Explorează secțiunile publicației">
-
-  <div class="section-explore-header">
-    <p class="section-explore-eyebrow" aria-hidden="true">Explorează</p>
-    <p class="section-explore-lead">
-      UCCS e gândită pe trasee tematice, nu pe clickbait. 
-      Alege-ți intrarea în revistă:
-    </p>
-  </div>
-
-  <ul class="section-explore-grid" role="list">
-    
-      
-      
-      <li class="section-explore-card" data-section="polis">
-
-        
-        <div class="section-explore-card-top">
-          <span class="section-explore-label">Polis</span>
-=======
-  <nav class="section-strip" aria-label="Explorează secțiunile publicației">
-  <span class="section-strip-heading" aria-hidden="true">Explorează</span>
-  <ul class="section-strip-list" role="list">
-    <li>
-        <a href="/UCCS/polis/" class="section-strip-item">
-          <span class="section-strip-name">Polis</span>
->>>>>>> parent of 62445d1 (new content)
-          
-            <span class="section-strip-count" aria-label="1 articole">1</span>
-          
-<<<<<<< HEAD
-        </div>
-
-        
-        <p class="section-explore-tagline">Politică și democrație</p>
-        <p class="section-explore-desc">Analize despre democrație, cetățenie și viața politică — ce înseamnă să gândești politic fără să cazi în tabere oarbe.
-</p>
-
-        
-        <div class="section-explore-actions">
-          
-            <a href="/UCCS/polis/"
-               class="section-explore-link section-explore-link--primary">
-              Explorează →
-            </a>
-          
-        </div>
-
-      </li>
-    
-      
-      
-      <li class="section-explore-card" data-section="agora">
-
-        
-        <div class="section-explore-card-top">
-          <span class="section-explore-label">Agora</span>
-          
-        </div>
-
-        
-        <p class="section-explore-tagline">Discurs public și media</p>
-        <p class="section-explore-desc">Eseuri despre cum vorbim în spațiul public — manipulare, retorică și cultura dezbaterii în România de azi.
-</p>
-
-        
-        <div class="section-explore-actions">
-          
-            <a href="/UCCS/agora/"
-               class="section-explore-link section-explore-link--primary">
-              Explorează →
-            </a>
-          
-        </div>
-
-      </li>
-    
-      
-      
-      <li class="section-explore-card" data-section="educatie">
-
-        
-        <div class="section-explore-card-top">
-          <span class="section-explore-label">Educație</span>
-          
-        </div>
-
-        
-        <p class="section-explore-tagline">Școală și învățare</p>
-        <p class="section-explore-desc">Reflecții despre ce înseamnă o educație bună și cum se formează gândirea critică în și în afara sălii de clasă.
-</p>
-
-        
-        <div class="section-explore-actions">
-          
-            <a href="/UCCS/educatie/"
-               class="section-explore-link section-explore-link--primary">
-              Explorează →
-            </a>
-          
-        </div>
-
-      </li>
-    
-      
-      
-      <li class="section-explore-card" data-section="tech">
-
-        
-        <div class="section-explore-card-top">
-          <span class="section-explore-label">Tech</span>
-          
-        </div>
-
-        
-        <p class="section-explore-tagline">Infrastructuri digitale</p>
-        <p class="section-explore-desc">Cum remodelează algoritmii societatea, ce facem cu asta și de ce contează să înțelegi tehnologia înainte să o folosești.
-</p>
-
-        
-        <div class="section-explore-actions">
-          
-            <a href="/UCCS/tech/"
-               class="section-explore-link section-explore-link--primary">
-              Explorează →
-            </a>
-          
-        </div>
-
-      </li>
-    
-      
-      
-      <li class="section-explore-card" data-section="litere">
-
-        
-        <div class="section-explore-card-top">
-          <span class="section-explore-label">Litere</span>
-          
-        </div>
-
-        
-        <p class="section-explore-tagline">Literatură contemporană</p>
-        <p class="section-explore-desc">Recenzii, eseuri și cronici literare — de ce mai contează cărțile și ce spun ele despre lumea în care trăim.
-</p>
-
-        
-        <div class="section-explore-actions">
-          
-            <a href="/UCCS/litere/"
-               class="section-explore-link section-explore-link--primary">
-              Explorează →
-            </a>
-          
-        </div>
-
-      </li>
-    
-      
-      
-      <li class="section-explore-card" data-section="debate">
-
-        
-        <div class="section-explore-card-top">
-          <span class="section-explore-label">Dezbatere</span>
-          
-            <span class="section-explore-count" aria-label="1 articole">
-              1
-            </span>
-          
-        </div>
-
-        
-        <p class="section-explore-tagline">Dezbatere &amp; Retorică</p>
-        <p class="section-explore-desc">Dialectică, logică clasică, instrumente pentru argumentare onestă și gândire clară.
-</p>
-
-        
-        <div class="section-explore-actions">
-          
-            <a href="/UCCS/debate/"
-               class="section-explore-link section-explore-link--primary">
-              Explorează →
-            </a>
-          
-        </div>
-
-=======
-        </a>
-      </li>
-    <li>
-        <a href="/UCCS/agora/" class="section-strip-item">
-          <span class="section-strip-name">Agora</span>
-          
-        </a>
-      </li>
-    <li>
-        <a href="/UCCS/educatie/" class="section-strip-item">
-          <span class="section-strip-name">Educație</span>
-          
-        </a>
-      </li>
-    <li>
-        <a href="/UCCS/tech/" class="section-strip-item">
-          <span class="section-strip-name">Tech</span>
-          
-        </a>
-      </li>
-    <li>
-        <a href="/UCCS/litere/" class="section-strip-item">
-          <span class="section-strip-name">Litere</span>
-          
-        </a>
->>>>>>> parent of 62445d1 (new content)
-      </li>
-    
-  </ul>
-</nav>
 
 
   </main>
