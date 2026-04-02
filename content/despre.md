@@ -13,7 +13,7 @@ Nu suntem un agregator de știri și nu facem vânătoare de scandal. Nu urmări
 reach-ul, nu optimizăm pentru viralitate și nu scriem pentru algoritmi. Scriem
 pentru cititorul care vrea să înțeleagă un fenomen înainte să îl judece.
 
-{{< section-heading >}}Ce facem?{{< /section-heading >}}
+## Ce facem?
 
 {{< sections-grid >}}
   {{< section-card label="Polis" title="Politică & Cetate" >}}
@@ -41,7 +41,7 @@ pentru cititorul care vrea să înțeleagă un fenomen înainte să îl judece.
   {{< /section-card >}}
 {{< /sections-grid >}}
 
-{{< section-heading eyebrow="Metodologie" >}}Cum scriem?{{< /section-heading >}}
+## Cum scriem?
 
 Fiecare text publicat pe UCCS trebuie să îndeplinească trei condiții: să clarifice
 o problemă reală, să reziste la verificări și să nu degradeze spațiul public prin
@@ -50,6 +50,6 @@ care circulă. Critica noastră se îndreaptă spre idei și instituții, nu spr
 Textele trec prin același traseu: idee → research și schiță → draft → editare și
 fact-check → publicare → eventuale corecții transparente, notate în changelog.
 
-{{< values >}}
+(values columns in the works)
 
 {{< team >}}

@@ -35,7 +35,9 @@
 
     <div class="team-member__identity">
       <h3 class="team-member__name">
-        {{ .Params.display_name | default .Title }}
+        <a href="{{ .RelPermalink }}">
+          {{ .Params.display_name | default .Title }}
+        </a>
       </h3>
       <span class="team-member__role">{{ .Params.role }}</span>
     </div>

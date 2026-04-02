@@ -11,4 +11,6 @@ layout: "home"
 
 {{< upcoming-posts >}}
 
+{{< team >}}
+
 {{< sections-explore >}}
