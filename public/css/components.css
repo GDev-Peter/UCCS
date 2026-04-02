@@ -418,6 +418,7 @@ article > .article-meta {
  *  16. STANDALONE PAGES — Despre / Contact / Donează
  * ============================================================ */
 
+<<<<<<< HEAD
 /*
  * Layout principle:
  * The page has a single editorial column (--site-max-w) with consistent
@@ -437,12 +438,26 @@ article > .article-meta {
 }
 
 /* ── Hero ── */
+=======
+/* Page wrapper */
+.standalone-page { max-width: var(--content-default); }
+>>>>>>> parent of 95e8a61 (new changes)
 
+/* Hero header */
 .standalone-hero {
+<<<<<<< HEAD
   padding-top: 0;
   max-width: 680px;
+=======
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-14);
+  margin-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-divider);
+  max-width: 820px;
+>>>>>>> parent of 95e8a61 (new changes)
 }
 
+/* Eyebrow label with extending rule */
 .standalone-hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -453,9 +468,23 @@ article > .article-meta {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--color-text-faint);
+<<<<<<< HEAD
   margin-bottom: var(--space-4);
+=======
+  margin-bottom: var(--space-8);
+>>>>>>> parent of 95e8a61 (new changes)
 }
 
+.standalone-hero-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 3.5rem;
+  height: 1px;
+  background: var(--color-divider);
+  flex-shrink: 0;
+}
+
+/* Main headline — very large display */
 .standalone-hero-title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
@@ -466,6 +495,7 @@ article > .article-meta {
   margin: 0 0 var(--space-8);
 }
 
+/* Italic gold subtitle — second line */
 .standalone-hero-subtitle {
   display: block;
   font-style: italic;
@@ -473,6 +503,7 @@ article > .article-meta {
   line-height: 1.2;
 }
 
+/* Optional lead sentence */
 .standalone-hero-lead {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -482,6 +513,7 @@ article > .article-meta {
   max-width: 62ch;
 }
 
+<<<<<<< HEAD
 .standalone-body p, li {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -535,6 +567,20 @@ article > .article-meta {
   text-wrap: balance;
 }
 
+=======
+/* Body prose */
+.standalone-body p   { margin-bottom: var(--space-5); max-width: 70ch; }
+.standalone-body h2  { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-top: var(--space-12); margin-bottom: var(--space-3); }
+.standalone-body h3  { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; margin-top: var(--space-8); margin-bottom: var(--space-2); }
+.standalone-body a   { color: var(--color-primary); }
+
+@media (max-width: 640px) {
+  .standalone-hero       { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+  .standalone-hero-title { font-size: var(--text-2xl); }
+  .standalone-hero-lead  { font-size: var(--text-base); }
+}
+
+>>>>>>> parent of 95e8a61 (new changes)
 /* ============================================================
  *  17. FEATURED HERO — top of homepage
  * ============================================================ */
@@ -836,9 +882,10 @@ article > .article-meta {
 .pull-quote cite { display: block; margin-top: var(--space-3); font-family: var(--font-body, sans-serif); font-size: var(--text-sm); font-style: normal; color: var(--color-text-muted); letter-spacing: 0.02em; }
 
 /* ============================================================
- *  23. TEAM
+ *  23. TEAM MEMBER
  * ============================================================ */
 
+<<<<<<< HEAD
 /*
  * Layout principle:
  * Each member is a two-column row on desktop (identity left, bio right).
@@ -934,18 +981,53 @@ article > .article-meta {
   display: flex;
   align-items: center;
   justify-content: center;
+=======
+.team-member {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: var(--space-8);
+  align-items: start;
+  margin-block: var(--space-10);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.team-member:last-child { border-bottom: none; padding-bottom: 0; }
+
+@media (max-width: 480px) { .team-member { grid-template-columns: 1fr; } }
+
+.team-member__avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-divider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+>>>>>>> parent of 95e8a61 (new changes)
   overflow: hidden;
 }
 
 .team-member__avatar span {
+<<<<<<< HEAD
   font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: 400;
   color: var(--color-text-muted);
   line-height: 1;
+=======
+  font-family: var(--font-display, serif);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-text-muted);
+>>>>>>> parent of 95e8a61 (new changes)
   user-select: none;
+  line-height: 1;
 }
 
+<<<<<<< HEAD
 .team-member__photo {
   width: 100%;
   height: 100%;
@@ -1021,6 +1103,77 @@ article > .article-meta {
 }
 
 /* ── Mobile: stack identity above bio ── */
+=======
+.team-member__photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+.team-member__content { display: flex; flex-direction: column; gap: var(--space-4); }
+.team-member__header  { display: flex; flex-direction: column; gap: var(--space-1); }
+
+.team-member__name {
+  font-family: var(--font-display, serif);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.team-member__role {
+  font-family: var(--font-body, sans-serif);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.team-member__bio { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.team-member__bio p {
+  font-family: var(--font-body, sans-serif);
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: var(--content-default);
+  margin: 0;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+}
+
+/* ============================================================
+ *  24. CTA BOX
+ * ============================================================ */
+
+.cta-box {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-12);
+  align-items: center;
+  padding: var(--space-10);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  margin-block: var(--space-10);
+}
+>>>>>>> parent of 95e8a61 (new changes)
+
+@media (max-width: 640px) { .cta-box { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-6); } }
+
+.cta-box__left { display: flex; flex-direction: column; gap: var(--space-4); }
+.cta-box__left h2 { font-family: var(--font-display, serif); font-size: var(--text-xl); font-weight: 400; line-height: 1.25; color: var(--color-text); margin: 0; }
+.cta-box__left h2 em { color: var(--color-gold); font-style: italic; display: block; }
+.cta-box__left p  { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; max-width: 44ch; margin: 0; }
+
+.cta-box__right { display: flex; flex-direction: column; gap: var(--space-3); align-items: stretch; }
+
+.sc-btn { display: block; width: 100%; padding: var(--space-3) var(--space-5); border-radius: var(--radius-md); font-family: var(--font-body, sans-serif); font-size: var(--text-sm); font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; transition: background var(--transition-interactive), box-shadow var(--transition-interactive); }
+.sc-btn--primary { background: var(--color-gold); color: var(--color-text); border: none; }
+.sc-btn--primary:hover { background: var(--color-gold-hover); color: var(--color-text); box-shadow: var(--shadow-md); }
+.sc-btn--outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-border); }
+.sc-btn--outline:hover { background: var(--color-surface-offset); color: var(--color-text); }
+
+.cta-box__note { font-size: var(--text-xs); color: var(--color-text-muted); font-style: italic; text-align: center; margin: 0; padding-top: var(--space-1); }
 
 /* ============================================================
  *  25. SHORTCODE — box

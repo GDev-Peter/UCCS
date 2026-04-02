@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{- /*
   Partial: team-member.html
   Context: a Hugo Page (an authors taxonomy term page)
@@ -42,14 +43,34 @@
       <span class="team-member__role">{{ .Params.role }}</span>
     </div>
 
+=======
+{{ $base := .Site.BaseURL | strings.TrimRight "/" }}
+<div class="team-member">
+  <div class="team-member__avatar">
+    {{ if .photo }}
+      <img
+        src="{{ $base }}/{{ .photo }}"
+        alt="{{ .name }}"
+        width="72"
+        height="72"
+        loading="lazy"
+        decoding="async"
+        class="team-member__photo"
+      >
+    {{ else }}
+      <span aria-hidden="true">{{ .initial | default (substr .name 0 1) }}</span>
+    {{ end }}
+>>>>>>> parent of 95e8a61 (new changes)
   </div>
-
-  {{ with .Params.bio }}
+  <div class="team-member__content">
+    <div class="team-member__header">
+      <h3 class="team-member__name">{{ .name }}</h3>
+      <span class="team-member__role">{{ .role }}</span>
+    </div>
     <div class="team-member__bio">
-      {{ range . }}
+      {{ range .bio }}
         <p>{{ . }}</p>
       {{ end }}
     </div>
-  {{ end }}
-
-</article>
+  </div>
+</div>

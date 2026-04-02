@@ -1,0 +1,12 @@
+{{/* 
+  Partial: article-list.html
+  Context: a Pages collection (already filtered/sorted)
+*/}}
+
+<ul class="article-list">
+  {{ range where . "Params.standalone" "ne" true }}
+    <li>
+      {{ partial "article-card.html" (dict "page" . "variant" "list") }}
+    </li>
+  {{ end }}
+</ul>

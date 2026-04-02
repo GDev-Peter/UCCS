@@ -1,0 +1,7 @@
+{{/*
+  Partial: page-header.html
+  Thin wrapper — delegates to section-header.html.
+  Kept for backwards compatibility: all existing list.html templates
+  call {{ partial "page-header.html" . }} and will continue to work.
+*/}}
+{{ partial "section-header.html" . }}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{- /*
   Shortcode: team
   Usage: {{< team >}}
@@ -14,20 +15,34 @@
   <h2 class="grand-header">
     {{ .title }}
   </h2>
+=======
+{{ $base := .Site.BaseURL | strings.TrimRight "/" }}
+{{ range .Site.Data.team.members }}
+<div class="team-member">
+  <div class="team-member__avatar">
+    {{ if .photo }}
+      <img
+        src="{{ $base }}/{{ .photo }}"
+        alt="{{ .name }}"
+        width="72"
+        height="72"
+        loading="lazy"
+        decoding="async"
+        class="team-member__photo"
+      >
+    {{ else }}
+      <span aria-hidden="true">{{ .initial | default (index (.name | split "") 0) }}</span>
+    {{ end }}
+  </div>
+  <div class="team-member__content">
+    <div class="team-member__header">
+      <h3 class="team-member__name">{{ .name }}</h3>
+      <span class="team-member__role">{{ .role }}</span>
+    </div>
+    <div class="team-member__bio">
+      {{ range .bio }}<p>{{ . }}</p>{{ end }}
+    </div>
+  </div>
+>>>>>>> parent of 95e8a61 (new changes)
 </div>
 {{ end }}
-
-{{ $founders := slice }}
-{{ range site.Taxonomies.authors }}
-  {{ $page := .Page }}
-  {{ if and ($page.Params.founder) (ne $page.Params.active false) }}
-    {{ $founders = $founders | append $page }}
-  {{ end }}
-{{ end }}
-{{ $founders = sort $founders "Params.joined" "asc" }}
-
-<div class="team-list">
-  {{ range $founders }}
-    {{ partial "team-member.html" . }}
-  {{ end }}
-</div>

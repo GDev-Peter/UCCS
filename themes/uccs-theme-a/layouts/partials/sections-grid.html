@@ -1,29 +1,17 @@
-{{- /*
-  Shortcode: sections-explore
-  Usage: {{< sections-explore >}}
-  Renders the "Explorează" section grid from data/sections.yaml.
-  Each card shows: section name, article count, tagline, description,
-  and action links (featured article or section index).
-  Styled by homepage.css (.section-explore-*).
-*/ -}}
+{{/* 
+  Partial: sections-grid.html
+  Pure section cards grid based on data/sections.yaml.
+  Context: any page (uses site.* only).
+*/}}
 
 {{ if site.Data.sections }}
-<section class="section-explore" aria-label="Explorează secțiunile publicației">
-
-  <div class="section-explore-header">
-    <p class="section-explore-eyebrow" aria-hidden="true">Explorează</p>
-    <p class="section-explore-lead">
-      UCCS e gândită pe trasee tematice, nu pe clickbait.
-      Alege-ți intrarea în revistă:
-    </p>
-  </div>
-
   <ul class="section-explore-grid" role="list">
     {{ range site.Data.sections.sections }}
       {{ $slug  := .slug }}
       {{ $count := len (where site.RegularPages "Section" $slug) }}
       <li class="section-explore-card" data-section="{{ $slug }}">
 
+        {{/* ── Card top: label + article count ── */}}
         <div class="section-explore-card-top">
           <span class="section-explore-label">{{ .name }}</span>
           {{ if gt $count 0 }}
@@ -33,9 +21,11 @@
           {{ end }}
         </div>
 
+        {{/* ── Tagline + description ── */}}
         <p class="section-explore-tagline">{{ .tagline }}</p>
         <p class="section-explore-desc">{{ .description }}</p>
 
+        {{/* ── Action links ── */}}
         <div class="section-explore-actions">
           {{ if .featured }}
             <a href="{{ .featured }}"
@@ -57,6 +47,4 @@
       </li>
     {{ end }}
   </ul>
-
-</section>
 {{ end }}
