@@ -1,0 +1,65 @@
+{{/*
+  Partial: section-explore.html
+  Location: layouts/partials/section-explore.html
+
+  Renders the "Explorează" section grid.
+  Reads section entries from data/sections.yaml.
+
+  Expected data/sections.yaml structure:
+    - title: "Dezbatere"
+      description: "Scurtă descriere a secțiunii."
+      icon: "debate"           # optional — slug for icon/image
+      url: "/dezbatere/"
+      tag: "Metodologie"       # optional label/badge
+      featured: true           # optional — marks a card as featured (span-2)
+*/}}
+
+{{ $sections := site.Data.sections }}
+
+{{ if $sections }}
+<section class="explore-section" aria-labelledby="explore-heading">
+  <div class="explore-container">
+
+    <header class="explore-header">
+      <h2 id="explore-heading" class="explore-title">Explorează</h2>
+    </header>
+
+    <ul class="explore-grid" role="list">
+      {{ range $sections }}
+      <li class="explore-card{{ if .featured }} explore-card--featured{{ end }}">
+        <a href="{{ .url | relURL }}" class="explore-card__link">
+
+          {{ if .icon }}
+          <div class="explore-card__icon" aria-hidden="true">
+            {{ partial "icons/explore-icon.html" .icon }}
+          </div>
+          {{ end }}
+
+          <div class="explore-card__body">
+            {{ if .tag }}
+            <span class="explore-card__tag">{{ .tag }}</span>
+            {{ end }}
+
+            <h3 class="explore-card__title">{{ .title }}</h3>
+
+            {{ with .description }}
+            <p class="explore-card__desc">{{ . }}</p>
+            {{ end }}
+          </div>
+
+          <span class="explore-card__arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </span>
+
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+
+  </div>
+</section>
+{{ end }}

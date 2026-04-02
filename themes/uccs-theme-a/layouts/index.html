@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{- /*
   layouts/index.html
   Homepage shell. All content composition is driven by content/_index.md
@@ -10,4 +11,27 @@
 
 {{ define "main" }}
   {{ .Content }}
+=======
+{{ define "main" }}
+
+  {{/* — All publishable pages, newest first — */}}
+  {{ $pages := (where site.RegularPages "Params.standalone" "ne" true).ByDate.Reverse }}
+
+  {{/* — Featured hero: most recent article — */}}
+  {{ with index $pages 0 }}
+    {{ partial "featured-hero.html" . }}
+  {{ end }}
+
+  {{/* — Article grid: next 11 articles — */}}
+  {{ if gt (len $pages) 1 }}
+    <div class="grid-section-header">
+      <h2 class="grid-section-title">Ultimele articole</h2>
+    </div>
+    {{ partial "article-grid.html" (after 1 $pages | first 11) }}
+  {{ end }}
+
+  {{/* — Section strip — */}}
+  {{ partial "section-strip.html" . }}
+
+>>>>>>> parent of 62445d1 (new content)
 {{ end }}
