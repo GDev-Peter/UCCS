@@ -1,41 +1,23 @@
-# ── Row 2: section navigation ─────────────────────────────────────────────────
+# ── Navigare principală (departamente) ────────────────────────────────────────
 [[main]]
-name    = "Polis"
-pageRef = "/polis"
+name    = "Analyticus"
+pageRef = "/analyticus"
 weight  = 10
 
 [[main]]
-name    = "Agora"
-pageRef = "/agora"
+name    = "Cultural"
+pageRef = "/cultural"
 weight  = 20
 
-[[main]]
-name    = "Debate"
-pageRef = "/debate"
-weight  = 50
-
-# ── Row 1 (right): utility / standalone pages ──────────────────────────────────
+# ── Utilitar / pagini standalone ──────────────────────────────────────────────
 [[utility]]
 name    = "Despre"
 pageRef = "/despre"
 weight  = 10
 
-[[utility]]
-name    = "Contact"
-pageRef = "/contact"
-weight  = 20
-
-[[utility]]
-name    = "Etichete"
-pageRef = "/tags"
-weight  = 30
-
-# Donate button — external = true opens in a new tab; donate = true gives pill styling.
-# To point to an internal page instead, remove `url` and add: pageRef = "/doneaza"
+# Butonul Donează — external = true deschide în tab nou; donate = true = pill styling
 [[utility]]
 name   = "Donează"
 url    = "https://ko-fi.com/uccspub"
-weight = 40
+weight = 20
 params = { donate = true, external = true }
-#url    = "/doneaza"
-#params = { donate = true }

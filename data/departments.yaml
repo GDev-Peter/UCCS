@@ -1,0 +1,32 @@
+# data/departments.yaml
+# Detaliile fiecărui departament editorial UCCS.
+# Accesibil în layouts via: `site.Data.departments`
+# Exemplu de acces: {{ $dept := index site.Data.departments "analyticus" }}
+
+analyticus:
+  name: "UCCS Analyticus"
+  slug: "analyticus"
+  tagline: "Analiză politică și socială cu instrumente, nu cu tribalism."
+  description: |
+    Analyticus este departamentul analitic al UCCS. Scriem despre politică,
+    instituții și societate folosind cadre conceptuale clare, argumente
+    verificabile și un ton deliberat rece — fără isterie, fără tribalism.
+  color: "#0f5c4d"          # accent verde-închis, folosit pentru badge-uri și borduri
+  head_editor:
+    name: "Velcea-Petru"
+    slug: "velcea-petru"    # corespunde cu urlize din taxonomy authors
+    role: "Head Editor, Analyticus"
+
+cultural:
+  name: "UCCS Cultural"
+  slug: "cultural"
+  tagline: "Pedagogie literară și eseu cultural cu miză intelectuală."
+  description: |
+    Cultural este departamentul pedagogic și literar al UCCS. Eseuri,
+    recenzii și analize culturale care pun în context ideile, cărțile și
+    fenomenele care modelează spațiul public românesc.
+  color: "#5c3d0f"          # accent brun-cald, pentru diferențiere vizuală
+  head_editor:
+    name: "Velcea-Petru"
+    slug: "velcea-petru"
+    role: "Head Editor, Cultural"

@@ -1,11 +1,13 @@
 description = "Proiect editorial independent cu substanță, nu doar formă."
 author      = "Redacția UCCS"
-subtitle = "Unde cuvintele capătă sens"
+subtitle    = "Unde cuvintele capătă sens"
 
+# Link Ko-fi pentru butonul Donează (folosit și în footer)
+kofi = "https://ko-fi.com/uccspub"
 
-# Social links — keys are matched to icons automatically in footer and author pages.
-# Supported with branded icons: instagram, twitter, x, linkedin, github,
-#                                facebook, youtube, tiktok, website
-# Any other key falls back to a generic link icon.
+# Social links — cheile se mapează automat pe icoane în footer și pagini autor.
+# Suportate cu icoane branded: instagram, twitter, x, linkedin, github,
+#                               facebook, youtube, tiktok, website
+# Orice altă cheie cade back pe un icon generic de link.
 [social]
 instagram = "https://www.instagram.com/istorie.petru/"

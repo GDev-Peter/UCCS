@@ -1,0 +1,16 @@
+# Output Hugo — nu se commitează; generat la build
+public/
+
+# Lock files Hugo (generate local, nu sunt relevante pentru repo)
+.hugo_build.lock
+themes/**/.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
