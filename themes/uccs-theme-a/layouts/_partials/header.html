@@ -1,18 +1,48 @@
 <!-- layouts/_partials/header.html -->
 <header class="site-header">
-  <div class="column-container__header">
-    <a href="{{ site.BaseURL }}" class="logo">
-      <span class="site-header__title">{{ site.Title }}</span>
-    </a>
 
-    <nav class="site-nav" aria-label="Primary">
-      <ul>
-        {{ range site.Menus.main }}
+  {{/* Randul 1: utilitar (Despre + Doneaza) — aliniat dreapta */}}
+  <div class="site-header__utility">
+    <nav aria-label="Utilitar">
+      <ul class="site-header__utility-nav">
+        {{ range site.Menus.utility }}
           <li>
-            <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ if .Params.donate }}
+              <a class="site-header__donate-btn"
+                 href="{{ .URL }}"
+                 {{ if .Params.external }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                {{ .Name }}
+              </a>
+            {{ else }}
+              <a href="{{ .URL }}"
+                 {{ if .Params.external }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                {{ .Name }}
+              </a>
+            {{ end }}
           </li>
         {{ end }}
       </ul>
     </nav>
   </div>
+
+  {{/* Randul 2: logo centrat + departamente */}}
+  <div class="site-header__main">
+    <a href="{{ site.BaseURL }}" class="site-header__logo">
+      <span class="site-header__title">{{ site.Title }}</span>
+      <span class="site-header__subtitle">{{ site.Params.subtitle }}</span>
+    </a>
+    <nav aria-label="Departamente" class="site-header__dept-nav">
+      <ul>
+        {{ range site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}"
+               {{ if eq $.Page.Section .Identifier }}class="is-active"{{ end }}>
+              {{ .Name }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+
 </header>
