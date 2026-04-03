@@ -1,0 +1,373 @@
+/* ============================================================
+ *   UCCS SITE STYLESHEET
+ *   Sections:
+ *   1. Design Tokens (CSS Variables)
+ *   2. Reset & Base
+ *   3. Layout
+ *   4. Typography & Links
+ *   5. Header
+ *   6. Footer
+ *   7. Article Cards (Shared Base)
+ *   8. Latest Article (Featured)
+ *   9. Article Grid & List Containers
+ *   10. Responsive Overrides
+ *   ============================================================ */
+
+
+/* ── 1. Design Tokens ──────────────────────────────────────── */
+
+:root {
+    --bg:           #f3f6f2;
+    --bg-card:      #fffefc;
+    --text:         #242424;
+    --text-muted:   rgba(36, 36, 36, 0.68);
+    --text-faint:   rgba(36, 36, 36, 0.60);
+    --border:       rgba(36, 36, 36, 0.10);
+    --border-hover: rgba(36, 36, 36, 0.14);
+    --accent:       #0f5c4d;
+    --accent-dark:  #0b473a;
+    --transition:   0.18s ease;
+}
+
+
+/* ── 2. Reset & Base ───────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--bg);
+}
+
+
+/* ── 3. Layout ─────────────────────────────────────────────── */
+
+.page {
+    width: min(60%, 1100px);
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2rem;
+}
+
+
+/* ── 4. Typography & Links ─────────────────────────────────── */
+
+div a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ── 5. Header ─────────────────────────────────────────────── */
+
+.site-header {
+    margin-bottom: 3em;
+}
+
+.column-container__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header__title {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.site-header ul {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    list-style-type: none;
+}
+
+.site-header li {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 1rem 0 0;
+}
+
+
+/* ── 6. Footer ─────────────────────────────────────────────── */
+
+.site-footer {
+    margin-top: 3em;
+    border-top: 1px solid var(--text);
+    padding: 1rem 0 0 0;
+}
+
+.column-container__footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.column-container__footer > :first-child {
+    grid-column: 1 / -1;
+}
+
+.site-footer ul {
+    display: grid;
+    justify-content: flex-start;
+    padding: 0;
+    list-style-type: none;
+}
+
+.site-footer li {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 1rem 0.5rem 0;
+    text-decoration: none;
+}
+
+
+/* ── 7. Article Cards (Shared Base) ────────────────────────── */
+/*
+ *   Both .latest-article and .article-card share the same visual
+ *   foundation. Differences (font sizes, spacing) are below each.
+ */
+
+.latest-article,
+.article-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.35rem 1.4rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    transition:
+    transform       var(--transition),
+    box-shadow      var(--transition),
+    border-color    var(--transition);
+}
+
+.latest-article:hover,
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: var(--border-hover);
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titles */
+.latest-article__title,
+.article-card__title {
+    margin: 0 0 0.55rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.latest-article__title { font-size: 1.45rem; line-height: 1.18; }
+.article-card__title   { font-size: 1.2rem; }
+
+.latest-article__title a,
+.article-card__title a {
+    color: #111111;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.latest-article:hover .latest-article__title a,
+.article-card:hover   .article-card__title a {
+    color: var(--accent);
+}
+
+/* Meta (date, author) */
+.latest-article__meta,
+.article-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0 0 0.75rem;
+    font-size: 0.88rem;
+    color: var(--text-faint);
+}
+
+.latest-article__meta { gap: 0.7rem; font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+
+.latest-article__author {
+    color: rgba(36, 36, 36, 0.80);
+    text-decoration: none;
+}
+
+.article-card__author {
+    color: rgba(36, 36, 36, 0.75);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.article-card__author:hover {
+    color: var(--accent);
+    border-color: rgba(15, 92, 77, 0.3);
+}
+
+/* Subtitles */
+.latest-article__subtitle,
+.article-card__subtitle {
+    margin: 0;
+    line-height: 1.55;
+    color: rgba(36, 36, 36, 0.82);
+}
+
+.article-card__subtitle {
+    font-size: 0.95rem;
+    color: rgba(36, 36, 36, 0.80);
+    flex-grow: 1;
+}
+
+/* Read More */
+.latest-article__read-more,
+.article-card__read-more {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.95rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.latest-article__read-more { gap: 0.35rem; }
+.article-card__read-more   { gap: 0.3rem; font-size: 0.9rem; margin-top: 1rem; align-self: flex-start; }
+
+.latest-article__read-more:hover,
+.article-card__read-more:hover {
+    color: var(--accent-dark);
+    transform: translateX(2px);
+}
+
+
+/* ── 8. Latest Article (Featured — extra elements) ─────────── */
+
+.latest-article__taxonomy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.9rem;
+}
+
+.latest-article__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.latest-article__tags li { margin: 0; }
+
+.latest-article__category,
+.latest-article__tags a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.65rem;
+    border: 1px solid rgba(36, 36, 36, 0.14);
+    border-radius: 999px;
+    background: rgba(36, 36, 36, 0.03);
+    color: rgba(36, 36, 36, 0.92);
+    text-decoration: none;
+    font-size: 0.82rem;
+    line-height: 1;
+    transition:
+    background-color  var(--transition),
+    border-color      var(--transition),
+    transform         var(--transition);
+}
+
+.latest-article__category:hover,
+.latest-article__tags a:hover {
+    background: rgba(36, 36, 36, 0.06);
+    border-color: rgba(36, 36, 36, 0.20);
+    transform: translateY(-1px);
+}
+
+
+/* ── 9. Article Grid & List Containers ─────────────────────── */
+
+.articles--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+.articles--list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* List variant: slightly tighter card */
+.articles--list .article-card {
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+
+/* ── 10. Responsive Overrides (@media max-width: 600px) ─────── */
+
+@media (max-width: 600px) {
+
+    .page {
+        width: 100%;
+        padding: 1rem 1rem 2rem;
+    }
+
+    .site-header {
+        margin-bottom: 2rem;
+    }
+
+    .column-container__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .site-header ul {
+        flex-direction: row;       /* was mistakenly set to "flex" — corrected */
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .column-container__footer {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .site-footer ul {
+        display: grid;
+        justify-content: flex-start;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .site-footer li {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 1rem 0.5rem 0;
+        text-decoration: none;
+    }
+
+    .articles--grid {
+        grid-template-columns: 1fr;
+    }
+
+}

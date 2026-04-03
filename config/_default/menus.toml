@@ -10,24 +10,9 @@ pageRef = "/agora"
 weight  = 20
 
 [[main]]
-name    = "Educație"
-pageRef = "/educatie"
-weight  = 30
-
-[[main]]
-name    = "Tech"
-pageRef = "/tech"
-weight  = 40
-
-[[main]]
 name    = "Debate"
 pageRef = "/debate"
 weight  = 50
-
-[[main]]
-name    = "Litere"
-pageRef = "/litere"
-weight  = 60
 
 # ── Row 1 (right): utility / standalone pages ──────────────────────────────────
 [[utility]]
