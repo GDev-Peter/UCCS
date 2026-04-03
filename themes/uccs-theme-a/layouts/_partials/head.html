@@ -48,5 +48,12 @@
   {{ end }}
 {{- end }}
 
-{{/* Stylesheet — calea relativa la rădăcina site-ului, funcționează cu orice baseURL */}}
-<link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+{{/*
+  Stylesheet.
+  "css/styles.css" | absURL = baseURL + "css/styles.css"
+  Workflow seteaza baseURL cu trailing slash garantat:
+    --baseURL "${{ steps.pages.outputs.base_url }}/"
+  Rezultat: https://gdev-peter.github.io/UCCS/css/styles.css
+  IMPORTANT: fara slash initial in string — altfel produce dublu slash.
+*/}}
+<link rel="stylesheet" href="{{ "css/styles.css" | absURL }}">
