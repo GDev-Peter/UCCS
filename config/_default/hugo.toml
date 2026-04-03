@@ -1,4 +1,4 @@
-baseURL = "https://gdev-peter.github.io/"	# Needs to be replaced later
+baseURL = "https://gdev-peter.github.io/UCCS/"  # GitHub Pages — de înlocuit la domeniu propriu
 title = "UCCS"
 
 theme = "uccs-theme-a"
@@ -8,11 +8,15 @@ languageCode = "ro-RO"
 
 enableRobotsTXT = false
 
-# Good practice: keep generated URLs stable
+# relativeURLs = true asigură că toate link-urile funcționează indiferent
+# de unde e hostat site-ul, fără să depindă de baseURL la build local.
 canonifyURLs = false
-relativeURLs = false
+relativeURLs = true
 
-# Optional but useful
+# Workflow-ul GitHub Actions suprascrie baseURL la build cu:
+# --baseURL "${{ steps.pages.outputs.base_url }}/"
+# deci în producție baseURL e întotdeauna corect.
+
 pagerSize = 12
 summaryLength = 30
 

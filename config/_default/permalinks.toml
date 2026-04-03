@@ -1,5 +1,3 @@
 [page]
-
-polis     = "/polis/:slug/"
-agora     = "/agora/:slug/"
-debate    = "/debate/:slug/"
+analyticus = "/analyticus/:slug/"
+cultural   = "/cultural/:slug/"
