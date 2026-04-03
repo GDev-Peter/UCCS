@@ -3,6 +3,6 @@
 unsafe = false
 
 [tableOfContents]
-startLevel = 2
+startLevel = 0
 endLevel = 4
 ordered   = false

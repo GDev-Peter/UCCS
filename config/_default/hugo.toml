@@ -1,4 +1,4 @@
-baseURL = "https://gdev-peter.github.io/UCCS/"	# Needs to be replaced later
+baseURL = "https://gdev-peter.github.io/"	# Needs to be replaced later
 title = "UCCS"
 
 theme = "uccs-theme-a"
@@ -15,6 +15,9 @@ relativeURLs = false
 # Optional but useful
 pagerSize = 12
 summaryLength = 30
+
+[params]
+subtitle = "Unde cuvintele capătă sens"
 
 [caches]
   [caches.images]

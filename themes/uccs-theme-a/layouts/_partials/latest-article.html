@@ -1,0 +1,69 @@
+{{ $section := .section | default "" }}
+{{ $author := .author | default "" }}
+{{ $category := .category | default "" }}
+{{ $page := .page }}
+
+{{ $pages := site.RegularPages }}
+
+{{ if ne $section "" }}
+  {{ $pages = where $pages "Section" $section }}
+{{ end }}
+
+{{ if ne $author "" }}
+  {{ $pages = where $pages "Params.author" $author }}
+{{ end }}
+
+{{ if ne $category "" }}
+  {{ $pages = where $pages "Params.categories" "intersect" (slice $category) }}
+{{ end }}
+
+{{ if $page }}
+  {{ $pages = where $pages "Permalink" "!=" $page.Permalink }}
+{{ end }}
+
+{{ range first 1 ($pages.ByPublishDate.Reverse) }}
+  <article class="latest-article">
+
+    <div class="latest-article__taxonomy">
+      {{ with .Params.categories }}
+        {{ $cat := index . 0 }}
+        <a class="latest-article__category" href="{{ "/" | relLangURL }}{{ $cat | urlize }}/">
+          {{ $cat }}
+        </a>
+      {{ end }}
+
+      {{ with .Params.tags }}
+        <ul class="latest-article__tags">
+          {{ range first 3 . }}
+            <li>
+              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+
+    <h2 class="latest-article__title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+
+    <p class="latest-article__meta">
+      <span class="latest-article__date">{{ .Date.Format "2 January 2006" }}</span>
+
+      {{ with .Params.author }}
+        <a class="latest-article__author" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}/">
+          de {{ . }}
+        </a>
+      {{ end }}
+    </p>
+
+    {{ with .Params.subtitle }}
+      <p class="latest-article__subtitle">{{ . }}</p>
+    {{ end }}
+
+    <a class="latest-article__read-more" href="{{ .RelPermalink }}">Citește mai multe...</a>
+
+  </article>
+{{ else }}
+  <p>No articles found.</p>
+{{ end }}

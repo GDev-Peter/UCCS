@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home Page on UCCS</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content in Home Page on UCCS</description>
+    <title>Dezbateri on UCCS</title>
+    <link>http://localhost:1313/tags/dezbateri/</link>
+    <description>Recent content in Dezbateri on UCCS</description>
     <generator>Hugo</generator>
     <language>ro-RO</language>
     <lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/dezbateri/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How debate teaches intellectual honesty</title>
       <link>http://localhost:1313/debate/articol-copy-2/</link>
@@ -41,13 +41,6 @@
       <link>http://localhost:1313/debate/articol/</link>
       <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/debate/articol/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/authors/uccs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/authors/uccs/</guid>
       <description></description>
     </item>
   </channel>

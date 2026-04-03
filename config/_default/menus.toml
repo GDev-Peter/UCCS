@@ -29,11 +29,6 @@ name    = "Litere"
 pageRef = "/litere"
 weight  = 60
 
-[[main]]
-name    = "Etichete"
-pageRef = "/tags"
-weight  = 70
-
 # ── Row 1 (right): utility / standalone pages ──────────────────────────────────
 [[utility]]
 name    = "Despre"
@@ -45,12 +40,17 @@ name    = "Contact"
 pageRef = "/contact"
 weight  = 20
 
+[[utility]]
+name    = "Etichete"
+pageRef = "/tags"
+weight  = 30
+
 # Donate button — external = true opens in a new tab; donate = true gives pill styling.
 # To point to an internal page instead, remove `url` and add: pageRef = "/doneaza"
 [[utility]]
 name   = "Donează"
-# url    = "https://www.instagram.com/istorie.petru/"
-url    = "/doneaza"
-weight = 30
-params = { donate = true }
-#params = { donate = true, external = true }
+url    = "https://ko-fi.com/uccspub"
+weight = 40
+params = { donate = true, external = true }
+#url    = "/doneaza"
+#params = { donate = true }

@@ -1,0 +1,8 @@
+{{ partial "articles.html" (dict
+  "page"     .Page
+  "section"  (.Get "section")
+  "author"   (.Get "author")
+  "category" (.Get "category")
+  "limit"    (.Get "limit")
+  "variant"  "list"
+) }}

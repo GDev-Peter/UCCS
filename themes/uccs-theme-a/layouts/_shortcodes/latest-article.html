@@ -1,0 +1,6 @@
+{{ partial "latest-article.html" (dict
+  "page"     .Page
+  "section"  (.Get "section")
+  "author"   (.Get "author")
+  "category" (.Get "category")
+) }}

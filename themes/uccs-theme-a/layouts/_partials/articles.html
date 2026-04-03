@@ -1,0 +1,59 @@
+{{ $section := .section | default "" }}
+{{ $author := .author | default "" }}
+{{ $category := .category | default "" }}
+{{ $page := .page }}
+{{ $variant := .variant | default "grid" }}
+{{ $limit := .limit | default 0 }}
+
+{{ $pages := site.RegularPages }}
+
+{{ if ne $section "" }}
+  {{ $pages = where $pages "Section" $section }}
+{{ end }}
+
+{{ if ne $author "" }}
+  {{ $pages = where $pages "Params.author" $author }}
+{{ end }}
+
+{{ if ne $category "" }}
+  {{ $pages = where $pages "Params.categories" "intersect" (slice $category) }}
+{{ end }}
+
+{{ if $page }}
+  {{ $pages = where $pages "Permalink" "!=" $page.Permalink }}
+{{ end }}
+
+{{ $pages = $pages.ByPublishDate.Reverse }}
+
+{{ if gt (int $limit) 0 }}
+  {{ $pages = first (int $limit) $pages }}
+{{ end }}
+
+{{ if $pages }}
+  <div class="articles articles--{{ $variant }}">
+    {{ range $pages }}
+      <article class="article-card">
+
+        <h2 class="article-card__title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+
+        <p class="article-card__meta">
+          <span class="article-card__date">{{ .Date.Format "2 January 2006" }}</span>
+          {{ with .Params.author }}
+            <a class="article-card__author" href="{{ "/authors/" | relLangURL }}{{ . | urlize }}/">de {{ . }}</a>
+          {{ end }}
+        </p>
+
+        {{ with .Params.subtitle }}
+          <p class="article-card__subtitle">{{ . }}</p>
+        {{ end }}
+
+        <a class="article-card__read-more" href="{{ .RelPermalink }}">Citește mai multe...</a>
+
+      </article>
+    {{ end }}
+  </div>
+{{ else }}
+  <p>No articles found.</p>
+{{ end }}
