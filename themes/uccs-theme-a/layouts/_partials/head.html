@@ -38,7 +38,7 @@
   {{- end -}}
 ">
 {{ with .Params.image }}
-<meta property="og:image" content="{{ site.BaseURL }}{{ . }}">
+<meta property="og:image" content="{{ . | absURL }}">
 {{ end }}
 
 {{/* RSS autodiscovery */}}
@@ -48,5 +48,5 @@
   {{ end }}
 {{- end }}
 
-{{/* Stylesheet — site.BaseURL include deja trailing slash */}}
-<link rel="stylesheet" href="{{ site.BaseURL }}css/styles.css">
+{{/* Stylesheet — calea relativa la rădăcina site-ului, funcționează cu orice baseURL */}}
+<link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
