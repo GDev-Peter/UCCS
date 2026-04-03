@@ -1,0 +1,42 @@
+{{/*
+  Shortcode: section-stats
+  Afiseaza statisticile unui departament: nr. articole + timp mediu citire.
+  Util in paginile de sectiune sau in orice pagina markdown.
+
+  Parametri:
+    section — slug-ul sectiunii (ex: section="analyticus")
+              daca lipseste, foloseste sectiunea paginii curente
+
+  Exemple de utilizare in markdown:
+    {{</* section-stats */>}}
+    {{</* section-stats section="analyticus" */>}}
+*/}}
+{{ $target := .Get "section" | default .Page.Section }}
+{{ $ctx := .Page }}
+
+{{ $pages := where site.RegularPages "Section" $target }}
+{{ $count := len $pages }}
+
+{{ $totalWords := 0 }}
+{{ range $pages }}
+  {{ $totalWords = add $totalWords .WordCount }}
+{{ end }}
+
+{{ $avgMinutes := 0 }}
+{{ if gt $count 0 }}
+  {{ $avgWords  := div (float $totalWords) (float $count) }}
+  {{ $avgMinutes = int (math.Ceil (div $avgWords 200.0)) }}
+{{ end }}
+
+<div class="section-stats">
+  <span class="section-stats__item">
+    <strong>{{ $count }}</strong>
+    {{ if eq $count 1 }}articol{{ else }}articole{{ end }}
+  </span>
+  {{ if gt $avgMinutes 0 }}
+  <span class="section-stats__sep" aria-hidden="true">&middot;</span>
+  <span class="section-stats__item">
+    timp mediu de citire: <strong>{{ $avgMinutes }} min</strong>
+  </span>
+  {{ end }}
+</div>

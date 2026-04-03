@@ -1,3 +1,16 @@
+{{/*
+  Shortcode: latest-article
+  Randeaza cardul featured al celui mai recent articol.
+
+  Parametri:
+    section  — restrictioneaza la o sectiune (ex: section="analyticus")
+    author   — restrictioneaza la un autor   (ex: author="velcea-petru")
+    category — restrictioneaza la o categorie
+
+  Exemple de utilizare in markdown:
+    {{</* latest-article */>}}
+    {{</* latest-article section="cultural" */>}}
+*/}}
 {{ partial "latest-article.html" (dict
   "page"     .Page
   "section"  (.Get "section")

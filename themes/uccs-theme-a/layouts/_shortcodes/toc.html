@@ -1,0 +1,10 @@
+{{/*
+  Shortcode: toc
+  Insereaza cuprinsul (Table of Contents) al paginii curente.
+  Util pentru a plasa TOC intr-o pozitie specifica in markdown,
+  in loc sa depinda de partial-ul automat din single.html.
+
+  Exemplu de utilizare in markdown:
+    {{</* toc */>}}
+*/}}
+{{ partial "toc.html" .Page }}

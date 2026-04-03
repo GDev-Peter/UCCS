@@ -1,3 +1,18 @@
+{{/*
+  Shortcode: articles-grid
+  Randeaza articolele ca grid de carduri.
+
+  Parametri:
+    section  — filtreaza dupa sectiune  (ex: section="analyticus")
+    author   — filtreaza dupa autor     (ex: author="velcea-petru")
+    category — filtreaza dupa categorie (ex: category="politica")
+    limit    — nr maxim de articole     (ex: limit="6")
+
+  Exemple de utilizare in markdown:
+    {{</* articles-grid */>}}
+    {{</* articles-grid section="analyticus" limit="4" */>}}
+    {{</* articles-grid category="politica" limit="3" */>}}
+*/}}
 {{ partial "articles.html" (dict
   "page"     .Page
   "section"  (.Get "section")

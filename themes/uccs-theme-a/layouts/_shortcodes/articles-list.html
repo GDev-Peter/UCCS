@@ -1,3 +1,18 @@
+{{/*
+  Shortcode: articles-list
+  Randeaza articolele ca lista verticala.
+
+  Parametri:
+    section  — filtreaza dupa sectiune  (ex: section="cultural")
+    author   — filtreaza dupa autor     (ex: author="velcea-petru")
+    category — filtreaza dupa categorie (ex: category="literatura")
+    limit    — nr maxim de articole     (ex: limit="5")
+
+  Exemple de utilizare in markdown:
+    {{</* articles-list */>}}
+    {{</* articles-list section="cultural" limit="5" */>}}
+    {{</* articles-list author="velcea-petru" */>}}
+*/}}
 {{ partial "articles.html" (dict
   "page"     .Page
   "section"  (.Get "section")
