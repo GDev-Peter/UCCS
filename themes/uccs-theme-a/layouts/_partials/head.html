@@ -48,10 +48,5 @@
   {{ end }}
 {{- end }}
 
-{{/*
-  Stylesheet — .Permalink pe homepage = baseURL exact
-  Concatenam direct calea CSS la permalink-ul root,
-  evitand orice filtru Hugo care poate altera path-ul.
-*/}}
-{{ $cssURL := print site.Home.Permalink "css/styles.css" }}
-<link rel="stylesheet" href="{{ $cssURL }}">
+{{/* Stylesheet — URL hardcodat din baseURL in hugo.toml */}}
+<link rel="stylesheet" href="https://gdev-peter.github.io/UCCS/css/styles.css">
