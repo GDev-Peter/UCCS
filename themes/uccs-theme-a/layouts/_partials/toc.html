@@ -1,0 +1,14 @@
+{{/*
+  Partial: toc.html
+  Randeaza table of contents doar daca articolul are headings.
+  Activ doar pe pagini cu WordCount > 400 sau daca front matter toc = true.
+*/}}
+{{ $showToc := or (gt .WordCount 400) (.Params.toc) }}
+{{ if and $showToc .TableOfContents (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") }}
+<nav class="toc" aria-label="Cuprins">
+  <h2 class="toc__title">Cuprins</h2>
+  <div class="toc__content">
+    {{ .TableOfContents }}
+  </div>
+</nav>
+{{ end }}

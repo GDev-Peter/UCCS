@@ -1,0 +1,31 @@
+{{/*
+  Partial: publication-description.html
+  Bloc de prezentare al publicatiei UCCS pentru homepage.
+  Datele vin din data/about.yaml.
+*/}}
+{{ with site.Data.about }}
+<div class="pub-description">
+
+  {{ with .intro }}
+    {{ with .eyebrow }}
+      <p class="pub-description__eyebrow">{{ . }}</p>
+    {{ end }}
+    <h2 class="pub-description__manifesto">{{ .manifesto }}</h2>
+    {{ range .paragraphs }}
+      <p class="pub-description__paragraph">{{ . }}</p>
+    {{ end }}
+  {{ end }}
+
+  {{ with .values }}
+  <ul class="pub-description__values">
+    {{ range . }}
+    <li class="pub-description__value">
+      <strong class="pub-description__value-title">{{ .title }}</strong>
+      <span class="pub-description__value-body">{{ .body }}</span>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+</div>
+{{ end }}

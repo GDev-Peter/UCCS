@@ -1,3 +1,23 @@
 {{ define "main" }}
-  {{ .Content }}
+
+  {{/* Hero: ultimul articol */}}
+  <section class="home-hero">
+    {{ partial "latest-article.html" (dict "page" .) }}
+  </section>
+
+  {{/* Descrierea publicatiei */}}
+  <section class="home-about">
+    {{ partial "publication-description.html" . }}
+  </section>
+
+  {{/* Ultimele 6 articole */}}
+  <section class="home-latest">
+    <h2 class="section-heading">Ultimele articole</h2>
+    {{ partial "articles.html" (dict
+      "variant" "grid"
+      "limit"   6
+      "page"    .
+    ) }}
+  </section>
+
 {{ end }}

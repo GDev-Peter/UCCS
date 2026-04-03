@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="single">
+
+  <header class="single__header">
+    <h1 class="single__title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+      <p class="single__subtitle">{{ . }}</p>
+    {{ end }}
+    {{ partial "article-meta.html" . }}
+    {{ partial "taxonomy-bar.html" . }}
+  </header>
+
+  {{ if .Params.image }}
+  <div class="single__cover">
+    <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}">
+  </div>
+  {{ end }}
+
+  {{ partial "toc.html" . }}
+
+  <div class="single__content prose">
+    {{ .Content }}
+  </div>
+
+</article>
+{{ end }}

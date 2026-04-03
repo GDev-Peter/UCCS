@@ -1,0 +1,40 @@
+{{/*
+  Partial: article-card.html
+  Primeste un obiect Page Hugo (.) si randeaza un card de articol.
+  Parametri optionali in .Params:
+    image    — URL imagine preview
+    subtitle — subtitlu scurt
+    author   — autor
+*/}}
+<article class="article-card">
+
+  {{ with .Params.image }}
+  <a class="article-card__image-link" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true">
+    <div class="article-card__image">
+      <img src="{{ . | absURL }}" alt="{{ $.Title }}" loading="lazy">
+    </div>
+  </a>
+  {{ else }}
+  <a class="article-card__image-link article-card__image-link--placeholder" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+    <div class="article-card__image article-card__image--placeholder">
+      <span>{{ .Section | upper }}</span>
+    </div>
+  </a>
+  {{ end }}
+
+  <div class="article-card__body">
+
+    <h2 class="article-card__title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+
+    {{ partial "article-meta.html" . }}
+
+    {{ with .Params.subtitle }}
+      <p class="article-card__subtitle">{{ . }}</p>
+    {{ end }}
+
+    <a class="article-card__read-more" href="{{ .RelPermalink }}">Citește &rarr;</a>
+
+  </div>
+</article>

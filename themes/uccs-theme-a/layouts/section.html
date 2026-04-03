@@ -1,11 +1,37 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
+  {{/* Date departament din data/departments.yaml */}}
+  {{ $slug := .Section }}
+  {{ $dept := index site.Data.departments $slug }}
 
-{{ partial "articles.html" 
-    (dict
-        "section" .Section
-        "variant" "list"
-    ) 
-}}
+  <div class="dept-header">
+    {{ with $dept }}
+      <p class="dept-header__label">Departament</p>
+      <h1 class="dept-header__title">{{ .name }}</h1>
+      <p class="dept-header__tagline">{{ .tagline }}</p>
+      <p class="dept-header__description">{{ .description }}</p>
+
+      <div class="dept-header__meta">
+        {{ with .head_editor }}
+          <span class="dept-header__editor">
+            Head Editor:
+            <a href="{{ "/authors/" | absURL }}{{ .slug }}/">{{ .name }}</a>
+          </span>
+        {{ end }}
+        {{ partial "section-stats.html" $ }}
+      </div>
+    {{ else }}
+      {{/* fallback daca sectiunea nu e in departments.yaml */}}
+      <h1 class="dept-header__title">{{ .Title }}</h1>
+      {{ with .Params.description }}<p class="dept-header__description">{{ . }}</p>{{ end }}
+    {{ end }}
+  </div>
+
+  <div class="dept-articles">
+    {{ partial "articles.html" (dict
+      "section" .Section
+      "variant" "grid"
+    ) }}
+  </div>
+
 {{ end }}

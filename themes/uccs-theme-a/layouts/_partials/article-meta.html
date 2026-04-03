@@ -1,0 +1,22 @@
+{{/*
+  Partial: article-meta.html
+  Primeste un obiect Page Hugo (.).
+  Randeaza: data publicarii, autor (link), timp estimat de citire.
+*/}}
+<p class="article-meta">
+  <span class="article-meta__date">{{ .Date.Format "2 January 2006" }}</span>
+
+  {{ with .Params.author }}
+    <span class="article-meta__sep" aria-hidden="true">&middot;</span>
+    <a class="article-meta__author"
+       href="{{ "/authors/" | absURL }}{{ . | urlize }}/">
+      {{ . }}
+    </a>
+  {{ end }}
+
+  {{ if gt .WordCount 0 }}
+    {{ $minutes := math.Ceil (div (float .WordCount) 200.0) }}
+    <span class="article-meta__sep" aria-hidden="true">&middot;</span>
+    <span class="article-meta__reading-time">{{ $minutes }} min citire</span>
+  {{ end }}
+</p>

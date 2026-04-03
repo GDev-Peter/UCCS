@@ -1,0 +1,37 @@
+{{/*
+  Partial: taxonomy-bar.html
+  Primeste un obiect Page Hugo (.).
+  Randeaza categoriile si tagurile pe un singur rand.
+*/}}
+{{ $hasCategories := .Params.categories }}
+{{ $hasTags       := .Params.tags }}
+
+{{ if or $hasCategories $hasTags }}
+<div class="taxonomy-bar">
+
+  {{ with .Params.categories }}
+    <ul class="taxonomy-bar__categories">
+      {{ range . }}
+        <li>
+          <a class="taxonomy-bar__category" href="{{ "/categories/" | absURL }}{{ . | urlize }}/">
+            {{ . }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  {{ with .Params.tags }}
+    <ul class="taxonomy-bar__tags">
+      {{ range . }}
+        <li>
+          <a class="taxonomy-bar__tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/">
+            #{{ . }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+</div>
+{{ end }}
