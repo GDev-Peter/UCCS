@@ -49,11 +49,9 @@
 {{- end }}
 
 {{/*
-  Stylesheet.
-  "css/styles.css" | absURL = baseURL + "css/styles.css"
-  Workflow seteaza baseURL cu trailing slash garantat:
-    --baseURL "${{ steps.pages.outputs.base_url }}/"
-  Rezultat: https://gdev-peter.github.io/UCCS/css/styles.css
-  IMPORTANT: fara slash initial in string — altfel produce dublu slash.
+  Stylesheet — .Permalink pe homepage = baseURL exact
+  Concatenam direct calea CSS la permalink-ul root,
+  evitand orice filtru Hugo care poate altera path-ul.
 */}}
-<link rel="stylesheet" href="{{ "css/styles.css" | absURL }}">
+{{ $cssURL := print site.Home.Permalink "css/styles.css" }}
+<link rel="stylesheet" href="{{ $cssURL }}">
